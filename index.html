@@ -1,0 +1,812 @@
+<!DOCTYPE html>
+<html lang="zh-CN">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width,initial-scale=1,viewport-fit=cover,user-scalable=no">
+<meta name="theme-color" content="#123a5e">
+<meta name="format-detection" content="telephone=no,email=no,address=no">
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="default">
+<meta name="apple-mobile-web-app-title" content="川西小环线攻略">
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="description" content="西安出发 6天5晚自驾川西小环线：映秀、四姑娘山、丹巴、党岭、墨石公园、塔公、新都桥、甲根坝、成都，含天气风险与门票预约清单。">
+<title>西安 → 川西小环线 6天5晚自驾攻略｜国庆天气版</title>
+<style>
+:root{
+ --bg:#f4f6fa;--card:#fff;--ink:#132239;--muted:#75839a;--line:#e7ecf3;
+ --blue:#1a6ee0;--navy:#123a5e;--teal:#0f9c85;--red:#e05361;--purple:#7a57ef;
+ --orange:#ec9615;--sky:#2aa8d8;--shadow:0 8px 26px rgba(18,40,75,.08);--r:18px;
+ --safe:env(safe-area-inset-bottom,0px)
+}
+*{box-sizing:border-box;-webkit-tap-highlight-color:transparent}
+html{scroll-behavior:smooth}
+body{margin:0;background:var(--bg);color:var(--ink);font-family:-apple-system,BlinkMacSystemFont,"Segoe UI","PingFang SC","Microsoft YaHei",sans-serif;padding-bottom:calc(78px + var(--safe))}
+button,a{font:inherit}
+.top{
+ min-height:265px;color:#fff;display:flex;align-items:flex-end;
+ background:linear-gradient(180deg,rgba(6,22,47,.12),rgba(6,22,47,.88)),url("assets/hero.jpg") center/cover;
+}
+.topin{padding:28px 18px 22px;width:100%;max-width:760px;margin:auto}
+.kicker{font-size:12px;font-weight:750;letter-spacing:.08em;opacity:.86;text-transform:uppercase}
+h1{font-size:33px;line-height:1.06;margin:7px 0 8px;letter-spacing:-.04em}
+.top p{margin:0;font-size:14px;line-height:1.6;opacity:.94}
+.quick{display:grid;grid-template-columns:1fr 1fr;gap:9px;margin-top:14px}
+.quick button{border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.15);backdrop-filter:blur(9px);color:#fff;border-radius:13px;padding:10px 9px;font-size:12px;font-weight:650}
+main{max-width:760px;margin:auto;padding:12px 12px 0}
+.daystrip{display:flex;gap:8px;overflow:auto;padding:3px 1px 12px;scrollbar-width:none;position:sticky;top:0;z-index:30;background:linear-gradient(var(--bg) 78%,rgba(244,246,250,0))}
+.daystrip::-webkit-scrollbar{display:none}
+.chip{border:1px solid var(--line);background:#fff;color:var(--muted);border-radius:999px;padding:9px 13px;white-space:nowrap;font-size:13px;font-weight:650;box-shadow:0 2px 8px rgba(20,40,75,.03)}
+.chip.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.view{display:none}.view.active{display:block}
+.card{background:#fff;border:1px solid rgba(18,34,58,.04);border-radius:var(--r);box-shadow:var(--shadow);padding:15px;margin-bottom:11px}
+.card h2{font-size:21px;margin:0 0 6px}.card h3{font-size:17px;margin:0 0 8px}
+.sub{font-size:13px;line-height:1.65;color:var(--muted)}
+.meta{display:grid;grid-template-columns:1fr 1fr;gap:8px;margin-top:12px}
+.meta .box{background:#f7f9fc;border-radius:13px;padding:10px}
+.box b{display:block;color:#8a96aa;font-size:10px;margin-bottom:4px}
+.box span{font-size:12px;line-height:1.5}
+.route{background:linear-gradient(135deg,#eef5ff,#eefaf7);border-radius:14px;padding:12px;margin-top:11px;font-size:12.5px;line-height:1.65;color:#3e5870}
+.heroimg{width:100%;height:190px;object-fit:cover;border-radius:14px;margin-top:11px;background:#e9edf4}
+.timeline{position:relative;padding-left:26px}
+.timeline:before{content:"";position:absolute;left:9px;top:7px;bottom:18px;width:2px;background:#dfe6ef}
+.event{position:relative;margin-bottom:10px}
+.dot{position:absolute;left:-22px;top:17px;width:12px;height:12px;border-radius:50%;background:var(--blue);box-shadow:0 0 0 4px var(--bg)}
+.event.food .dot{background:var(--red)}.event.hotel .dot{background:var(--orange)}
+.event.transport .dot{background:#66758a}.event.spot .dot{background:var(--teal)}
+.ec{background:#fff;border:1px solid var(--line);border-radius:16px;overflow:hidden}
+.eventimg{width:100%;height:160px;object-fit:cover;background:#e9edf4}
+.ebody{padding:13px}
+.etime{font-size:12px;color:var(--blue);font-weight:800}
+.etitle{font-size:17px;font-weight:760;margin-top:3px}
+.ename{font-size:11px;color:#6f7c92;margin-top:4px}
+.edesc{font-size:13px;line-height:1.62;color:#526078;margin-top:6px}
+.badge{display:inline-block;font-size:10px;font-weight:700;padding:3px 7px;border-radius:999px;background:#eef2f8;color:#5e6b7e;margin-top:8px;white-space:nowrap}
+.badge.warn{background:#fff1e6;color:#b4610b}.badge.hot{background:#ffe9ed;color:#b3253c}
+.addr{margin-top:9px;background:#f7f9fc;border-radius:12px;padding:9px 10px;font-size:11.5px;line-height:1.55;color:#58667b}
+.addr b{color:#20304b}
+.actionrow{display:grid;grid-template-columns:1.25fr 1fr 1fr;gap:7px;margin-top:10px}
+.actionrow a,.actionrow button{border:0;border-radius:11px;padding:9px 6px;text-align:center;font-size:11.5px;font-weight:680;cursor:pointer;text-decoration:none}
+.go{background:#e9f2ff;color:#165ab2}.copy{background:#edf9f5;color:#08795c}.xhs{background:#ffedf1;color:#bd2741}.event.weather .dot{background:var(--sky)}
+.notice{border-left:4px solid var(--orange)}
+.rain{border-left:4px solid var(--blue)}
+.warncard{border-left:4px solid var(--red)}
+.list{padding-left:18px;margin:6px 0 0}
+.list li{font-size:13px;line-height:1.7;color:#4c5a71;margin-bottom:5px}
+.table{width:100%;border-collapse:collapse;margin-top:9px;font-size:11.5px}
+.table th{background:#f5f8fc;color:#6d7b91;font-weight:700;text-align:left;padding:8px 7px;border-bottom:1px solid var(--line);white-space:nowrap}
+.table td{padding:8px 7px;border-bottom:1px solid var(--line);vertical-align:top;color:#4f5d73}
+.bigcopy{border:0;background:#e9f2ff;color:#165ab2;border-radius:9px;padding:6px 9px;font-size:11px;font-weight:700;cursor:pointer}
+.mapbar{display:flex;gap:7px;overflow:auto;padding:3px 1px 10px;scrollbar-width:none}
+.mapbar::-webkit-scrollbar{display:none}
+.mapbar button{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11.5px;color:#607087}
+.mapbar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.mapView{height:66vh;min-height:380px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
+#map{height:100%;width:100%}
+.bottom{position:fixed;left:0;right:0;bottom:0;padding:6px 4px calc(6px + var(--safe));background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #e8edf3;z-index:100;display:grid;grid-template-columns:repeat(8,1fr)}
+.bottom button{border:0;background:transparent;color:#7b879a;font-size:9px;font-weight:650;padding:6px 0}
+.bottom button span{display:block;font-size:18px;line-height:1.2;margin-bottom:1px}
+.bottom button.active{color:var(--blue)}
+.toast{position:fixed;left:50%;bottom:95px;transform:translateX(-50%) translateY(20px);background:#12233d;color:#fff;padding:8px 13px;border-radius:999px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:200}
+.toast.show{opacity:1;transform:translateX(-50%) translateY(0)}
+.editbox{position:fixed;inset:0;background:rgba(7,14,28,.58);z-index:300;display:none;padding:12px;align-items:center;justify-content:center}
+.editbox.show{display:flex}
+.editor{background:#fff;border-radius:18px;width:min(720px,100%);height:86vh;padding:13px;display:flex;flex-direction:column}
+.editor textarea{flex:1;border:1px solid #dce2eb;border-radius:12px;padding:10px;font-family:ui-monospace,Consolas,monospace;font-size:11px;resize:none}
+.editActions{display:flex;gap:8px;margin-top:9px}
+.editActions button{border:0;border-radius:10px;padding:9px 10px;cursor:pointer}
+.foodFilters{display:flex;gap:7px;overflow:auto;margin:8px 0 12px;scrollbar-width:none}
+.foodFilters::-webkit-scrollbar{display:none}
+.foodFilters button{white-space:nowrap;border:1px solid var(--line);background:#fff;border-radius:999px;padding:8px 11px;font-size:11px;color:#607087;cursor:pointer}
+.foodFilters button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
+.foodItem{background:#fff;border:1px solid var(--line);border-radius:15px;padding:12px;margin-bottom:9px}
+.foodTop{display:flex;justify-content:space-between;gap:10px;align-items:flex-start}
+.foodName{font-weight:780;font-size:15px;line-height:1.35}
+.foodPrice{font-size:11px;font-weight:750;color:#e36b45;background:#fff3ec;border-radius:999px;padding:4px 7px;white-space:nowrap}
+.foodMeta{font-size:11.5px;color:#728096;line-height:1.6;margin-top:5px}
+.foodNote{font-size:12.5px;color:#4e5d74;line-height:1.6;margin-top:6px}
+.foodActions{display:flex;gap:7px;margin-top:9px}
+.foodActions a{flex:1;text-align:center;text-decoration:none;border-radius:10px;padding:8px;font-size:11.5px;font-weight:680;background:#eef4ff;color:#175cb6}
+.wtable{width:100%;border-collapse:collapse;font-size:11px;margin-top:9px}
+.wtable th{background:#eef4fb;color:#5a6b83;font-weight:700;padding:7px 5px;border:1px solid #e3eaf3;font-size:10.5px}
+.wtable td{padding:7px 5px;border:1px solid #e9eff6;color:#4c5a71;text-align:center;line-height:1.45}
+.wtable td.city{font-weight:750;color:#20304b;text-align:left;background:#f9fbfe;white-space:nowrap}
+.wtable td.wet{background:#e6efff}
+.wtable td.heavy{background:#d9e7fb}
+.table.tight td:nth-child(3),.table.tight td:nth-child(4){white-space:nowrap}
+.legend{font-size:11px;color:#7c8a9f;margin-top:8px;line-height:1.6}
+.kpi{display:grid;grid-template-columns:1fr 1fr 1fr;gap:8px;margin-top:11px}
+.kpi .k{background:#f7f9fc;border-radius:13px;padding:10px;text-align:center}
+.kpi .k b{display:block;font-size:17px;color:var(--navy)}
+.kpi .k span{font-size:10.5px;color:#8a96aa;line-height:1.4;display:block;margin-top:3px}
+.checkgrid{display:grid;gap:8px;margin-top:9px}
+.checkgrid .c{background:#f7f9fc;border-radius:13px;padding:11px;font-size:12.5px;line-height:1.6;color:#4c5a71}
+.checkgrid .c b{display:block;color:#20304b;font-size:13.5px;margin-bottom:3px}
+@media(min-width:760px){
+ .top{min-height:330px}.topin{padding-bottom:30px}h1{font-size:46px}
+ .heroimg{height:250px}.eventimg{height:220px}
+}
+</style>
+</head>
+<body>
+<header class="top">
+ <div class="topin">
+  <div class="kicker">Xi'an → Western Sichuan loop 2026 · 6 days · national day road trip</div>
+  <h1>西安 → 川西小环线</h1>
+  <p>10/1 凌晨 03:00 从西安出发，西出川西小环线｜<b>先看天气再排程</b>：10/1、10/2 是六天里唯二的好窗口（四姑娘山 钉死 10/2），10/4–10/5 高原有一次雨雪过程，10/6 转好正好跑返程。</p>
+  <div class="quick">
+   <button onclick="gotoToday()">🗓 直接看每日行程</button>
+   <button onclick="switchMain('weather')">🌦 天气与海拔折算</button>
+   <button onclick="switchMain('map')">🗺 打开线路地图</button>
+   <button onclick="switchMain('nav')">🚗 全部导航点</button>
+   <button onclick="switchMain('tickets')">🎫 门票预约清单</button>
+   <button onclick="openEditor()">✏️ 编辑这份攻略</button>
+  </div>
+ </div>
+</header>
+
+<main>
+ <div class="daystrip" id="daystrip"></div>
+ <section id="home" class="view active"></section>
+ <section id="days" class="view"></section>
+ <section id="weather" class="view"></section>
+ <section id="mapView" class="view">
+   <div class="mapbar" id="mapbar"></div>
+   <div class="sub" style="margin:0 0 9px">底图是 OpenStreetMap，国内网络可能加载偏慢。真正开车请用「行程」页里的「高德导航」按钮。</div>
+   <div class="mapView"><div id="map"></div></div>
+   <div id="offlineRoute"></div>
+ </section>
+ <section id="nav" class="view"></section>
+ <section id="food" class="view"></section>
+ <section id="photos" class="view"></section>
+ <section id="tickets" class="view"></section>
+</main>
+
+<nav class="bottom">
+ <button data-main="home" class="active" onclick="switchMain('home')"><span>🏔</span>首页</button>
+ <button data-main="days" onclick="switchMain('days')"><span>🗓</span>行程</button>
+ <button data-main="weather" onclick="switchMain('weather')"><span>🌦</span>天气</button>
+ <button data-main="map" onclick="switchMain('map')"><span>🗺</span>地图</button>
+ <button data-main="nav" onclick="switchMain('nav')"><span>🚗</span>导航</button>
+ <button data-main="food" onclick="switchMain('food')"><span>🍜</span>美食</button>
+ <button data-main="photos" onclick="switchMain('photos')"><span>📸</span>拍照</button>
+ <button data-main="tickets" onclick="switchMain('tickets')"><span>🎫</span>预约</button>
+</nav>
+
+<div class="toast" id="toast">已复制</div>
+<div class="editbox" id="editbox">
+ <div class="editor">
+  <div style="display:flex;justify-content:space-between;align-items:center"><div><b>编辑完整行程 JSON</b><div class="sub">修改后仅保存在当前浏览器。</div></div><button onclick="closeEditor()" style="border:0;background:#eef2f7;border-radius:9px;padding:7px 9px">关闭</button></div>
+  <textarea id="editorText"></textarea>
+  <div class="editActions"><button style="background:#1a6ee0;color:#fff" onclick="saveEditor()">应用并保存</button><button style="background:#eef2f7" onclick="resetTrip()">恢复默认</button></div>
+ </div>
+</div>
+
+<script>
+const DEFAULT_TRIP={
+"meta":{
+ "title":"西安 → 川西小环线 6天5晚自驾攻略｜国庆天气版",
+ "dates":"2026.10.01–10.06（10/1 凌晨 03:00 从西安出发）",
+ "people":"自驾出行 · 建议 2 名司机轮换 · 全程约 1900km",
+ "outbound":"10/1 03:00 西安 → 京昆高速（西汉高速）→ 汉中（休整 4 小时）→ 12:00 出发 → 广元 → 成都绕城 → 都汶高速 → 映秀，全天约 820km",
+ "back":"10/6 06:30 成都 → 绵阳 → 广元 → 汉中 → 西安，约 700km（假期最后一天，按 12 小时预留）",
+ "hotels":"映秀（或水磨古镇）→ 丹巴县城 → 党岭村 → 甲根坝（天气差就改康定）→ 成都，共 5 晚",
+ "highpoint":"全程最高点：D5 折多山垭口约 4298m（雪天必查管制）",
+ "summary":"先说个结论：你这版排下来其实是 6 天 5 晚——D1–D5 在玩，D6 是纯返程。我把天气当成排程的第一依据：10/1、10/2 是这六天里唯二的好窗口，10/3 下午开始转坏，10/4–10/5 川西高原有一次明显雨雪过程（塔公 10/4 中雪 1~6℃、新都桥雨夹雪 27mm、折多山必然结冰），10/6 反而转好、正好跑返程。所以：四姑娘山死死钉在 10/2；党岭的海子只在 10/3 早上天气允许时才上；10/4 不要硬闯塔公—新都桥，备选是直接下撤；10/5 折多山必须在上午通过并带防滑链。三个最容易崩的点，我都给了备选方案。"
+},
+"weatherHighlights":[
+ "10/1、10/2 是唯二的好窗口：10/2 四姑娘山小雨 6~14℃、丹巴阵雨 16~29℃，是全程最适合上高原的两天——所以四姑娘山必须排在 10/2，不能挪",
+ "10/3 下午开始转坏：丹巴阵雨 15~24℃（14.7mm）、党岭阵雨 6~14℃（19mm），这天不适合上 4000m 的海子",
+ "10/4 是全程最危险的一天：塔公中雪 1~6℃、新都桥雨夹雪 2~7℃（27mm）、八美/墨石 2~8℃、甲根坝雨夹雪 3~8℃，3500m 以上全是雪线",
+ "10/5 折多山（4298m）大概率积雪结冰：新都桥大雪 1~5℃、康定中雪 5~16℃，必须上午通过 + 带防滑链",
+ "10/6 转好：成都多云 16~25℃、西安小雨 15~26℃，适合跑 700km 返程",
+ "海拔节奏：映秀 900m → 四姑娘山 3200m → 丹巴 1900m → 党岭 3300m → 塔公 3730m → 折多山 4298m。连续几天在 3000m 以上，红景天和便携氧气早点备"
+],
+"rainPlans":[
+ {"title":"10/2 四姑娘山下小雨（概率大）",
+  "plan":"双桥沟是观光车 + 木栈道，小雨照玩；但 3600m 以上会变成雨夹雪，栈道结冰打滑。改法：把双桥沟压缩成半程——坐车到最里面的红杉林，重点看布达拉峰、撵鱼坝、盆景滩，14:00~15:00 就出沟。因为今天还要赶 115km 到丹巴，雨天山路易塌方，天黑前到丹巴是硬指标。"},
+ {"title":"10/3 党岭下雨，海子上不去",
+  "plan":"党岭的两个海子（甲玉拉措约 4000m、葫芦海 4100m）在雨天是纯受罪：碎石路 + 徒步 4~5 小时 + 全程 6~14℃。改法：这天只到党岭村，泡党岭野温泉，把海子挪到 10/4 清晨看天决定；如果 10/4 还是雨雪，就直接放弃海子，早点下山，把体力留给雪天山路。"},
+ {"title":"10/4 塔公—新都桥下雪",
+  "plan":"这是全程最需要预案的一天：塔公 3730m 中雪、新都桥 3460m 雨夹雪 27mm、甲根坝雨夹雪，山路上会有明显积雪。三条改法：① 10/3 就把高原段提前走掉（八美—塔公—新都桥），10/4 直接下撤；② 在丹巴多住一晚等雪停；③ 只走到八美/墨石公园就折返，砍掉塔公、新都桥、甲根坝。少看两个点，换一天安全，非常划算。"},
+ {"title":"10/5 折多山管制 / 结冰",
+  "plan":"折多山 4298m 是这趟唯一真正的硬关卡，也是康定进出新都桥的唯一公路。规矩：06:00 前出发、装防滑链、垭口不停车久留、跟着前车车辙走、下坡用挡位控速。如果 10/4 傍晚还在下雪，就别把这一晚放在甲根坝（3300m）——直接下撤住康定（2560m），第二天走雅康高速出山会轻松得多。遇到管制就在康定住一晚等放行，绝不走小路绕行。"},
+ {"title":"10/6 返程大堵车",
+  "plan":"10/6 是假期最后一天，京昆高速广元—汉中—西安段最容易堵成红色，700km 可能跑 12 小时以上。规矩：06:30 前出成都，中午在广元或汉中吃个饭就继续，绝不下午才进秦岭。如果绵阳—广元段已经大面积拥堵，改走成都 → 巴中 → 汉中 → 西安绕行。"}
+],
+"weather":{
+ "captured":"2026-09-28 抓取 · 来源：Open-Meteo 官方数值预报（按各点实际海拔折算）",
+ "note":"这次的预报能覆盖全部 10/1–10/6 六天，但 10/4 之后的不确定性会越来越大。出发前一天晚上、以及每天早上出发前各刷一次，并以甘孜州/阿坝州的交警路况通告为准。",
+ "dates":["10/1 周四","10/2 周五","10/3 周六","10/4 周日","10/5 周一","10/6 周二"],
+ "rows":[
+  {"city":"西安","alt":"400m · 出发地","days":["小雨 14~20℃","阴 14~20℃","小雨 13~22℃","阴 14~20℃","小雨 11~23℃","小雨 15~26℃"]},
+  {"city":"汉中","alt":"510m · D1 中转","days":["强阵雨 16~19℃","阴 14~16℃","阴 14~22℃","阴 15~22℃","阴 13~25℃","晴 14~26℃"]},
+  {"city":"映秀 · 汶川","alt":"900m · D1 住","days":["小雨 18~22℃","小到中雨 17~20℃","小雨 16~24℃","小雨 16~20℃","小雨 15~21℃","阴 16~21℃"]},
+  {"city":"四姑娘山 · 日隆","alt":"3200m · D2","days":["阵雨 7~12℃","小雨 6~14℃","阵雨 5~10℃","大雪 2~5℃","中雪 0~11℃","阴 1~13℃"]},
+  {"city":"丹巴 · 中路藏寨","alt":"2300m · D2 住丹巴","days":["小雨 17~27℃","阵雨 16~29℃","阵雨 15~24℃","小雨 12~17℃","小雨 11~19℃","阴 11~26℃"]},
+  {"city":"党岭村","alt":"3300m · D3 住","days":["小雨 7~15℃","小雨 7~18℃","阵雨 6~14℃","雨夹雪 2~6℃","小雨 2~10℃","阴 0~16℃"]},
+  {"city":"八美 · 墨石公园","alt":"3600m · D4","days":["雷阵雨 6~13℃","小雨 5~18℃","阵雨 4~12℃","雨夹雪 2~8℃","中雪 0~7℃","阴 -2~13℃"]},
+  {"city":"塔公草原","alt":"3730m · D4","days":["雷阵雨 6~14℃","小雨 4~16℃","阵雨 3~11℃","中雪 1~6℃","中雪 0~3℃","阴 -1~8℃"]},
+  {"city":"新都桥","alt":"3460m · D4/D5","days":["阵雨 7~18℃","小雨 6~20℃","小雨 5~15℃","雨夹雪 2~7℃","大雪 1~5℃","阴 -2~8℃"]},
+  {"city":"甲根坝","alt":"3300m · D4 住","days":["小雨 8~20℃","小雨 6~21℃","雷阵雨 6~16℃","雨夹雪 3~8℃","大雪 1~8℃","阴 -1~13℃"]},
+  {"city":"康定","alt":"2560m · D5 备选住","days":["小雨 11~16℃","小雨 9~20℃","小雨 10~17℃","阵雨 5~10℃","中雪 5~16℃","阴 3~22℃"]},
+  {"city":"成都","alt":"500m · D5 终点","days":["阴 20~26℃","阴 19~25℃","小雨 18~26℃","小雨 17~21℃","小雨 16~24℃","多云 16~25℃"]}
+ ],
+ "derived":[
+  {"spot":"猫鼻梁观景台","alt":"约 3200m","temp":"约 4~11℃","when":"10/2 上午","memo":"四姑娘山全景最佳机位，路边免费观景台"},
+  {"spot":"双桥沟 · 红杉林","alt":"3840m","temp":"约 3~10℃","when":"10/2 中午","memo":"观光车终点；10/2 有小雨，可能雨夹雪"},
+  {"spot":"甲玉拉措 / 葫芦海","alt":"约 4000~4100m","temp":"约 0~8℃","when":"10/3 或 10/4 清晨","memo":"徒步 4~5 小时，雨天别上"},
+  {"spot":"墨石公园","alt":"约 3500~3700m","temp":"约 2~8℃","when":"10/4 中午","memo":"10/4 预计雨夹雪，栈道会结冰"},
+  {"spot":"塔公寺 · 塔公草原","alt":"3730m","temp":"约 1~6℃","when":"10/4 下午","memo":"10/4 中雪，能见度差，多半看不到雅拉雪山"},
+  {"spot":"折多山垭口","alt":"4298m","temp":"约 -2~5℃","when":"10/5 上午","memo":"全程最高点；积雪结冰 + 常临时管制"}
+ ],
+ "rules":[
+  {"title":"10 月的川西，天气就是行程本身","body":"这条线 3000m 以上的山口有七八个，一天里能同时遇到小雨、雨夹雪、大雾和蓝天。所以这版攻略不按「景点顺序」排，而按「哪天天气最好就把最重要的景区放哪天」排：四姑娘山放 10/2（小雨 6~14℃，六天里最温和），党岭的海子留给 10/3~10/4 的天气窗口，塔公—新都桥本来想放 10/4（中雪），备选里给了「提前到 10/3」和「直接砍掉」两条路。"},
+  {"title":"10/3 下午起，一次明显雨雪过程","body":"数值预报显示 10/3 白天开始水汽加强、10/4 达到峰值：塔公中雪 1~6℃、新都桥雨夹雪 2~7℃（27mm）、康定阵雨 5~10℃（30mm）。这意味着 10/4 翻 塔公—新都桥—折多山 这段要按「冬季雪路」准备：防滑链、满油、热水、白天通过，能提前就提前。"},
+  {"title":"四姑娘山比丹巴冷 15℃","body":"日隆镇 3200m，丹巴只有 1900m，中间隔一条小金川，温差能到 15℃。10/2 日隆 6~14℃、丹巴 16~29℃——所以 D2 要「早晚穿羽绒、中午脱到抓绒」，别一件衣服穿到底，车上备一条围巾和一顶帽子。"},
+  {"title":"党岭的海子挑天气，不是挑体力","body":"葫芦海往返 14km、爬升约 800m、要到 4100m，正常要一整天；甲玉拉措近一些，单程约 4.5km、徒步 2~3 小时，也可以坐当地摩托（约 30~40 分钟）或骑马。雨雪天这两条路都变成碎石 + 泥浆 + 低温，性价比极低，而且回程天黑很危险。一天只能选一个，别贪。"},
+  {"title":"折多山是唯一真正的关卡","body":"4298m，是这趟最高点，也是康定进出新都桥的唯一公路。10/5 预报新都桥大雪 1~5℃、康定中雪，垭口大概率积雪结冰并有临时管制。规矩：早上通过、不长时间停车、带防滑链；遇到管制就在康定住一晚等放行，不要尝试绕小路。"},
+  {"title":"国庆的车流比天气更可预测","body":"10/1 早上西安出城、10/2 映秀到四姑娘山、10/5 康定到成都、10/6 成都到西安，这四段是拥堵高发段。所有时点都按「比常规多 40% 时间」留余量，天黑前不开陌生山路，这是整条线上最容易忽略、又最容易出事的一条。"}
+ ],
+ "todo":[
+  {"t":"约票","d":"四姑娘山必须在「阿坝旅游网」等官方渠道实名预约，国庆建议提前 3~7 天；墨石公园提前 1~2 天。"},
+  {"t":"查路况","d":"重点三段：映秀→巴朗山→四姑娘山（G350）、丹巴→八美（G248 八丹路）、康定→折多山→新都桥（G318）。"},
+  {"t":"看天气","d":"每天早上出发前刷一次四姑娘山、丹巴、八美/塔公、康定的预报，再刷甘孜州交警的管制通告。"}
+ ]
+},
+"mobileTips":[
+ "四姑娘山门票（旺季 4/1–11/30）：双桥沟 150 元（门票 80 + 观光车 70）、长坪沟 90 元（门票 70 + 观光车 20）、海子沟 60 元；淡季约 120 / 70 / 40 元。观光车都必买，学生、老人凭证件半价。",
+ "四姑娘山怎么约：全部实名制，通过「阿坝旅游网」微信公众号或携程、美团等官方渠道预约；官方要求至少提前 1 天，国庆建议提前 3~7 天，一人一证，开售就抢。",
+ "墨石公园：门票 60 元 + 往返观光车 20 元，位于道孚县八美镇中古村，海拔约 3500m，4A 景区，可现场买也可 OTA 提前买，国庆建议提前 1~2 天。",
+ "党岭没有景区门票：进村免费，上山（卡尔扎方向）约 20 元/人，摩托车或骑马往返参考 160~300 元/人，价格现场谈。建议提前一天让党岭村民宿老板帮你联系摩托或马。",
+ "党岭住宿很有限：村里基本是藏家民宿和小木屋，国庆 150~400 元/晚，热水和电都不一定稳定。订房时问清有没有独立卫浴、电热毯、能不能停车。",
+ "映秀震中遗址（漩口中学遗址 + 5·12 汶川特大地震纪念馆）：遗址免费，纪念馆一般 09:00–17:00、有闭馆日和限流，可能需预约。19:00 到了是进不去的，所以把参观放在 D2 早上。",
+ "塔公寺门票参考 20 元、现场买；塔公草原免费，但草场是牧民的，进牧场拍照和骑马要另外付钱，先问价再上马。",
+ "高反：映秀 900m 完全没问题，但 10/2 就要上 3200m（四姑娘山），10/3 起连续几天在 3300m 以上。提前 3 天吃红景天，别跑跳、别洗澡受凉，备一瓶便携氧气，第一晚别喝酒。",
+ "加油：映秀、四姑娘山镇有加油站但国庆排队；丹巴县城、八美镇、新都桥、康定都要补满。党岭来回 136km 全是碎石路、沟内没有加油站，进沟前在丹巴加满。",
+ "信号：巴朗山前后、党岭沟内、丹巴到八美的部分峡谷、折多山附近都有长段无信号。出发前下载高德离线地图（阿坝州 + 甘孜州）。",
+ "装备：羽绒服 + 抓绒 + 冲锋衣、防水登山鞋、手套、帽子、墨镜、防晒霜（高原紫外线强）、雨衣、防滑链（10/4–10/5 必备）、保温杯、头灯、现金 500 元。",
+ "住宿：映秀/水磨古镇订可免费取消的；丹巴县城住得最舒服（1900m）；党岭村条件最差但最出片；甲根坝民宿少且贵，天气一变就改住康定（2560m，酒店多、海拔舒服）。",
+ "车况：出发前查刹车片、轮胎含备胎、防冻液、雨刮、玻璃水。党岭和丹巴—八美的碎石路段放慢速度、别让底盘剐蹭，长下坡用挡位控速别一直踩刹车。",
+ "通行费：国庆假期 7 座以下小客车高速免费，10/1 和 10/6 是双向最高峰，尽量在免费时段内上下高速。"
+],
+"tickets":{
+ "note":"国庆川西几乎所有景区都是实名 + 限流。下表是这趟会碰到的所有售票点，出发前照「提前多久」那一列定闹钟。",
+ "rows":[
+  {"spot":"四姑娘山（双桥沟 / 长坪沟 / 海子沟）","need":"必须提前实名预约","channel":"「阿坝旅游网」微信公众号、携程 / 美团官方票务","when":"官方要求至少提前 1 天；国庆建议提前 3~7 天，开售就抢","price":"旺季 双桥沟 150 元（门票 80 + 观光车 70）/ 长坪沟 90 元 / 海子沟 60 元","memo":"一人一证实名，观光车必须一起买。D2 只玩双桥沟就够（观光车全程 34km）"},
+  {"spot":"墨石公园","need":"建议提前买票","channel":"携程 / 美团等 OTA，或景区现场","when":"提前 1~2 天","price":"门票 60 元 + 往返观光车 20 元","memo":"3500m，栈道为主；10/4 预计雨夹雪，结冰打滑要小心"},
+  {"spot":"映秀震中遗址 / 5·12 汶川特大地震纪念馆","need":"免费，但可能要预约","channel":"官方公众号 / 纪念馆预约渠道","when":"提前 1 天确认当天开放时间与是否需预约","price":"免费","memo":"纪念馆有闭馆日和限流，出发前一天看公众号或打电话最保险"},
+  {"spot":"塔公寺","need":"不需要预约","channel":"现场买票","when":"随时","price":"门票参考 20 元","memo":"塔公草原免费，但牧场拍照、骑马要另外付费"},
+  {"spot":"党岭（甲玉拉措 / 葫芦海）","need":"不需要门票预约","channel":"村里现场谈摩托 / 骑马","when":"提前 1 天让民宿老板帮着联系","price":"卡尔扎方向约 20 元/人 + 摩托或骑马往返参考 160~300 元/人","memo":"雨天别上：碎石路 + 泥浆，回程天黑很危险"},
+  {"spot":"甲居藏寨（丹巴 · 备选）","need":"建议提前买票","channel":"OTA 或现场","when":"提前 1 天","price":"门票参考 50 元","memo":"如果 10/3 党岭下大雨，这是很好的替代，海拔只有约 2000m"},
+  {"spot":"新都桥 / 甲根坝","need":"不需要预约","channel":"自驾公路，直接进","when":"随时","price":"免费（观景台免费，骑马、进牧场另收）","memo":"不是封闭景区，是公路风景；停车一定找安全区域，别停在弯道"},
+  {"spot":"泸定桥（走泸定方向时）","need":"不需要预约","channel":"现场买票","when":"随时","price":"门票参考 10 元","memo":"D5 顺路点，只有时间宽裕才停"}
+ ],
+ "extra":[
+  "住宿优先订这 5 晚：映秀（或水磨古镇）、丹巴县城、党岭村、甲根坝（天气差就改康定）、成都。国庆川西热门点房价翻 2~3 倍，全部选「可免费取消」。",
+  "四姑娘山观光车、墨石公园观光车都是单独收费，约票时一起买掉最省事，避免现场二次排队。",
+  "实名信息：所有实名预约都用出行人本人身份证，一人一证，不能拿别人的证件代订。",
+  "高速免费：国庆假期 7 座以下小客车免费通行，不需要预约，但 10/1 和 10/6 是最堵的两天。",
+  "停车：党岭村、甲根坝、新都桥国庆车位紧张，订房时先确认能停车，不然要停到很远的临时停车场。",
+  "价格会变：以上都是参考价，以景区官方渠道当天公示为准。"
+ ]
+},
+"days":[],
+"navList":[],
+"foodPool":[],
+"photoSpots":[]
+};
+
+DEFAULT_TRIP.days=[
+{"date":"10/1 周四","short":"D1","title":"凌晨出发 · 全天 820km · 汉中休整后直奔映秀","theme":"关键词：03:00 出发、汉中停 4 小时、天黑前进岷江峡谷","hero":"cloud",
+ "route":"西安 03:00 → 京昆高速（西汉高速 · 秦岭段）→ 汉中 07:30（早餐 + 休整 + 午饭）→ 12:00 汉中出发 → 广元 → 绵阳 → 成都绕城 → 都汶高速 → 映秀 19:00，全天约 820km（含休息 12~14 小时）",
+ "events":[
+  {"time":"03:00","name":"西安 · 京昆高速（西安南）","kind":"transport","lat":34.2610,"lng":108.9422,"navName":"京昆高速西安南收费站","navCity":"西安",
+   "title":"凌晨 3 点出发，把秦岭留在最空的时候","desc":"国庆首日凌晨是整条线上最值钱的几个小时：大货车少、收费站不排队、秦岭服务区不挤。今天总里程约 820km，是全程最长的一天，而且最后要进岷江峡谷，务必天黑前到映秀。凌晨 3~5 点是疲劳和团雾高发时段，出发前睡够，两人轮换开，导航终点直接设「映秀镇」。",
+   "taxi":"京昆高速（西安南收费站）","address":"陕西省西安市长安区 京昆高速西安南入口","addressNote":"导航建议给两条路线，优先选高速占比高、走汉中—广元方向的那条。","badge":"⏰ 关键出发"},
+  {"time":"06:00","name":"宁陕服务区","kind":"transport","lat":33.3100,"lng":108.4000,"navName":"宁陕服务区","navCity":"宁陕",
+   "title":"第 1 停：加油 + 换司机 + 吃早饭","desc":"西安出发约 3 小时、200km 到这里。西汉高速全是隧道群和长下坡，进出隧道记得减速开灯，别跟大车太近。这一停把油加满、换司机、吃早饭，后面还有 150km 才到汉中。",
+   "taxi":"宁陕服务区","address":"陕西省安康市宁陕县 西汉高速宁陕段","addressNote":"节假日加油站可能排队 15~20 分钟，按 30 分钟预留。","badge":"⛽ 必停"},
+  {"time":"07:30–11:30","name":"汉中市（休整 + 早饭 + 午饭）","kind":"transport","lat":33.0770,"lng":107.0280,"navName":"汉中市","navCity":"汉中",
+   "title":"汉中停 4 小时，这是故意留的","desc":"西安到汉中约 4.5 小时、350km，07:30 前后到。今天后面还有 470km 高速和峡谷山路，所以这 4 小时不是浪费：吃碗汉中热米皮当早饭，逛逛市区（古汉台、拜将台、兴汉新区都在城里，走路就能看），11:00 把午饭吃掉，11:30 出发。国庆汉中往成都方向的车流从中午开始变多，早走一点是一点。",
+   "taxi":"汉中市（汉台区）","address":"陕西省汉中市汉台区","addressNote":"城里吃早饭比服务区舒服；如果不想逛，也可以在服务区直接解决。","badge":"🍜 早饭 + 午饭"},
+  {"time":"12:00","name":"汉中 · 京昆高速入口","kind":"transport","lat":33.0770,"lng":107.0280,"navName":"汉中收费站（京昆高速）","navCity":"汉中",
+   "title":"12:00 准时上高速，今天不再停长","desc":"汉中到映秀约 470km，走京昆高速（G5）经广元、绵阳、成都绕城，再上都汶高速进映秀，正常 6 小时，国庆按 7 小时准备。今天的目标不是快，是「天黑前到」。",
+   "taxi":"汉中收费站（京昆高速）","address":"陕西省汉中市 京昆高速汉中入口","addressNote":"下午这条线车多，成都绕城段最容易排队。","badge":"🚗 出发"},
+  {"time":"15:00","name":"绵阳服务区","kind":"transport","lat":31.4700,"lng":104.6800,"navName":"绵阳服务区","navCity":"绵阳",
+   "title":"第 2 停：加油 + 上厕所","desc":"汉中到这里约 3 小时、260km。过了绵阳就是成都平原，车流量明显变大，成都绕城国庆经常排队。提前把油加满、水备足，别在成都段才想起来加油。",
+   "taxi":"绵阳服务区","address":"四川省绵阳市 京昆高速绵阳段","addressNote":"如果要换司机，这里是下午最合适的一站。","badge":"⛽ 必停"},
+  {"time":"17:30","name":"都江堰市","kind":"transport","lat":30.9900,"lng":103.6200,"navName":"都江堰市","navCity":"都江堰",
+   "title":"过了这里就进山了，最后补一次给养","desc":"都江堰是进岷江峡谷前最后一个大县城：超市、药店、水果、便携氧气瓶都能买齐。从这里上都汶高速，20 多分钟到映秀。如果此时天已经黑、或者正在下大雨，就在都江堰住下，别硬进峡谷——这条路雨天落石多，不值得赌。",
+   "taxi":"都江堰市","address":"四川省成都市都江堰市","addressNote":"10/1 都江堰一带是小雨，峡谷段夜间行车要格外慢。","badge":"🧺 最后补给"},
+  {"time":"19:00","name":"映秀镇","kind":"hotel","lat":31.0597,"lng":103.4872,"navName":"映秀镇","navCity":"汶川县",
+   "title":"入住映秀，今晚的任务只有一个：早睡","desc":"映秀海拔只有 900m，完全不会高反，是这条线最舒服的第一晚。10/1 映秀小雨 18~22℃，到了直接入住，不要再安排活动。有个时间坑必须提前说：映秀震中遗址和纪念馆一般 09:00–17:00 开放，19:00 到是参观不了的——所以参观挪到明天早上 08:00 顺路看（见 D2 第一个点）。",
+   "taxi":"映秀镇","address":"四川省阿坝州汶川县映秀镇","addressNote":"映秀镇上住宿不多，订不到就住 10 分钟车程的水磨古镇，选择更多。","badge":"🏨 住宿"},
+  {"time":"19:30","name":"映秀镇 / 水磨古镇晚餐","kind":"food","lat":31.0597,"lng":103.4872,"navName":"水磨古镇","navCity":"汶川县",
+   "title":"第一顿热的：老腊肉 + 豆花","desc":"映秀镇里有小馆子；车程 10 分钟的水磨古镇（禅寿老街）选择更多也更热闹。点个腊肉炒笋、豆花、土鸡汤，热乎乎睡一觉，明天要上 3200m。",
+   "taxi":"水磨古镇","address":"四川省阿坝州汶川县水磨镇","addressNote":"古镇晚上有灯，吃完可以走一圈，别走太远，明天 07:50 出发。","badge":"🍲 晚饭"}
+ ],
+ "mealOptions":[
+  {"title":"汉中 · 热米皮 + 菜豆腐","level":"本地小吃","price":"¥10–20/人","note":"汉中人的早餐标配，米皮配辣子油，再来一碗菜豆腐。10 分钟吃完就能上路，这是全程第一个地道早饭。"},
+  {"title":"汉中 · 粉皮子 / 汉中小面","level":"本地小吃","price":"¥10–20/人","note":"比米皮清淡一点的另一个选择，中午出发前垫一口刚好，别吃太油。"},
+  {"title":"绵阳服务区 · 快餐","level":"赶路","price":"¥30–50/人","note":"服务区里最省事的，图快点面或盖饭，别坐太久——下午还有 260km。"},
+  {"title":"映秀 / 水磨古镇 · 农家菜","level":"川西家常","price":"¥50–90/人","note":"腊肉炒笋、豆花、土鸡汤、老腊肉。第一天到得晚，吃口热的比什么都强。"}
+ ]},
+{"date":"10/2 周五","short":"D2","title":"映秀震中遗址 → 猫鼻梁 → 四姑娘山双桥沟 → 中路藏寨 → 丹巴","theme":"关键词：08:00 看遗址、11:00 猫鼻梁、双桥沟半天、天黑前进丹巴","hero":"peak",
+ "route":"映秀 07:50 → 映秀震中遗址（08:00–09:00）→ G350 耿达 / 卧龙 → 巴朗山隧道 → 猫鼻梁观景台（约 3200m，11:00）→ 四姑娘山镇（日隆）→ 双桥沟（11:30–16:00）→ 16:30 出发南下 → 小金 → 中路藏寨（18:30）→ 丹巴县城（约 115km，20:00 到）",
+ "events":[
+  {"time":"08:00","name":"映秀震中遗址（漩口中学遗址）","kind":"spot","lat":31.0597,"lng":103.4872,"navName":"映秀震中遗址","navCity":"汶川县",
+   "title":"顺路的第一站：5·12 映秀震中遗址","desc":"这里是 2008 年汶川地震的震中。遗址主体是「漩口中学遗址」，保留着坍塌的教学楼和纪念钟；旁边是 5·12 汶川特大地震纪念馆（映秀震中纪念馆）。两个点都在镇里，步行可达，参观控制在 1 小时。参观时请保持安静，别在遗址里摆拍。",
+   "taxi":"映秀震中遗址","address":"四川省阿坝州汶川县映秀镇 漩口中学遗址","addressNote":"遗址免票；纪念馆一般 09:00–17:00，有闭馆日和限流、可能要预约，出发前一天看官方公众号确认。","badge":"🎫 免费"},
+  {"time":"09:30","name":"卧龙镇（G350）","kind":"transport","lat":30.9800,"lng":103.2000,"navName":"卧龙中华大熊猫苑","navCity":"汶川县",
+   "title":"沿 G350 进卧龙峡谷，路况看天","desc":"映秀往四姑娘山走 G350，一路沿皮条河上溯，经过耿达、卧龙镇。这段是重建后的新路，但峡谷段雨后会有落石，别停在崖下拍照、别贴近山壁会车。如果时间宽裕可以顺路看卧龙中华大熊猫苑（约 1 小时）；时间紧就直接过，今天真正的重点是双桥沟。",
+   "taxi":"卧龙中华大熊猫苑","navCity":"汶川县","address":"四川省阿坝州汶川县卧龙镇","addressNote":"今天时间紧，熊猫苑属于「能看就看」，不要为它压缩双桥沟。","badge":"🐼 可选停"},
+  {"time":"11:00","name":"猫鼻梁观景台","kind":"spot","lat":31.0300,"lng":102.9600,"navName":"猫鼻梁观景台","navCity":"小金县","photo":true,"photoKey":"peak",
+   "title":"猫鼻梁：一眼收下四姑娘山四座峰","desc":"过了巴朗山隧道不远就是猫鼻梁（约 3200m），路边免费观景台，是看四姑娘山全景最经典的位置——大峰、二峰、三峰、幺妹峰一路排开。10/2 预报小雨 6~14℃、云量大，能不能看到幺妹峰要看运气：云压得低就在车上等 10~20 分钟，山谷里云走得很快。这里风大、车位少，11:00 前后团队车最集中。",
+   "taxi":"猫鼻梁观景台","address":"四川省阿坝州小金县 巴朗山隧道下方 猫鼻梁","addressNote":"海拔约 3200m，下车就冷，羽绒服直接穿上；观景台在弯道边，别停在行车道上。","badge":"📸 关键机位"},
+  {"time":"11:30–16:00","name":"四姑娘山 · 双桥沟","kind":"spot","lat":31.1068,"lng":102.9038,"navName":"四姑娘山双桥沟景区","navCity":"小金县","photo":true,"photoKey":"peak",
+   "title":"双桥沟半天玩法：观光车坐到最深，再一路往回玩","desc":"双桥沟是三沟里最省力也最好看的一条：观光车全程 34km 开到最里面的红杉林（3840m），回程一站站停。重点停这几站——红杉林（最深处，雪山近在眼前）、布达拉峰、撵鱼坝、盆景滩、人参果坪；珍珠滩那段木栈道一定要下来走。10/2 有小雨、海拔 3400~3840m，栈道会湿滑结冰，穿防滑鞋、带雨衣，别撑伞走栈道。",
+   "taxi":"四姑娘山双桥沟景区","address":"四川省阿坝州小金县四姑娘山镇 双桥沟","addressNote":"旺季参考价 150 元/人（门票 80 + 观光车 70，观光车必买），必须提前实名预约。长坪沟 90 元、海子沟 60 元；今天只玩双桥沟就够，三条沟一天走不完。","badge":"🎫 必须预约"},
+  {"time":"16:30","name":"小金县（南下丹巴）","kind":"transport","lat":31.0000,"lng":102.3600,"navName":"小金县","navCity":"小金县",
+   "title":"16:30 必须往丹巴方向走","desc":"出沟直接沿小金川南下：日隆 → 小金县城 → 中路乡 → 丹巴，约 115km、2.5~3 小时，海拔从 3200m 一路降到 1900m，越走越暖。雨天山路易塌方，天黑前到丹巴是硬指标——所以双桥沟不能拖到 17:00 才出沟，16:30 前必须上车。",
+   "taxi":"小金县（美兴镇）","address":"四川省阿坝州小金县美兴镇","addressNote":"县城可以加油、买水果和热水；从这里到丹巴还有 60km。","badge":"🚗 赶路"},
+  {"time":"18:30","name":"中路藏寨观景台","kind":"spot","lat":30.9000,"lng":101.7900,"navName":"中路藏寨观景台","navCity":"丹巴县","photo":true,"photoKey":"cloud",
+   "title":"中路藏寨：碉楼 + 藏房的日落","desc":"中路藏寨在大渡河支流的高台上，是丹巴「千碉之国」最集中的一片，白墙红顶的藏房沿山坡铺开。最佳机位是村里的观景台，傍晚斜光打在碉楼和屋顶上最出片。10 月日落大约 19:00 前后，18:30 到刚好赶得上。如果到时天已经黑了，就明天早上再来一次，或者直接去丹巴县城休息。",
+   "taxi":"中路藏寨","address":"四川省甘孜州丹巴县中路乡","addressNote":"山路窄、会车难；部分观景台收 20~30 元停车费或小门票，现场为准。","badge":"📸 日落机位"},
+  {"time":"20:00","name":"丹巴县城（章谷镇）","kind":"hotel","lat":30.8772,"lng":101.8906,"navName":"丹巴县城","navCity":"丹巴县",
+   "title":"住丹巴县城（1900m）：全线最舒服的一晚","desc":"丹巴县城海拔 1900m，酒店多、饭店多、能洗热水澡，是整条线住宿条件最好的地方。10/2 丹巴阵雨 16~29℃，很温和。今晚把三件事做掉：① 把车加满油（明天进党岭来回 136km 全是碎石路，沿途基本没有加油站）；② 买好明天的干粮和水；③ 确认党岭民宿有没有独立卫浴、电热毯，以及能不能帮你联系摩托或马。",
+   "taxi":"丹巴县城（章谷镇）","address":"四川省甘孜州丹巴县章谷镇","addressNote":"国庆丹巴县城房价翻倍，务必订「可免费取消」的，并问清有没有停车位。","badge":"🏨 住宿"},
+  {"time":"20:30","name":"丹巴县城晚餐","kind":"food","lat":30.8772,"lng":101.8906,"navName":"丹巴县城","navCity":"丹巴县",
+   "title":"丹巴晚餐：酸菜面块 + 老腊肉","desc":"丹巴的嘉绒藏族家常菜很实在：酸菜面块、老腊肉炒蕨菜、香猪腿、酥油茶。县城主街（章谷镇）餐馆最集中，人均 40~70 元。今晚别喝酒，明天开始连续三天在 3000m 以上。",
+   "taxi":"丹巴县城（章谷镇）","address":"四川省甘孜州丹巴县章谷镇","addressNote":"吃完顺手在超市把明天的水和干粮买齐，党岭村里东西少且贵。","badge":"🍲 晚饭"}
+ ],
+ "mealOptions":[
+  {"title":"映秀 / 水磨古镇 · 早餐","level":"客栈早餐","price":"¥10–20/人","note":"今天 07:50 就要出发，前一晚跟客栈说好早饭时间，或者买好包子豆浆在车上吃。"},
+  {"title":"日隆镇 · 牦牛肉面 / 川菜","level":"景区餐","price":"¥30–60/人","note":"四姑娘山镇餐馆集中，进沟前吃午饭最快；沟里只有零星简餐，建议自带干粮。"},
+  {"title":"四姑娘山镇 · 酥油茶 + 青稞饼","level":"藏餐","price":"¥15–30/人","note":"3200m 喝一碗热的顶饿又暖身，青稞饼可以带进沟里当干粮。"},
+  {"title":"丹巴县城 · 酸菜面块","level":"嘉绒家常","price":"¥20–40/人","note":"丹巴特色：酸菜 + 面块 + 腊肉，晚上吃很舒服，主街上到处都有。"},
+  {"title":"丹巴 · 老腊肉 + 香猪腿","level":"藏餐","price":"¥50–90/人","note":"丹巴的招牌菜，配糌粑或米饭都行，两个人点一个小份就够。"}
+ ]},
+{"date":"10/3 周六","short":"D3","title":"丹巴 → 党岭（68km 碎石路）→ 甲玉拉措 / 温泉","theme":"关键词：碎石路 3 小时、19mm 雨天不上 4000m、泡野温泉","hero":"cloud",
+ "route":"丹巴县城 08:00 → 边耳乡 → 党岭村（68km 碎石路，约 3 小时，11:00 到）→ 甲玉拉措（徒步 4~5h，或摩托 / 骑马往返 2~3h）→ 党岭温泉 → 住党岭村（约 3300m）",
+ "events":[
+  {"time":"08:00","name":"丹巴县城出发","kind":"transport","lat":30.8772,"lng":101.8906,"navName":"丹巴县章谷镇","navCity":"丹巴县",
+   "title":"进党岭前，先把油加满","desc":"丹巴到党岭 68km，大部分是碎石路和窄路，来回 136km，沟里没有加油站。出发前在丹巴县城加满油、检查备胎和胎压。碎石路对底盘和轮胎都不友好，速度控制在 30~40km/h。",
+   "taxi":"丹巴县章谷镇","address":"四川省甘孜州丹巴县章谷镇","addressNote":"如果车是低底盘轿车，进党岭要格外小心；这条路不适合底盘太低的车。","badge":"🚗 加满油"},
+  {"time":"11:00","name":"党岭村","kind":"spot","lat":31.0500,"lng":101.7800,"navName":"党岭村","navCity":"丹巴县",
+   "title":"到党岭村：川西最后的原生态村子之一","desc":"党岭村在丹巴西北的边耳乡，海拔约 3100~3300m，村口就是雪山和草甸，信号只有村口一小片。村里基本是藏家民宿，条件朴素。重要提醒：今天（10/3）党岭预报阵雨 6~14℃、降水约 19mm，是六天里雨最大的一天——先到村里安顿下来，看天再决定上不上山。",
+   "taxi":"党岭村","address":"四川省甘孜州丹巴县边耳乡党岭村","addressNote":"村里住宿要提前订；问清有没有独立卫浴、电热毯、能不能停车、能不能帮你联系摩托或马。","badge":"🏔 3300m"},
+  {"time":"12:30","name":"甲玉拉措（或葫芦海，二选一）","kind":"spot","lat":31.0200,"lng":101.7100,"navName":"甲玉拉措","navCity":"丹巴县","photo":true,"photoKey":"cloud",
+   "title":"甲玉拉措 vs 葫芦海：今天只能挑一个","desc":"两个海子都从党岭村出发，但强度差很远。甲玉拉措近：单程约 4.5km、徒步 2~3 小时，往返 4~5 小时，也可以坐当地摩托车（单程约 30~40 分钟）或骑马。葫芦海远：往返 14km、从 3300m 爬到 4100m，正常要一整天，骑马只能到小草坪，小草坪以上必须自己走。今天下雨 19mm、只有 6~14℃，我的建议是：雨里别上 4000m，把海子挪到明天清晨；明天还是雨雪的话，就直接放弃海子改泡温泉。",
+   "taxi":"甲玉拉措","address":"四川省甘孜州丹巴县党岭 甲玉拉措（也叫甲依拉措）","addressNote":"卡尔扎方向约 20 元/人；摩托车或骑马往返参考 160~300 元/人，现场谈价。雨天碎石路湿滑，骑摩托和骑马都比平时危险。","badge":"⚠️ 看天决定"},
+  {"time":"16:30","name":"党岭温泉","kind":"spot","lat":31.0500,"lng":101.7800,"navName":"党岭温泉","navCity":"丹巴县",
+   "title":"下雨的正确玩法：党岭野温泉","desc":"党岭最被低估的是温泉——沟里有多处天然硫磺泉眼，村民用石头围成露天池子，水温 40℃ 左右，一边泡一边看雪山。下雨天泡温泉比硬爬 4000m 舒服十倍。注意：是野泉，没有更衣室和淋浴，自带毛巾和拖鞋；这里已经 3300m，泡 20 分钟就起来，别泡到头晕。",
+   "taxi":"党岭温泉","address":"四川省甘孜州丹巴县党岭沟 温泉","addressNote":"回村里问民宿老板具体位置，不同季节泉眼会变；池子简陋，注意防滑。","badge":"♨️ 雨天最佳"},
+  {"time":"19:00","name":"党岭村住宿","kind":"hotel","lat":31.0500,"lng":101.7800,"navName":"党岭村","navCity":"丹巴县",
+   "title":"住党岭村：条件朴素，但这是最出片的一晚","desc":"党岭村的民宿多是藏家自建，国庆 150~400 元/晚，热水和电不一定稳定，夜里冷（10/3 夜里接近 5℃）。带好保暖衣物、头灯、充电宝、湿纸巾。今晚要把明天的路线定死：如果 10/4 早上还是雨雪，就别从党岭往八美方向走，先下撤到丹巴，再决定塔公—新都桥这一段走不走。",
+   "taxi":"党岭村","address":"四川省甘孜州丹巴县边耳乡党岭村","addressNote":"村里床位有限，国庆一定要提前订；手机信号弱，提前把导航离线地图下好。","badge":"🏨 住宿"}
+ ],
+ "mealOptions":[
+  {"title":"党岭村民宿 · 藏家饭","level":"藏餐","price":"¥40–80/人","note":"一般跟住宿一起定：土豆炖牦牛肉、糌粑、酥油茶。提前跟老板说好几点开饭，村里没有外卖和夜宵。"},
+  {"title":"自带干粮（进山用）","level":"徒步口粮","price":"¥30–60/人","note":"上山一定带：面包、巧克力、能量棒、热水。山上没有任何补给点，雨雪天失温比体力不足更致命。"},
+  {"title":"丹巴县城 · 出发前早餐","level":"早点","price":"¥10–20/人","note":"08:00 出发，先吃碗面或包子，进沟 3 小时没有正经饭点。"},
+  {"title":"党岭村 · 自热米饭 / 泡面","level":"应急","price":"¥20–40/人","note":"村里小卖部东西少且贵，建议在丹巴县城把自热米饭和泡面买好带上。"}
+ ]},
+{"date":"10/4 周日","short":"D4","title":"党岭 → 八美墨石公园 → 塔公草原 → 新都桥 → 甲根坝","theme":"关键词：雨雪天、八丹路先查路况、备选直接下撤","hero":"valley",
+ "route":"党岭村 07:00 → 丹巴（68km 碎石路，约 2.5h）→ 东谷 / 八丹路（G248）→ 八美 · 墨石公园（约 3500m）→ 塔公草原 + 塔公寺（3730m）→ 新都桥（3460m）→ 甲根坝（约 3300m），全天约 250km",
+ "events":[
+  {"time":"07:00","name":"党岭出发 → 丹巴","kind":"transport","lat":31.0500,"lng":101.7800,"navName":"党岭村","navCity":"丹巴县",
+   "title":"07:00 出沟，路面湿滑要慢","desc":"碎石路下山、雨雪天尤其滑，30km/h 慢慢挪，别急着赶时间。到丹巴大约 09:30，顺便把油补满。今天全天在 3500m 以上，出发前确认防滑链、保暖衣物、热水都在车上。",
+   "taxi":"党岭村","address":"四川省甘孜州丹巴县边耳乡党岭村","addressNote":"出沟前再确认一次今天八丹路能不能过（见下一条）。","badge":"🚗 早出发"},
+  {"time":"10:00","name":"八丹路（G248 丹巴—八美）","kind":"transport","lat":30.7500,"lng":101.7500,"navName":"八丹路 丹巴到八美","navCity":"丹巴县",
+   "title":"八丹路：这趟最需要提前确认的一段","desc":"从丹巴到八美走 G248（八丹路），约 90km、2 小时，海拔从 1900m 爬到 3500m，中间经过东谷、疙瘩梁子，路窄弯多。这段路历史上多次因为山洪泥石流大修和临时管制，2024 年 7 月就中断过一次。所以出发前一定要查一次丹巴县交警 / 公路部门的路况通告；如果这条断了，就得改走小金方向绕行，行程要重排。",
+   "taxi":"八丹路（国道 248）","address":"四川省甘孜州 丹巴县—道孚县八美镇 国道 248","addressNote":"出发前打电话确认：丹巴县交通运输局 / 丹巴交警；或看甘孜州公路部门的路况发布。","badge":"⚠️ 先查路况"},
+  {"time":"12:00","name":"墨石公园","kind":"spot","lat":30.4448,"lng":101.4700,"navName":"墨石公园","navCity":"道孚县","photo":true,"photoKey":"cloud",
+   "title":"墨石公园：高原上的黑色石林","desc":"墨石公园在道孚八美镇中古村，海拔约 3500m，是中国唯一的高原糜棱岩石林，4A 景区——石头会随光线变色，阴天是墨黑，阳光下泛蓝灰。栈道环线约 1.5~2 小时，慢慢走。10/4 预报雨夹雪 2~8℃，栈道会结冰，穿防滑鞋、扶好栏杆。",
+   "taxi":"墨石公园","address":"四川省甘孜州道孚县八美镇中古村 墨石公园","addressNote":"成人门票 60 元 + 往返观光车 20 元；可 OTA 提前买或现场买，国庆建议提前 1~2 天。","badge":"🎫 提前 1~2 天买票"},
+  {"time":"14:00","name":"塔公草原 + 塔公寺","kind":"spot","lat":30.3239,"lng":101.5306,"navName":"塔公寺","navCity":"康定市","photo":true,"photoKey":"valley",
+   "title":"塔公：雪太大就只在车里看","desc":"塔公草原背后就是雅拉雪山，草原上矗立着金顶的塔公寺，是川西最经典的组合之一。但 10/4 这里预报中雪 1~6℃，能见度差的时候雅拉雪山根本看不到。规矩：雪大就别下车走远，草原上没有任何遮挡，失温和打滑都是真实风险。天气好就塔公寺停 40 分钟，草原上拍一张就走；下雪就直接路过，把时间留给赶路。",
+   "taxi":"塔公寺","address":"四川省甘孜州康定市塔公镇 塔公寺","addressNote":"塔公寺门票参考 20 元，现场买；塔公草原免费，但进牧场拍照、骑马要另外付钱，先问价。","badge":"⚠️ 10/4 中雪"},
+  {"time":"16:00","name":"新都桥镇","kind":"spot","lat":30.0453,"lng":101.4888,"navName":"新都桥镇","navCity":"康定市",
+   "title":"新都桥「十里画廊」：今天大概是拍不到的","desc":"新都桥被叫做摄影天堂，最美的就是 318 沿线这段杨树、溪流、藏房，远处还能看贡嘎方向的雪山。10/4 预报雨夹雪 2~7℃、降水 27mm，光线和能见度都很差。所以今天把新都桥当路过点，别指望出片；如果明天雪停了，早上还能在这里补拍一张。",
+   "taxi":"新都桥镇","address":"四川省甘孜州康定市新都桥镇","addressNote":"镇上餐馆和加油站在主街；雪天路面湿滑，注意避让摩托车和牲畜。","badge":"⚠️ 雪天不停留"},
+  {"time":"17:30","name":"甲根坝乡","kind":"hotel","lat":29.8460,"lng":101.5886,"navName":"甲根坝乡","navCity":"康定市",
+   "title":"住甲根坝？先想好 Plan B","desc":"甲根坝在 318 南侧的山谷里，是看贡嘎和拍藏寨的好位置，但这是这趟海拔偏高、住宿最少的一晚（约 3300m，民宿少、国庆贵），10/4 预报雨夹雪 3~8℃。强烈建议：如果傍晚还在下雪、或者明早折多山预报不好，就继续往前下山住康定（2560m，酒店多、海拔舒服），把 D5 变成一趟轻松的高速。这个决定今晚就做，别等早上。",
+   "taxi":"甲根坝乡","address":"四川省甘孜州康定市甲根坝乡","addressNote":"民宿少，务必提前订；订不到就直接订康定城，价格更稳、条件更好。","badge":"🏨 住宿（备选：康定）"}
+ ],
+ "mealOptions":[
+  {"title":"八美镇 · 川菜馆","level":"路上正餐","price":"¥40–70/人","note":"八美镇餐馆集中在主街，墨石公园前后吃午饭最合适，出餐快、有热汤。"},
+  {"title":"塔公 · 酥油茶 + 牦牛肉包子","level":"藏餐","price":"¥20–50/人","note":"冷天喝酥油茶最能顶住低温，但雪大就别下车久留，打包带走。"},
+  {"title":"新都桥 · 汤锅","level":"路上正餐","price":"¥50–90/人","note":"新都桥镇上汤锅和川菜都有；如果决定住康定，这里就别耽误时间。"},
+  {"title":"甲根坝 · 民宿家常饭","level":"民宿","price":"¥50–80/人","note":"民宿一般能做饭，提前跟老板说。夜里冷，让老板烧一壶热水带上车。"},
+  {"title":"康定 · 牦牛汤锅 / 康定凉粉","level":"当地特色","price":"¥30–80/人","note":"如果今晚改住康定，吃的选择比甲根坝多得多，海拔也低，睡得更踏实。"}
+ ]},
+{"date":"10/5 周一","short":"D5","title":"甲根坝 → 折多山 4298m → 康定 → 泸定 → 雅康高速 → 成都","theme":"关键词：06:00 出发、防滑链、折多山上午过","hero":"hero",
+ "route":"甲根坝 06:00 → 新都桥 → 折多山垭口（4298m）→ 康定（2560m）→ 泸定 → 雅康高速 → 雅安 → 成都，约 380km（不含堵车 6~7 小时）",
+ "events":[
+  {"time":"06:00","name":"甲根坝出发","kind":"transport","lat":29.8460,"lng":101.5886,"navName":"甲根坝乡","navCity":"康定市",
+   "title":"06:00 出发，把折多山留在上午","desc":"今天最核心的一件事：在天亮后、车流起来之前翻过折多山。10/5 新都桥预报大雪 1~5℃、康定中雪 5~16℃，折多山垭口 4298m 必然积雪结冰，而且经常临时管制。出发前把防滑链、热水、保暖衣物、满油准备好，再刷一次路况。如果昨晚决定住康定，今天就轻松得多——直接从康定走雅康高速出山。",
+   "taxi":"甲根坝乡","address":"四川省甘孜州康定市甲根坝乡","addressNote":"查路况：甘孜州交警、甘孜公路 的微信公众号，或直接打康定交警电话确认折多山是否放行。","badge":"⏰ 关键出发"},
+  {"time":"07:00","name":"折多山垭口","kind":"spot","lat":30.0500,"lng":101.8000,"navName":"折多山垭口","navCity":"康定市",
+   "title":"折多山 4298m：全程最高，也是唯一的硬关卡","desc":"折多山是康定进出新都桥的唯一公路，垭口 4298m，比新都桥高 800 多米，雪线之上必然是冰面。规矩：不停车久留（垭口风大、体感能到 -5℃）、不看清雪车作业时超车、跟着前车车辙走、下坡用挡位控速别一直踩刹车。如果遇到管制：在康定住一晚等放行，或者原地返回——绝不要尝试走小路绕行。",
+   "taxi":"折多山垭口","address":"四川省甘孜州康定市 折多山垭口（318 国道）","addressNote":"雪天必备防滑链；垭口一般不长时间停留，拍照就在观景台快拍。","badge":"⚠️ 全程最高点 4298m"},
+  {"time":"09:30","name":"康定市","kind":"food","lat":30.0500,"lng":101.9600,"navName":"康定市","navCity":"康定市",
+   "title":"康定：下到 2560m，先喘口气","desc":"从折多山下来 30 多公里到康定，海拔一下掉 1700m，耳朵会有反应、人也会轻松很多。在康定吃个早饭、上厕所、检查轮胎和防滑链。康定是甘孜州首府，超市、药店都齐全。10/5 康定中雪，城里路面也可能湿滑，慢开。",
+   "taxi":"康定市（炉城镇）","address":"四川省甘孜州康定市炉城镇","addressNote":"如果时间还早，可以顺路看一眼康定情歌广场；赶路就直接出城。","badge":"☕ 缓冲 + 补给"},
+  {"time":"11:00","name":"泸定收费站（雅康高速）","kind":"transport","lat":29.9100,"lng":102.2300,"navName":"雅康高速泸定收费站","navCity":"泸定县",
+   "title":"上雅康高速，接下来就轻松了","desc":"康定到泸定约 50km，然后上雅康高速（泸定—雅安），隧道为主、全程高速。泸定桥就在大渡河上（门票参考 10 元），如果时间宽裕可以停 40 分钟，赶路就直接过。雅康高速隧道多，雨天注意车距和限速。",
+   "taxi":"雅康高速泸定收费站","address":"四川省甘孜州泸定县 雅康高速泸定收费站","addressNote":"上高速前把油加满，雅康高速服务区间距较远。","badge":"🛣 上高速"},
+  {"time":"13:30","name":"天全服务区","kind":"transport","lat":30.0100,"lng":102.9800,"navName":"天全服务区","navCity":"雅安",
+   "title":"下高原第一站：吃饭 + 换司机","desc":"从天全开始进入成都平原边缘，路况彻底变好，这是下高原后最合适的午饭点，也是换司机的好地方——连续几天高原开车，疲劳是累积的。",
+   "taxi":"天全服务区","address":"四川省雅安市天全县 雅康高速天全服务区","addressNote":"10/5 是国庆后半段的返程高峰，雅安—成都段可能开始排队。","badge":"⛽ 必停"},
+  {"time":"16:30","name":"成都市区","kind":"hotel","lat":30.6700,"lng":104.0700,"navName":"成都市区","navCity":"成都",
+   "title":"到成都（500m），今晚好好睡","desc":"成都海拔只有 500m，10/5 小雨 16~24℃。到了先洗澡睡觉，别急着逛——明天还有 700km。如果到得早又想吃一口，锦里、宽窄巷子、玉林路随便挑一个，火锅建议留到下次，今晚吃串串更稳。",
+   "taxi":"成都市区","address":"四川省成都市（春熙路 / 玉林 / 宽窄巷子一带）","addressNote":"国庆成都住宿要提前订，尽量选带停车场的酒店。","badge":"🏨 住宿"},
+  {"time":"18:30","name":"成都晚餐","kind":"food","lat":30.6700,"lng":104.0700,"navName":"成都市区","navCity":"成都",
+   "title":"成都第一顿：串串或火锅","desc":"开了十几个小时的车，成都第一顿必须是火锅或串串。但别吃太辣太撑，明天 700km 高速，肠胃不配合会非常难受。",
+   "taxi":"成都市区","address":"四川省成都市","addressNote":"两个人点一锅串串加几个菜就够，人均 60~100 元。","badge":"🍲 晚饭"}
+ ],
+ "mealOptions":[
+  {"title":"康定 · 牦牛汤锅","level":"当地特色","price":"¥50–90/人","note":"下高原第一顿热的，牦牛汤锅最合适，康定城里到处都有。"},
+  {"title":"康定 · 康定凉粉","level":"本地小吃","price":"¥10–20/人","note":"当地小吃，早上也有得吃，酸辣爽口，赶路前垫一口刚好。"},
+  {"title":"天全服务区 · 快餐","level":"赶路","price":"¥30–50/人","note":"下高原后的标准补给点，图快点面或盖饭。"},
+  {"title":"成都 · 串串香","level":"成都特色","price":"¥60–100/人","note":"比正式火锅更快更省事，两个人点一锅加几个菜就够，别喝冰啤酒。"},
+  {"title":"成都 · 老妈蹄花 / 甜水面","level":"宵夜","price":"¥20–40/人","note":"想吃清淡就蹄花汤配甜水面，暖胃好睡，明天一早上高速。"}
+ ]},
+{"date":"10/6 周二","short":"D6","title":"成都 → 西安（700km · 纯返程）","theme":"关键词：06:30 出发、避开秦岭下午、巴中备选","hero":"hero",
+ "route":"成都 06:30 → 京昆高速（G5）→ 绵阳 → 广元 → 汉中 → 西安，约 700km，正常 9~10 小时，国庆按 12 小时预留",
+ "events":[
+  {"time":"06:30","name":"成都 · 京昆高速入口","kind":"transport","lat":30.6700,"lng":104.0700,"navName":"京昆高速成都北入口","navCity":"成都",
+   "title":"06:30 出成都，把广元段留在上午","desc":"10/6 是假期最后一天，成都往北的车流从早上 7 点就开始，绵阳—广元—汉中这段最容易堵成红色。06:30 出发能让你中午前过广元，下午过秦岭时隧道群不至于完全堵死。上车前把油加满、水备足、带上干粮。",
+   "taxi":"京昆高速成都北入口","address":"四川省成都市 京昆高速成都北入口","addressNote":"国庆最后一天返程高峰，务必早出发，不要按「随时能走」安排。","badge":"⏰ 关键出发"},
+  {"time":"10:00","name":"剑门关 / 广元服务区","kind":"transport","lat":32.4360,"lng":105.8430,"navName":"剑门关服务区","navCity":"广元",
+   "title":"第 1 停：广元之前加油","desc":"成都到广元约 300km、3.5 小时。剑门关服务区是这条线上最舒服的休息点之一：加满油、吃个早午饭、换司机。从广元开始进入山区高速，服务区间距变长。",
+   "taxi":"剑门关服务区","address":"四川省广元市 京昆高速剑门关服务区","addressNote":"如果此时导航显示广元以北已经大面积红色，考虑改走巴中方向绕行。","badge":"⛽ 必停"},
+  {"time":"13:00","name":"汉中","kind":"food","lat":33.0770,"lng":107.0280,"navName":"汉中服务区","navCity":"汉中",
+   "title":"汉中吃午饭，然后开始翻秦岭","desc":"到汉中约 13:00。汉中到西安 350km，要穿秦岭隧道群，是最后一段、也是最容易堵的一段。吃碗热米皮或面就继续走，别在汉中逛。",
+   "taxi":"汉中服务区","address":"陕西省汉中市 京昆高速汉中服务区","addressNote":"秦岭段隧道群密集，进出隧道减速开灯，保持车距。","badge":"🍜 午饭"},
+  {"time":"17:00","name":"西安","kind":"transport","lat":34.2610,"lng":108.9422,"navName":"西安","navCity":"西安",
+   "title":"17:00 前后到西安","desc":"顺利的话 17:00~18:00 进西安；如果广元或秦岭段堵得厉害，到西安可能是 20:00 以后。按最坏情况预留时间，今晚别安排事情。",
+   "taxi":"西安","address":"陕西省西安市","addressNote":"10/6 西安小雨 15~26℃，进城高峰在 17:00–19:00。","badge":"🏁 到终点"},
+  {"time":"备选","name":"绕行方案：成都 → 巴中 → 汉中 → 西安","kind":"transport","lat":31.8700,"lng":106.7500,"navName":"巴中市","navCity":"巴中",
+   "title":"堵得厉害时的绕行方案","desc":"如果京昆高速绵阳—广元段已经大面积拥堵，可以在成都走成巴高速（成都→巴中）再转汉中，绕开最堵的一段，多走约 80km 但常常更快。另一个选择是昨晚就住绵阳或广元，10/6 一早出发——如果 10/5 到成都太晚，这是更聪明的做法。",
+   "taxi":"巴中市","address":"四川省巴中市","addressNote":"走巴中方案前先在高德上比一次两种走法的实时时间差，别凭感觉绕。","badge":"🧭 备选路线"}
+ ],
+ "mealOptions":[
+  {"title":"成都 · 甜水面 / 担担面","level":"成都特色","price":"¥10–20/人","note":"06:30 出发可能来不及吃；前一晚在超市买好面包牛奶更稳。"},
+  {"title":"剑门关服务区 · 剑门豆腐","level":"服务区特色","price":"¥30–60/人","note":"剑门关最有名的是豆腐宴，服务区有简化版，赶时间点个豆腐盖饭。"},
+  {"title":"汉中 · 热米皮 + 菜豆腐","level":"本地小吃","price":"¥10–20/人","note":"回程再吃一次，酸辣爽口，吃完好开秦岭。"},
+  {"title":"车上 · 干粮 + 热水","level":"应急","price":"¥30–50/人","note":"国庆返程堵在路上是常态，备足水和能直接吃的东西，比在服务区排队强。"}
+ ]}
+];
+
+DEFAULT_TRIP.navList=[
+ {"taxi":"京昆高速（西安南收费站）","used":"D1 03:00 出发","address":"陕西省西安市长安区 京昆高速西安南入口","note":"导航终点直接设「映秀镇」，中途按服务区节点停。"},
+ {"taxi":"宁陕服务区","used":"D1 第 1 停（06:00）","address":"陕西省安康市宁陕县 西汉高速宁陕段","note":"加油、换司机、吃早饭；之后秦岭段还有 150km。"},
+ {"taxi":"汉中市","used":"D1 早饭 + 午饭 + 休整","address":"陕西省汉中市汉台区","note":"古汉台、拜将台、兴汉新区都在城里；热米皮一定要吃。"},
+ {"taxi":"绵阳服务区","used":"D1 第 2 停（15:00）","address":"四川省绵阳市 京昆高速绵阳段","note":"之后车流变大，油和水在这里补足。"},
+ {"taxi":"都江堰市","used":"D1 最后补给（17:30）","address":"四川省成都市都江堰市","note":"进岷江峡谷前最后的超市 / 药店 / 氧气瓶补给点。"},
+ {"taxi":"映秀镇","used":"D1 住宿","address":"四川省阿坝州汶川县映秀镇","note":"海拔 900m，不会高反；订不到就住水磨古镇。"},
+ {"taxi":"映秀震中遗址","used":"D2 08:00 参观","address":"四川省阿坝州汶川县映秀镇 漩口中学遗址","note":"遗址免票；纪念馆一般 09:00–17:00，有闭馆日和限流，提前确认。"},
+ {"taxi":"卧龙中华大熊猫苑","used":"D2 可选顺路","address":"四川省阿坝州汶川县卧龙镇","note":"G350 沿线路过，时间紧就直接过。"},
+ {"taxi":"猫鼻梁观景台","used":"D2 11:00 关键机位","address":"四川省阿坝州小金县 巴朗山隧道下方 猫鼻梁","note":"免费路边观景台，约 3200m，看四姑娘山全景最好的位置。"},
+ {"taxi":"四姑娘山双桥沟景区","used":"D2 11:30–16:00","address":"四川省阿坝州小金县四姑娘山镇 双桥沟","note":"必须实名预约；旺季 150 元/人（门票 80 + 观光车 70）。"},
+ {"taxi":"小金县（美兴镇）","used":"D2 16:30 途经","address":"四川省阿坝州小金县美兴镇","note":"出沟南下丹巴的必经县城，可以加油、买水果。"},
+ {"taxi":"中路藏寨","used":"D2 18:30 日落机位","address":"四川省甘孜州丹巴县中路乡","note":"山路窄、会车难；部分观景台收 20~30 元停车费。"},
+ {"taxi":"丹巴县城（章谷镇）","used":"D2 住宿","address":"四川省甘孜州丹巴县章谷镇","note":"1900m，全线最舒服的一晚；晚上必须加满油。"},
+ {"taxi":"党岭村","used":"D3 住宿（3300m）","address":"四川省甘孜州丹巴县边耳乡党岭村","note":"丹巴出发 68km 碎石路约 3 小时；住宿有限，务必提前订。"},
+ {"taxi":"甲玉拉措","used":"D3–D4 徒步（看天）","address":"四川省甘孜州丹巴县党岭 甲玉拉措（甲依拉措）","note":"单程约 4.5km，徒步 2~3 小时；可坐摩托或骑马，往返参考 160~300 元/人。"},
+ {"taxi":"党岭温泉","used":"D3 下午（雨雪备选）","address":"四川省甘孜州丹巴县党岭沟 温泉","note":"野泉，没有更衣室，自带毛巾拖鞋；3300m 泡 20 分钟就够。"},
+ {"taxi":"八丹路（丹巴到八美）","used":"D4 上午 · 先查路况","address":"四川省甘孜州 丹巴县—道孚县八美镇 国道 248","note":"这段路历史上多次大修和管制，出发前打电话确认能不能过。"},
+ {"taxi":"墨石公园","used":"D4 12:00","address":"四川省甘孜州道孚县八美镇中古村 墨石公园","note":"门票 60 元 + 观光车 20 元；3500m，栈道 1.5~2 小时。"},
+ {"taxi":"塔公寺","used":"D4 14:00","address":"四川省甘孜州康定市塔公镇 塔公寺","note":"门票参考 20 元；背后是雅拉雪山，雪天多半看不到。"},
+ {"taxi":"新都桥镇","used":"D4 16:00 途经","address":"四川省甘孜州康定市新都桥镇","note":"十里画廊沿 318；10/4 雨夹雪，当路过点处理。"},
+ {"taxi":"甲根坝乡","used":"D4 住宿（备选：康定）","address":"四川省甘孜州康定市甲根坝乡","note":"看贡嘎的好位置，但民宿少、海拔 3300m；天气差就改住康定。"},
+ {"taxi":"折多山垭口","used":"D5 07:00 通过（4298m）","address":"四川省甘孜州康定市 折多山垭口（318）","note":"全程最高点；雪天必带防滑链，遇管制就在康定等放行。"},
+ {"taxi":"康定市（炉城镇）","used":"D5 09:30 缓冲 / 备选住","address":"四川省甘孜州康定市炉城镇","note":"2560m，下高原后第一个大城市，超市药店齐全。"},
+ {"taxi":"雅康高速泸定收费站","used":"D5 11:00 上高速","address":"四川省甘孜州泸定县 雅康高速泸定收费站","note":"上高速后一路隧道到雅安；泸定桥离收费站不远。"},
+ {"taxi":"天全服务区","used":"D5 13:30 午饭换人","address":"四川省雅安市天全县 雅康高速天全服务区","note":"下高原第一站，吃饭 + 换司机最合适。"},
+ {"taxi":"成都市区","used":"D5 住宿","address":"四川省成都市（春熙路 / 玉林 / 宽窄巷子）","note":"500m，找带停车场的酒店；国庆成都住宿提前订。"},
+ {"taxi":"京昆高速成都北入口","used":"D6 06:30 返程","address":"四川省成都市 京昆高速成都北入口","note":"回西安 700km，按 12 小时预留。"},
+ {"taxi":"剑门关服务区","used":"D6 10:00 必停","address":"四川省广元市 京昆高速剑门关服务区","note":"广元前最舒服的休息点，加满油。"},
+ {"taxi":"汉中服务区","used":"D6 13:00 午饭","address":"陕西省汉中市 京昆高速汉中服务区","note":"吃完开始翻秦岭隧道群，别久留。"},
+ {"taxi":"巴中市","used":"D6 备选绕行","address":"四川省巴中市","note":"成都→巴中→汉中→西安，绕开绵阳—广元最堵段。"},
+ {"taxi":"西安","used":"D6 17:00 到终点","address":"陕西省西安市","note":"如果广元或秦岭堵，做好 20:00 后到的准备。"}
+];
+DEFAULT_TRIP.foodPool=[
+ {"name":"汉中热米皮 + 菜豆腐","price":"¥10–20","area":"汉中服务区 / 汉中城区","type":"本地小吃","fit":"D1 / D6","status":"陕西段招牌","note":"米皮配辣子油，再来一碗菜豆腐。早饭或午饭都合适，赶路吃很快。"},
+ {"name":"汉中粉皮子 / 汉中小面","price":"¥10–20","area":"汉中","type":"本地小吃","fit":"D1","status":"清淡一点","note":"汉中的另一套早餐，比米皮清爽，中午出发前垫一口刚好。"},
+ {"name":"广元蒸凉面","price":"¥10–20","area":"广元","type":"本地小吃","fit":"D1 / D6","status":"便宜快","note":"米做的凉面，酸辣口，下高速吃一碗再走。"},
+ {"name":"绵阳米粉","price":"¥10–20","area":"绵阳 / 德阳","type":"粉面","fit":"D1","status":"四川早饭","note":"四川段最稳的一碗粉，红汤清汤都行，出餐快。"},
+ {"name":"映秀 / 水磨古镇 老腊肉","price":"¥50–90","area":"汶川县水磨古镇","type":"川西家常","fit":"D1","status":"到映秀第一顿","note":"腊肉炒笋、豆花、土鸡汤；水磨古镇禅寿老街选择更多。"},
+ {"name":"日隆镇 牦牛肉面","price":"¥30–60","area":"四姑娘山镇","type":"面食","fit":"D2","status":"进沟前最快","note":"景区门口餐馆集中，进双桥沟前吃一碗热汤最省时间。"},
+ {"name":"四姑娘山 酥油茶 + 青稞饼","price":"¥15–30","area":"四姑娘山镇","type":"藏餐","fit":"D2","status":"顶饿","note":"3200m 喝一碗热的，青稞饼可以带进沟里当干粮。"},
+ {"name":"双桥沟 景区简餐","price":"¥40–80","area":"双桥沟内","type":"景区餐","fit":"D2","status":"贵且少","note":"沟里只有零星简餐点，排队久，建议前一晚就备好干粮。"},
+ {"name":"丹巴 酸菜面块","price":"¥20–40","area":"丹巴县城","type":"嘉绒家常","fit":"D2","status":"丹巴特色","note":"酸菜 + 面块 + 腊肉，晚上吃很舒服，主街到处都有。"},
+ {"name":"丹巴 老腊肉 / 香猪腿","price":"¥50–90","area":"丹巴县城","type":"藏餐","fit":"D2","status":"招牌菜","note":"丹巴最有代表性的两样，两个人点小份就够。"},
+ {"name":"丹巴 酥油茶 / 糌粑","price":"¥15–30","area":"丹巴 / 党岭","type":"藏餐","fit":"D2 / D3","status":"高原早餐","note":"抗饿、暖身，3000m 以上的早饭比粥管用。"},
+ {"name":"党岭 藏家饭（土豆炖牦牛肉）","price":"¥40–80","area":"党岭村","type":"藏餐","fit":"D3","status":"村里唯一选择","note":"一般跟住宿一起定，提前说好几点开饭，村里没有外卖。"},
+ {"name":"自热米饭 / 泡面","price":"¥20–40","area":"党岭 / 进山","type":"应急","fit":"D3 / D4","status":"必备","note":"村里小卖部少且贵，干粮在丹巴县城买好带上。"},
+ {"name":"八美镇 川菜馆","price":"¥40–70","area":"道孚八美","type":"路上正餐","fit":"D4","status":"午饭首选","note":"墨石公园前后吃午饭最顺，出餐快、有热汤。"},
+ {"name":"塔公 牦牛肉包子","price":"¥20–50","area":"康定塔公","type":"藏餐","fit":"D4","status":"冷天顶饿","note":"配酥油茶最合适；雪大就打包带走，别在草原上久留。"},
+ {"name":"新都桥 汤锅","price":"¥50–90","area":"康定新都桥","type":"汤锅","fit":"D4","status":"路过点","note":"镇上汤锅和川菜都有；决定住康定就别在这里耽误时间。"},
+ {"name":"康定 牦牛汤锅","price":"¥50–90","area":"康定","type":"当地特色","fit":"D5","status":"下高原第一顿","note":"从 4298m 下来最需要的一锅热的，康定城里到处都是。"},
+ {"name":"康定凉粉","price":"¥10–20","area":"康定","type":"本地小吃","fit":"D5","status":"当地小吃","note":"酸辣爽口，早上也有得吃，赶路前垫一口刚好。"},
+ {"name":"成都 串串香","price":"¥60–100","area":"成都","type":"成都特色","fit":"D5","status":"到成都必吃","note":"比正式火锅快，两个人一锅加几个菜就够，别喝冰啤酒。"},
+ {"name":"成都 老妈蹄花","price":"¥20–40","area":"成都","type":"宵夜","fit":"D5","status":"清淡暖胃","note":"蹄花汤配甜水面，跑完长途睡得香。"},
+ {"name":"剑门豆腐","price":"¥30–60","area":"剑门关服务区","type":"服务区特色","fit":"D6","status":"回程特色","note":"剑门关的招牌，服务区有简化版，赶时间点个豆腐盖饭。"}
+];
+DEFAULT_TRIP.photoSpots=[
+ {"spot":"映秀 · 漩口中学遗址","best":"08:00–09:00（人少）","how":"遗址拍照要克制，别摆拍、别大笑；纪念馆内多数区域不能拍照，看清标识","status":"已排入 D2 08:00"},
+ {"spot":"猫鼻梁观景台","best":"上午 10:00–12:00","how":"四姑娘山四峰全景，24–70 就够；云低时等 10–20 分钟，别在弯道停车","status":"已排入 D2 11:00（关键机位）"},
+ {"spot":"双桥沟 · 红杉林","best":"11:30–13:00","how":"观光车终点 3840m，雪山近景用中长焦；中午云薄时最容易见山","status":"已排入 D2 中午"},
+ {"spot":"双桥沟 · 盆景滩 / 珍珠滩","best":"15:00 前后回程时","how":"沿木栈道走，低机位拍沙棘和溪流；栈道湿滑别翻栏杆","status":"已排入 D2 下午"},
+ {"spot":"中路藏寨观景台","best":"18:00–19:00（日落约 19:00）","how":"横向铺开的藏房 + 碉楼，用长焦压缩层次；山高日落早，18:30 到就够","status":"已排入 D2 18:30"},
+ {"spot":"甲玉拉措","best":"10:00–14:00（看天）","how":"海子顺光才出蓝；4000m 风大，三脚架压住；雨雪天别上","status":"D3 看天决定"},
+ {"spot":"党岭 · 葫芦海","best":"一整天，越早越好","how":"往返 14km、爬升 800m；湖面日出前最美，体力一般就别挑战","status":"备选（10/3 雨太大不建议）"},
+ {"spot":"墨石公园","best":"12:00–14:00","how":"阴天石头最黑最出片，广角低机位压出石林；栈道结冰扶好栏杆","status":"已排入 D4 12:00"},
+ {"spot":"塔公草原 + 雅拉雪山","best":"14:00–16:00","how":"草原 + 金顶寺庙 + 雪山三重构图；雪天能见度差就直接跳过","status":"已排入 D4 14:00（看天）"},
+ {"spot":"新都桥 · 十里画廊","best":"清晨或傍晚侧光","how":"杨树、溪流、藏房做前景，远处是贡嘎方向；10/4 雨夹雪大概率拍不到","status":"D4 路过，D5 早上可补"},
+ {"spot":"甲根坝 · 贡嘎方向","best":"日出","how":"能见度好时可以在谷地拍贡嘎日照金山；雨雪天不成立","status":"D4 住宿点（视天气）"},
+ {"spot":"折多山垭口","best":"07:00–09:00","how":"雪后云海很震撼，但垭口风大、体感 -5℃；车停观景台，别在弯道下车","status":"已排入 D5 07:00（高危）"},
+ {"spot":"折多山盘山公路","best":"下坡途中","how":"雪后盘山公路最出片；让副驾拍，别边开车边拍","status":"已排入 D5 上午"},
+ {"spot":"泸定 · 大渡河与泸定桥","best":"11:00 前后","how":"桥头或桥上拍大渡河峡谷；门票参考 10 元，赶路就路拍一张","status":"D5 备选（时间够才停）"}
+];
+const IMAGES={"hero":"assets/hero.jpg","peak":"assets/peak.jpg","valley":"assets/valley.jpg","cloud":"assets/cloud.jpg"};
+function lsGet(k){try{return localStorage.getItem(k)}catch(e){return null}}
+function lsSet(k,v){try{localStorage.setItem(k,v)}catch(e){}}
+function lsDel(k){try{localStorage.removeItem(k)}catch(e){}}
+let trip=JSON.parse(lsGet("chuanxi_loop_v1")||"null")||JSON.parse(JSON.stringify(DEFAULT_TRIP));
+let selectedDay=0,map=null,layerGroup=null,routeLine=null,mapReady=false;
+
+function esc(s){return String(s==null?"":s).replace(/[&<>"]/g,m=>({"&":"&amp;","<":"&lt;",">":"&gt;",'"':"&quot;"}[m]))}
+function amap(e){
+ const kw=e.navName||e.taxi||e.name||"";
+ const city=e.navCity||"";
+ let u="https://uri.amap.com/search?keyword="+encodeURIComponent(kw)+"&callnative=1";
+ if(city)u+="&city="+encodeURIComponent(city);
+ return u;
+}
+function xhs(e){return "https://www.xiaohongshu.com/search_result?keyword="+encodeURIComponent((e.navName||e.name||"")+" 川西")}
+function showToast(t){const el=document.getElementById("toast");el.textContent=t||"已复制";el.classList.add("show");setTimeout(()=>el.classList.remove("show"),1300)}
+function copyText(t){if(navigator.clipboard){navigator.clipboard.writeText(t).then(()=>showToast("已复制")).catch(()=>fallbackCopy(t))}else fallbackCopy(t)}
+function fallbackCopy(t){const ta=document.createElement("textarea");ta.value=t;document.body.appendChild(ta);ta.select();document.execCommand("copy");ta.remove();showToast("已复制")}
+
+function renderHome(){
+ const m=trip.meta;
+ const tips=(trip.mobileTips||[]).map(x=>`<li>${esc(x)}</li>`).join("");
+ const hl=(trip.weatherHighlights||[]).map(x=>`<li>${esc(x)}</li>`).join("");
+ const rain=(trip.rainPlans||[]).map(x=>`<div class="card rain"><h3>🌧 ${esc(x.title)}</h3><div class="sub">${esc(x.plan)}</div></div>`).join("");
+ document.getElementById("home").innerHTML=`
+   <div class="card"><h2>${esc(m.title)}</h2><div class="sub">${esc(m.dates)}｜${esc(m.people)}</div>
+    <div class="meta">
+      <div class="box"><b>去程</b><span>${esc(m.outbound)}</span></div>
+      <div class="box"><b>返程</b><span>${esc(m.back)}</span></div>
+      <div class="box"><b>住宿</b><span>${esc(m.hotels)}</span></div>
+      <div class="box"><b>海拔</b><span>${esc(m.highpoint)}</span></div>
+    </div>
+   </div>
+   <div class="card notice"><h3>这版怎么用</h3><div class="sub">${esc(m.summary)}</div></div>
+   <div class="card warncard"><h3>先记住几条天气结论</h3><ul class="list">${hl}</ul>
+     <div class="actionrow" style="grid-template-columns:1fr 1fr">
+       <button class="go" onclick="switchMain('weather')">看天气看板</button>
+       <button class="copy" onclick="switchMain('days')">看每日行程</button>
+     </div>
+   </div>
+   <div class="card"><h3>出发前每天必做的 3 件事</h3>
+     <div class="checkgrid">${(trip.weather&&trip.weather.todo||[]).map(x=>`<div class="c"><b>${esc(x.t)}</b>${esc(x.d)}</div>`).join("")}</div>
+   </div>
+   <div class="card"><h3>现场最有用的提醒</h3><ul class="list">${tips}</ul></div>
+   ${rain}
+ `;
+}
+
+function cellClass(t){
+ if(/中雨|大雨|暴雨/.test(t))return "heavy";
+ if(/小雨|雷阵雨/.test(t))return "wet";
+ return "";
+}
+function renderWeather(){
+ const w=trip.weather||{};
+ const cities=(w.rows||[]).map(r=>`<tr><td class="city">${esc(r.city)}<br><span style="font-weight:400;color:#8b96a8;font-size:10px">${esc(r.alt)}</span></td>
+   ${(r.days||[]).map(d=>`<td class="${cellClass(d)}">${esc(d)}</td>`).join("")}</tr>`).join("");
+ const derived=(w.derived||[]).map(x=>`<tr><td><b>${esc(x.spot)}</b></td><td>${esc(x.alt)}</td><td><b>${esc(x.temp)}</b></td><td>${esc(x.when)}</td><td>${esc(x.memo)}</td></tr>`).join("");
+ const rules=(w.rules||[]).map(x=>`<div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">${esc(x.title)}</b><div class="sub" style="margin-top:4px">${esc(x.body)}</div></div>`).join("");
+ document.getElementById("weather").innerHTML=`
+  <div class="card"><h2>🌦 天气看板</h2>
+    <div class="sub">${esc(w.captured||"")}</div>
+    <div class="wtable"><table style="width:100%"><thead><tr><th style="min-width:78px">城市 / 海拔</th>${(w.dates||[]).map(d=>`<th>${esc(d)}</th>`).join("")}</tr></thead><tbody>${cities}</tbody></table></div>
+    <div class="legend">深蓝底 = 中雨及以上，浅蓝底 = 小雨。城市预报是县城气温，山口要按海拔换算，见下面第二张表。</div>
+    <div class="sub" style="margin-top:10px">${esc(w.note||"")}</div>
+  </div>
+  <div class="card"><h3>📐 山口体感折算（海拔每升 1000m 降约 6℃）</h3>
+    <table class="table tight"><thead><tr><th>地点</th><th>海拔</th><th>折算气温</th><th>通过时间</th><th>说明</th></tr></thead><tbody>${derived}</tbody></table>
+    <div class="legend">第二张表里的折多山垭口 4298m 是全程最高点，雪天必须上午通过。</div>
+  </div>
+  <div class="card"><h3>📌 川西高原 10 月天气规律</h3>${rules}</div>
+  <div class="card notice"><h3>出发前每天必做的 3 件事</h3>
+    <div class="checkgrid">${(w.todo||[]).map(x=>`<div class="c"><b>${esc(x.t)}</b>${esc(x.d)}</div>`).join("")}</div>
+    <div class="sub" style="margin-top:10px">查询建议：天气类 App 搜「四姑娘山」「丹巴」「道孚八美」「康定」；路况看甘孜州交警、阿坝州交警的官方账号；景区是否开放看景区公众号。</div>
+  </div>`;
+}function badgeClass(b){
+ if(!b)return "";
+ if(/高危|关键|必须|易堵/.test(b))return "badge hot";
+ if(/看天|备选|可选|易/.test(b))return "badge warn";
+ return "badge";
+}
+function eventHTML(e){
+ const pic=e.photoKey&&IMAGES[e.photoKey]?`<img class="eventimg" src="${IMAGES[e.photoKey]}" onerror="this.style.display='none'">`:"";
+ const badge=e.badge||"📍 顺路";
+ return `<div class="event ${esc(e.kind||"spot")}"><span class="dot"></span><div class="ec">${pic}<div class="ebody">
+   <div class="etime">${esc(e.time)}</div><div class="etitle">${esc(e.title)}</div><div class="ename">${esc(e.name)}</div>
+   <span class="${badgeClass(badge)}">${esc(badge)}</span>
+   <div class="edesc">${esc(e.desc)}</div>
+   <div class="addr"><b>🧭 导航搜：</b>${esc(e.navName||e.taxi||e.name)}<br><b>📍 位置：</b>${esc(e.address||"直接搜地点名称")}<br><span>${esc(e.addressNote||"")}</span></div>
+   <div class="actionrow">
+     <a class="go" href="${amap(e)}" target="_blank">高德导航</a>
+     <button class="copy" onclick="copyText(${JSON.stringify(e.navName||e.address||e.name)})">复制地点</button>
+     <a class="xhs" href="${xhs(e)}" target="_blank">小红书搜</a>
+   </div>
+ </div></div></div>`;
+}
+function renderDay(){
+ const d=trip.days[selectedDay];
+ if(!d){document.getElementById("days").innerHTML="";return}
+ const hero=d.hero&&IMAGES[d.hero]?`<img class="heroimg" src="${IMAGES[d.hero]}" onerror="this.style.display='none'">`:"";
+ const meals=(d.mealOptions||[]).length?`<div class="card"><h3>🍜 吃饭备选｜按预算和体力挑一个</h3><div class="sub">不是任务清单，现场从里面选一个即可。</div>${d.mealOptions.map(x=>`<div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14px">${esc(x.title)}</b><span class="badge">${esc(x.level)} · ${esc(x.price)}</span></div><div class="sub" style="margin-top:5px">${esc(x.note)}</div></div>`).join("")}</div>`:"";
+ document.getElementById("days").innerHTML=`
+   <div class="card"><h2>${esc(d.date)}｜${esc(d.title)}</h2><div class="sub">${esc(d.theme||"")}</div><div class="route"><b>当天主线</b><br>${esc(d.route)}</div>${hero}</div>
+   <div class="timeline">${(d.events||[]).map(e=>eventHTML(e)).join("")}</div>${meals}`;
+}
+function renderDayStrip(){
+ document.getElementById("daystrip").innerHTML=trip.days.map((d,i)=>`<button class="chip ${i===selectedDay?"active":""}" onclick="selectDay(${i})">${esc(d.short)} ${esc(d.date)}</button>`).join("");
+}
+function selectDay(i){
+ selectedDay=i;renderDayStrip();renderDay();renderMapBar();
+ if(document.getElementById("days").classList.contains("active"))window.scrollTo({top:245,behavior:"smooth"});
+ if(document.getElementById("mapView").classList.contains("active"))drawDayMap(i);
+}
+function gotoToday(){switchMain("days");selectDay(0)}
+
+function renderNav(){
+ const rows=(trip.navList||[]).map(x=>`<tr><td><b>${esc(x.taxi)}</b><br><span style="color:#8b96a8">${esc(x.used)}</span></td><td>${esc(x.address)}<br><span style="color:#8b96a8">${esc(x.note)}</span></td><td><button class="bigcopy" onclick="copyText(${JSON.stringify(x.taxi)})">复制</button></td></tr>`).join("");
+ document.getElementById("nav").innerHTML=`<div class="card"><h2>🚗 全部导航点</h2><div class="sub">自驾全程的地点清单，按天数排列。优先复制「导航搜」里的名称，直接粘到高德搜索框最稳。</div><table class="table"><thead><tr><th>导航搜</th><th>位置 / 说明</th><th></th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+function foodSearchUrl(name){return "https://uri.amap.com/search?keyword="+encodeURIComponent(name)+"&callnative=1"}
+function renderFood(filter){
+ filter=filter||"全部";
+ const all=trip.foodPool||[];
+ const groups=["全部","D1","D2","D3","D4","D5","藏餐","川菜","小吃","汤锅","伴手礼","应急"];
+ const match=(x)=>{
+   if(filter==="全部")return true;
+   if(/^D\d$/.test(filter))return (x.fit||"").includes(filter);
+   return (x.type||"").includes(filter)||(x.status||"").includes(filter)||(x.fit||"").includes(filter);
+ };
+ const items=all.filter(match);
+ document.getElementById("food").innerHTML=`
+   <div class="card">
+     <h2>🍜 完整美食池</h2>
+     <div class="sub">先全部留着。看「大概区域」和「第几天」，到现场再按当天路线、排队和体力决定。价格都是人均参考。</div>
+     <div class="foodFilters">${groups.map(g=>`<button class="${g===filter?"active":""}" onclick="renderFood(${JSON.stringify(g)})">${esc(g)}</button>`).join("")}</div>
+     <div>${items.map(x=>`<div class="foodItem">
+       <div class="foodTop"><div class="foodName">${esc(x.name)}</div><div class="foodPrice">${esc(x.price)}</div></div>
+       <div class="foodMeta">📍 ${esc(x.area)} · 🍽 ${esc(x.type)}<br>🗓 ${esc(x.fit)} · ${esc(x.status)}</div>
+       <div class="foodNote">${esc(x.note)}</div>
+       <div class="foodActions">
+         <a target="_blank" href="${foodSearchUrl(x.name)}">高德搜店</a>
+         <a target="_blank" href="https://www.xiaohongshu.com/search_result?keyword=${encodeURIComponent(x.name)}">小红书搜</a>
+       </div>
+     </div>`).join("")||'<div class="sub">这个筛选下没有条目。</div>'}</div>
+   </div>`;
+}
+
+function renderPhotos(){
+ const rows=(trip.photoSpots||[]).map(x=>`<tr><td><b>${esc(x.spot)}</b></td><td>${esc(x.best)}</td><td>${esc(x.how)}</td><td>${esc(x.status)}</td></tr>`).join("");
+ document.getElementById("photos").innerHTML=`<div class="card"><h2>📸 拍照机位库</h2><div class="sub">不是每个都必须去。优先看「已排入路线」的机位；川西一线 10 月多云雨雪，机位成败几乎全看早上那两小时。</div><table class="table"><thead><tr><th>机位</th><th>最佳时间</th><th>拍法</th><th>状态</th></tr></thead><tbody>${rows}</tbody></table></div>`;
+}
+
+let leafletPromise=null;
+function loadLeaflet(){
+ if(window.L)return Promise.resolve(true);
+ if(leafletPromise)return leafletPromise;
+ const sources=[
+  ["https://unpkg.com/leaflet@1.9.4/dist/leaflet.css","https://unpkg.com/leaflet@1.9.4/dist/leaflet.js"],
+  ["https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.css","https://cdn.jsdelivr.net/npm/leaflet@1.9.4/dist/leaflet.js"],
+  ["https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.css","https://cdnjs.cloudflare.com/ajax/libs/leaflet/1.9.4/leaflet.js"]
+ ];
+ leafletPromise=new Promise(resolve=>{
+  let i=0;
+  const tryNext=()=>{
+   if(window.L){resolve(true);return}
+   if(i>=sources.length){resolve(false);return}
+   const pair=sources[i++];
+   const link=document.createElement("link");link.rel="stylesheet";link.href=pair[0];document.head.appendChild(link);
+   const sc=document.createElement("script");sc.src=pair[1];
+   sc.onload=()=>resolve(true);
+   sc.onerror=()=>tryNext();
+   document.head.appendChild(sc);
+  };
+  tryNext();
+ });
+ return leafletPromise;
+}
+function mapFallback(){
+ const el=document.getElementById("map");
+ if(el)el.innerHTML='<div style="padding:18px;font-size:13px;line-height:1.75;color:#526078">当前没网（或地图组件加载不了），下面给你当天的路线顺序，离线也能用。</div>';
+}
+async function initMap(){
+ if(mapReady)return true;
+ const ok=await loadLeaflet();
+ if(!ok){mapFallback();return false}
+ map=L.map("map",{zoomControl:true}).setView([30.4,102.0],7);
+ L.tileLayer("https://{s}.tile.openstreetmap.org/{z}/{x}/{y}.png",{maxZoom:18,attribution:"© OpenStreetMap"}).addTo(map);
+ layerGroup=L.layerGroup().addTo(map);mapReady=true;return true;
+}
+function addMarker(e){
+ if(!Number.isFinite(e.lat))return;
+ const isKey=/高危|关键/.test(e.badge||"");
+ const icon=L.divIcon({className:"",html:`<div style="width:14px;height:14px;border-radius:50%;background:${isKey?"#e05361":"#1a6ee0"};border:3px solid #fff;box-shadow:0 1px 6px rgba(0,0,0,.35)"></div>`,iconSize:[14,14],iconAnchor:[7,7]});
+ marker=L.marker([e.lat,e.lng],{icon}).bindPopup(`<b>${esc(e.time)} ${esc(e.name)}</b><br>${esc(e.title)}<br>${esc(e.address||"")}`).addTo(layerGroup);
+}
+function renderOfflineRoute(i){
+ const box=document.getElementById("offlineRoute");
+ if(!box)return;
+ if(i<0){box.innerHTML="";return}
+ const d=trip.days&&trip.days[i];
+ if(!d){box.innerHTML="";return}
+ const items=(d.events||[]).filter(e=>e.lat).map((e,n)=>`<div style="display:flex;gap:10px;padding:10px 0;border-bottom:1px solid var(--line)"><div style="min-width:20px;font-weight:800;color:#1a6ee0;font-size:12.5px;padding-top:2px">${n+1}</div><div><div style="font-size:13.5px;font-weight:750">${esc(e.navName||e.name)}</div><div class="sub" style="margin-top:2px">${esc(e.time)} · ${esc(e.name)}</div></div></div>`).join("");
+ box.innerHTML=`<div class="card"><h3>\uD83E\uDDED 离线路线顺序（${esc(d.short)} ${esc(d.date)}）</h3><div class="sub">没信号时按这个顺序走；地名可以在「导航」页一键复制。</div><div style="margin-top:6px">${items}</div></div>`;
+}
+function drawDayMap(i){
+ if(!trip.days||!trip.days[i])return;
+ if(!map){(async()=>{const ok=await initMap();if(ok){renderOfflineRoute(-1);drawDayMap(i)}else{renderOfflineRoute(i)}})();return}
+ layerGroup.clearLayers();if(routeLine){map.removeLayer(routeLine);routeLine=null}
+ const pts=[];
+ (trip.days[i].events||[]).forEach(e=>{if(Number.isFinite(e.lat)){addMarker(e);pts.push([e.lat,e.lng])}});
+ if(pts.length>1)routeLine=L.polyline(pts,{color:"#1a6ee0",weight:4,opacity:.6,dashArray:"8 8"}).addTo(map);
+ if(pts.length)map.fitBounds(L.latLngBounds(pts).pad(.17));
+ setTimeout(()=>{if(map)map.invalidateSize()},120);
+}
+function renderMapBar(){
+ const bar=document.getElementById("mapbar");
+ if(!bar)return;
+ bar.innerHTML=trip.days.map((d,i)=>`<button class="${i===selectedDay?"active":""}" onclick="selectedDay=${i};renderDayStrip();renderDay();renderMapBar();drawDayMap(${i})">${esc(d.short)} ${esc(d.date)}</button>`).join("");
+}
+
+function switchMain(name){
+ const id=name==="map"?"mapView":name;
+ document.querySelectorAll(".view").forEach(v=>v.classList.toggle("active",v.id===id));
+ document.querySelectorAll(".bottom button").forEach(b=>b.classList.toggle("active",b.dataset.main===name));
+ document.getElementById("daystrip").style.display=(name==="days"||name==="map")?"flex":"none";
+ if(name==="days")renderDay();
+ if(name==="weather")renderWeather();
+ if(name==="map"){renderMapBar();drawDayMap(selectedDay)}
+ if(name==="nav")renderNav();
+ if(name==="food")renderFood("全部");
+ if(name==="photos")renderPhotos();
+ if(name==="tickets")renderTickets();
+ window.scrollTo({top:name==="home"?0:245,behavior:"smooth"});
+}
+function openEditor(){document.getElementById("editorText").value=JSON.stringify(trip,null,2);document.getElementById("editbox").classList.add("show")}
+function closeEditor(){document.getElementById("editbox").classList.remove("show")}
+function saveEditor(){try{trip=JSON.parse(document.getElementById("editorText").value);lsSet("chuanxi_loop_v1",JSON.stringify(trip));renderAll();closeEditor();showToast("已保存")}catch(e){showToast("JSON 格式错误")}}
+function resetTrip(){if(confirm("恢复默认行程？")){lsDel("chuanxi_loop_v1");trip=JSON.parse(JSON.stringify(DEFAULT_TRIP));renderAll();closeEditor();showToast("已恢复默认")}}
+function renderTickets(){
+ const t=trip.tickets||{};
+ const rows=(t.rows||[]).map(x=>`<tr><td><b>${esc(x.spot)}</b><br><span style="color:#8b96a8">${esc(x.price)}</span></td><td>${esc(x.need)}<br><span style="color:#8b96a8">${esc(x.channel)}</span></td><td>${esc(x.when)}</td><td>${esc(x.memo)}</td></tr>`).join("");
+ const extra=(t.extra||[]).map(x=>`<li>${esc(x)}</li>`).join("");
+ document.getElementById("tickets").innerHTML=`
+  <div class="card warncard"><h2>🎫 门票预约清单</h2><div class="sub">${esc(t.note||"")}</div></div>
+  <div class="card"><h3>哪些要预约、提前多久</h3>
+   <table class="table"><thead><tr><th>景区</th><th>要不要预约</th><th>提前多久</th><th>备注</th></tr></thead><tbody>${rows}</tbody></table>
+   <div class="legend">门票和索道价格会调整，以景区官方渠道当日公示为准。</div>
+  </div>
+  <div class="card"><h3>除了门票，这些也要提前定</h3><ul class="list">${extra}</ul></div>
+ `;
+}
+function renderAll(){renderHome();renderDayStrip();renderDay();renderWeather();renderFood("全部");renderNav();renderPhotos();renderTickets();renderMapBar()}
+renderAll();
+document.getElementById("daystrip").style.display="none";
+</script>
+</body>
+</html>

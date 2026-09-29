@@ -80,8 +80,8 @@ main{max-width:760px;margin:auto;padding:12px 12px 0}
 .mapbar button.active{background:var(--navy);color:#fff;border-color:var(--navy)}
 .mapView{height:66vh;min-height:380px;border-radius:var(--r);overflow:hidden;box-shadow:var(--shadow)}
 #map{height:100%;width:100%}
-.bottom{position:fixed;left:0;right:0;bottom:0;padding:6px 4px calc(6px + var(--safe));background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #e8edf3;z-index:100;display:grid;grid-template-columns:repeat(8,1fr)}
-.bottom button{border:0;background:transparent;color:#7b879a;font-size:9px;font-weight:650;padding:6px 0}
+.bottom{position:fixed;left:0;right:0;bottom:0;padding:6px 4px calc(6px + var(--safe));background:rgba(255,255,255,.97);backdrop-filter:blur(12px);border-top:1px solid #e8edf3;z-index:100;display:grid;grid-template-columns:repeat(9,1fr)}
+.bottom button{border:0;background:transparent;color:#7b879a;font-size:8.5px;font-weight:650;padding:6px 0}
 .bottom button span{display:block;font-size:18px;line-height:1.2;margin-bottom:1px}
 .bottom button.active{color:var(--blue)}
 .toast{position:fixed;left:50%;bottom:95px;transform:translateX(-50%) translateY(20px);background:#12233d;color:#fff;padding:8px 13px;border-radius:999px;font-size:12px;opacity:0;pointer-events:none;transition:.2s;z-index:200}
@@ -125,18 +125,21 @@ main{max-width:760px;margin:auto;padding:12px 12px 0}
 }
 
 
-.tabsrc{position:absolute;left:-9999px;width:1px;height:1px;opacity:0}
+.tabsrc{display:none}
 .pane{display:none}
 .pane .card:first-child{margin-top:0}
 #t-home:checked~main .pane-home,#t-days:checked~main .pane-days,
 #t-weather:checked~main .pane-weather,#t-nav:checked~main .pane-nav,
 #t-food:checked~main .pane-food,#t-photos:checked~main .pane-photos,
-#t-tickets:checked~main .pane-tickets{display:block}
+#t-tickets:checked~main .pane-tickets,
+#t-charging:checked~main .pane-charging{display:block}
 #t-home:checked~nav .l-home,#t-days:checked~nav .l-days,
 #t-weather:checked~nav .l-weather,#t-nav:checked~nav .l-nav,
 #t-food:checked~nav .l-food,#t-photos:checked~nav .l-photos,
-#t-tickets:checked~nav .l-tickets{color:var(--blue)}
-.bottom label{border:0;background:transparent;color:#7b879a;font-size:9px;font-weight:650;padding:6px 0;text-align:center;display:block}
+#t-tickets:checked~nav .l-tickets,
+#t-charging:checked~nav .l-charging{color:var(--blue)}
+.bottom{grid-template-columns:repeat(8,1fr)}
+.bottom label{border:0;background:transparent;color:#7b879a;font-size:8.5px;font-weight:650;padding:6px 0;text-align:center;display:block}
 .bottom label span{display:block;font-size:18px;line-height:1.2;margin-bottom:1px}
 .quick a{display:block;text-align:center;text-decoration:none;border:1px solid rgba(255,255,255,.25);background:rgba(255,255,255,.15);backdrop-filter:blur(9px);color:#fff;border-radius:13px;padding:10px 9px;font-size:12px;font-weight:650}
 a{color:var(--blue)}
@@ -158,7 +161,7 @@ a{color:var(--blue)}
 </style>
 </head>
 <body>
-<input class="tabsrc" type="radio" name="tab" id="t-home" checked><input class="tabsrc" type="radio" name="tab" id="t-days"><input class="tabsrc" type="radio" name="tab" id="t-weather"><input class="tabsrc" type="radio" name="tab" id="t-nav"><input class="tabsrc" type="radio" name="tab" id="t-food"><input class="tabsrc" type="radio" name="tab" id="t-photos"><input class="tabsrc" type="radio" name="tab" id="t-tickets">
+<input class="tabsrc" type="radio" name="tab" id="t-home" checked><input class="tabsrc" type="radio" name="tab" id="t-days"><input class="tabsrc" type="radio" name="tab" id="t-weather"><input class="tabsrc" type="radio" name="tab" id="t-nav"><input class="tabsrc" type="radio" name="tab" id="t-food"><input class="tabsrc" type="radio" name="tab" id="t-photos"><input class="tabsrc" type="radio" name="tab" id="t-tickets"><input class="tabsrc" type="radio" name="tab" id="t-charging">
 <header class="top">
  <div class="topin">
   <div class="kicker">Xi'an → Western Sichuan loop 2026 · 6 days · national day road trip</div>
@@ -170,15 +173,15 @@ a{color:var(--blue)}
 <main>
 <div class="note">📱 <b>这是不需要 JavaScript 的静态版</b>：所有内容都已提前排好，微信 / QQ 里直接点开也能看、能点。下方标签可切换，行程里点日期展开当天。地图需要联网与 JS，这个版本用「导航」页的完整点位表代替。</div>
 <div class="pane pane-home">
-   <div class="card"><h2>西安 → 川西小环线 6天5晚自驾攻略｜国庆天气版</h2><div class="sub">2026.10.01–10.06（10/1 凌晨 03:00 从西安出发）｜自驾出行 · 建议 2 名司机轮换 · 全程约 1900km</div>
+   <div class="card"><h2>西安 → 川西小环线 6天5晚自驾攻略｜国庆天气版</h2><div class="sub">2026.10.01–10.06（10/1 凌晨 03:00 从西安出发）｜电车自驾（小米 YU7 GT）· 建议 2 名司机轮换 · 全程约 1900km</div>
     <div class="meta">
-      <div class="box"><b>去程</b><span>10/1 03:00 西安 → 京昆高速（西汉高速）→ 汉中（休整 4 小时）→ 12:00 出发 → 广元 → 成都绕城 → 都汶高速 → 映秀，全天约 820km</span></div>
+      <div class="box"><b>去程</b><span>10/1 03:00 西安（100% 出发）→ 京昆高速 → 汉中（休整 4 小时）→ 12:00 出发 → 广元 → 成都绕城 → 都汶高速 → 映秀，全天约 820km（中途充电 3 次）</span></div>
       <div class="box"><b>返程</b><span>10/6 06:30 成都 → 绵阳 → 广元 → 汉中 → 西安，约 700km（假期最后一天，按 12 小时预留）</span></div>
       <div class="box"><b>住宿</b><span>映秀（或水磨古镇）→ 丹巴县城 → 党岭村 → 甲根坝（天气差就改康定）→ 成都，共 5 晚</span></div>
       <div class="box"><b>海拔</b><span>全程最高点：D5 折多山垭口约 4298m（雪天必查管制）</span></div>
     </div>
    </div>
-   <div class="card notice"><h3>这版怎么用</h3><div class="sub">先说个结论：你这版排下来其实是 6 天 5 晚——D1–D5 在玩，D6 是纯返程。我把天气当成排程的第一依据：10/1、10/2 是这六天里唯二的好窗口，10/3 下午开始转坏，10/4–10/5 川西高原有一次明显雨雪过程（塔公 10/4 中雪 1~6℃、新都桥雨夹雪 27mm、折多山必然结冰），10/6 反而转好、正好跑返程。所以：四姑娘山死死钉在 10/2；党岭的海子只在 10/3 早上天气允许时才上；10/4 不要硬闯塔公—新都桥，备选是直接下撤；10/5 折多山必须在上午通过并带防滑链。三个最容易崩的点，我都给了备选方案。</div></div>
+   <div class="card notice"><h3>这版怎么用</h3><div class="sub">先说个结论：你这版排下来其实是 6 天 5 晚——D1–D5 在玩，D6 是纯返程。我把天气当成排程的第一依据：10/1、10/2 是这六天里唯二的好窗口，10/3 下午开始转坏，10/4–10/5 川西高原有一次明显雨雪过程（塔公 10/4 中雪 1~6℃、新都桥雨夹雪 27mm、折多山必然结冰），10/6 反而转好、正好跑返程。所以：四姑娘山死死钉在 10/2；党岭的海子只在 10/3 早上天气允许时才上；10/4 不要硬闯塔公—新都桥，备选是直接下撤；10/5 折多山必须在上午通过并带防滑链。三个最容易崩的点，我都给了备选方案。这一版另外加了电车充电计划：按高原、低温、暖风折损 30~40% 估算，高速实际续航约 450km、山区约 300~350km，每天都标了「在哪里充、几点充、充到多少」。最重要的三句话：进山前必须满电（都江堰、丹巴、八美、康定）；党岭和甲根坝没有可靠充电桩，按「不充电」规划；山里电量不要低于 25%。</div></div>
    <div class="card warncard"><h3>先记住几条天气结论</h3><ul class="list"><li>10/1、10/2 是唯二的好窗口：10/2 四姑娘山小雨 6~14℃、丹巴阵雨 16~29℃，是全程最适合上高原的两天——所以四姑娘山必须排在 10/2，不能挪</li><li>10/3 下午开始转坏：丹巴阵雨 15~24℃（14.7mm）、党岭阵雨 6~14℃（19mm），这天不适合上 4000m 的海子</li><li>10/4 是全程最危险的一天：塔公中雪 1~6℃、新都桥雨夹雪 2~7℃（27mm）、八美/墨石 2~8℃、甲根坝雨夹雪 3~8℃，3500m 以上全是雪线</li><li>10/5 折多山（4298m）大概率积雪结冰：新都桥大雪 1~5℃、康定中雪 5~16℃，必须上午通过 + 带防滑链</li><li>10/6 转好：成都多云 16~25℃、西安小雨 15~26℃，适合跑 700km 返程</li><li>海拔节奏：映秀 900m → 四姑娘山 3200m → 丹巴 1900m → 党岭 3300m → 塔公 3730m → 折多山 4298m。连续几天在 3000m 以上，红景天和便携氧气早点备</li></ul>
      <div class="actionrow" style="grid-template-columns:1fr 1fr">
        <button class="go">看天气看板</button>
@@ -188,7 +191,7 @@ a{color:var(--blue)}
    <div class="card"><h3>出发前每天必做的 3 件事</h3>
      <div class="checkgrid"><div class="c"><b>约票</b>四姑娘山必须在「阿坝旅游网」等官方渠道实名预约，国庆建议提前 3~7 天；墨石公园提前 1~2 天。</div><div class="c"><b>查路况</b>重点三段：映秀→巴朗山→四姑娘山（G350）、丹巴→八美（G248 八丹路）、康定→折多山→新都桥（G318）。</div><div class="c"><b>看天气</b>每天早上出发前刷一次四姑娘山、丹巴、八美/塔公、康定的预报，再刷甘孜州交警的管制通告。</div></div>
    </div>
-   <div class="card"><h3>现场最有用的提醒</h3><ul class="list"><li>四姑娘山门票（旺季 4/1–11/30）：双桥沟 150 元（门票 80 + 观光车 70）、长坪沟 90 元（门票 70 + 观光车 20）、海子沟 60 元；淡季约 120 / 70 / 40 元。观光车都必买，学生、老人凭证件半价。</li><li>四姑娘山怎么约：全部实名制，通过「阿坝旅游网」微信公众号或携程、美团等官方渠道预约；官方要求至少提前 1 天，国庆建议提前 3~7 天，一人一证，开售就抢。</li><li>墨石公园：门票 60 元 + 往返观光车 20 元，位于道孚县八美镇中古村，海拔约 3500m，4A 景区，可现场买也可 OTA 提前买，国庆建议提前 1~2 天。</li><li>党岭没有景区门票：进村免费，上山（卡尔扎方向）约 20 元/人，摩托车或骑马往返参考 160~300 元/人，价格现场谈。建议提前一天让党岭村民宿老板帮你联系摩托或马。</li><li>党岭住宿很有限：村里基本是藏家民宿和小木屋，国庆 150~400 元/晚，热水和电都不一定稳定。订房时问清有没有独立卫浴、电热毯、能不能停车。</li><li>映秀震中遗址（漩口中学遗址 + 5·12 汶川特大地震纪念馆）：遗址免费，纪念馆一般 09:00–17:00、有闭馆日和限流，可能需预约。19:00 到了是进不去的，所以把参观放在 D2 早上。</li><li>塔公寺门票参考 20 元、现场买；塔公草原免费，但草场是牧民的，进牧场拍照和骑马要另外付钱，先问价再上马。</li><li>高反：映秀 900m 完全没问题，但 10/2 就要上 3200m（四姑娘山），10/3 起连续几天在 3300m 以上。提前 3 天吃红景天，别跑跳、别洗澡受凉，备一瓶便携氧气，第一晚别喝酒。</li><li>加油：映秀、四姑娘山镇有加油站但国庆排队；丹巴县城、八美镇、新都桥、康定都要补满。党岭来回 136km 全是碎石路、沟内没有加油站，进沟前在丹巴加满。</li><li>信号：巴朗山前后、党岭沟内、丹巴到八美的部分峡谷、折多山附近都有长段无信号。出发前下载高德离线地图（阿坝州 + 甘孜州）。</li><li>装备：羽绒服 + 抓绒 + 冲锋衣、防水登山鞋、手套、帽子、墨镜、防晒霜（高原紫外线强）、雨衣、防滑链（10/4–10/5 必备）、保温杯、头灯、现金 500 元。</li><li>住宿：映秀/水磨古镇订可免费取消的；丹巴县城住得最舒服（1900m）；党岭村条件最差但最出片；甲根坝民宿少且贵，天气一变就改住康定（2560m，酒店多、海拔舒服）。</li><li>车况：出发前查刹车片、轮胎含备胎、防冻液、雨刮、玻璃水。党岭和丹巴—八美的碎石路段放慢速度、别让底盘剐蹭，长下坡用挡位控速别一直踩刹车。</li><li>通行费：国庆假期 7 座以下小客车高速免费，10/1 和 10/6 是双向最高峰，尽量在免费时段内上下高速。</li></ul></div>
+   <div class="card"><h3>现场最有用的提醒</h3><ul class="list"><li>四姑娘山门票（旺季 4/1–11/30）：双桥沟 150 元（门票 80 + 观光车 70）、长坪沟 90 元（门票 70 + 观光车 20）、海子沟 60 元；淡季约 120 / 70 / 40 元。观光车都必买，学生、老人凭证件半价。</li><li>四姑娘山怎么约：全部实名制，通过「阿坝旅游网」微信公众号或携程、美团等官方渠道预约；官方要求至少提前 1 天，国庆建议提前 3~7 天，一人一证，开售就抢。</li><li>墨石公园：门票 60 元 + 往返观光车 20 元，位于道孚县八美镇中古村，海拔约 3500m，4A 景区，可现场买也可 OTA 提前买，国庆建议提前 1~2 天。</li><li>党岭没有景区门票：进村免费，上山（卡尔扎方向）约 20 元/人，摩托车或骑马往返参考 160~300 元/人，价格现场谈。建议提前一天让党岭村民宿老板帮你联系摩托或马。</li><li>党岭住宿很有限：村里基本是藏家民宿和小木屋，国庆 150~400 元/晚，热水和电都不一定稳定。订房时问清有没有独立卫浴、电热毯、能不能停车。</li><li>映秀震中遗址（漩口中学遗址 + 5·12 汶川特大地震纪念馆）：遗址免费，纪念馆一般 09:00–17:00、有闭馆日和限流，可能需预约。19:00 到了是进不去的，所以把参观放在 D2 早上。</li><li>塔公寺门票参考 20 元、现场买；塔公草原免费，但草场是牧民的，进牧场拍照和骑马要另外付钱，先问价再上马。</li><li>高反：映秀 900m 完全没问题，但 10/2 就要上 3200m（四姑娘山），10/3 起连续几天在 3300m 以上。提前 3 天吃红景天，别跑跳、别洗澡受凉，备一瓶便携氧气，第一晚别喝酒。</li><li>充电：映秀、四姑娘山镇、丹巴、八美、康定都有充电桩，但国庆排队；党岭来回 136km 全是碎石路、沟内没有充电桩，进沟前在丹巴充满。</li><li>信号：巴朗山前后、党岭沟内、丹巴到八美的部分峡谷、折多山附近都有长段无信号。出发前下载高德离线地图（阿坝州 + 甘孜州）。</li><li>装备：羽绒服 + 抓绒 + 冲锋衣、防水登山鞋、手套、帽子、墨镜、防晒霜（高原紫外线强）、雨衣、防滑链（10/4–10/5 必备）、保温杯、头灯、现金 500 元。</li><li>住宿：映秀/水磨古镇订可免费取消的；丹巴县城住得最舒服（1900m）；党岭村条件最差但最出片；甲根坝民宿少且贵，天气一变就改住康定（2560m，酒店多、海拔舒服）。</li><li>车况：出发前查刹车片、轮胎含备胎、防冻液、雨刮、玻璃水。党岭和丹巴—八美的碎石路段放慢速度、别让底盘剐蹭，长下坡用挡位控速别一直踩刹车。</li><li>通行费：国庆假期 7 座以下小客车高速免费，10/1 和 10/6 是双向最高峰，尽量在免费时段内上下高速。</li><li>电车专属三条红线：① 每天出发前 100%；② 进山（党岭、甲根坝、四姑娘山深处）前必须满电；③ 山里电量不低于 25%。</li><li>党岭村、甲根坝基本没有可靠充电桩，党岭有些民宿晚上还会限电，一定要按「今晚补不了电」来规划行程。</li><li>国庆高速服务区充电排队 30~60 分钟很常见：优先 06:00–08:00 或 21:00 后充，排队超过 30 分钟就下高速去县城充。</li><li>高原低温 + 暖风会让续航打 6~7 折：按「高速 450km、山路 300~350km」排程，别按 CLTC 的数字算。</li><li>随车带便携充电枪 + 国标转接头；民宿 220V 插座插一晚大约补 15~25%，应急够用。</li><li>折多山、巴朗山长下坡开高动能回收，能回 5~10% 电；出发前 15 分钟用 App 预热电池，充电速度能快接近一倍。</li></ul></div>
    <div class="card rain"><h3>🌧 10/2 四姑娘山下小雨（概率大）</h3><div class="sub">双桥沟是观光车 + 木栈道，小雨照玩；但 3600m 以上会变成雨夹雪，栈道结冰打滑。改法：把双桥沟压缩成半程——坐车到最里面的红杉林，重点看布达拉峰、撵鱼坝、盆景滩，14:00~15:00 就出沟。因为今天还要赶 115km 到丹巴，雨天山路易塌方，天黑前到丹巴是硬指标。</div></div><div class="card rain"><h3>🌧 10/3 党岭下雨，海子上不去</h3><div class="sub">党岭的两个海子（甲玉拉措约 4000m、葫芦海 4100m）在雨天是纯受罪：碎石路 + 徒步 4~5 小时 + 全程 6~14℃。改法：这天只到党岭村，泡党岭野温泉，把海子挪到 10/4 清晨看天决定；如果 10/4 还是雨雪，就直接放弃海子，早点下山，把体力留给雪天山路。</div></div><div class="card rain"><h3>🌧 10/4 塔公—新都桥下雪</h3><div class="sub">这是全程最需要预案的一天：塔公 3730m 中雪、新都桥 3460m 雨夹雪 27mm、甲根坝雨夹雪，山路上会有明显积雪。三条改法：① 10/3 就把高原段提前走掉（八美—塔公—新都桥），10/4 直接下撤；② 在丹巴多住一晚等雪停；③ 只走到八美/墨石公园就折返，砍掉塔公、新都桥、甲根坝。少看两个点，换一天安全，非常划算。</div></div><div class="card rain"><h3>🌧 10/5 折多山管制 / 结冰</h3><div class="sub">折多山 4298m 是这趟唯一真正的硬关卡，也是康定进出新都桥的唯一公路。规矩：06:00 前出发、装防滑链、垭口不停车久留、跟着前车车辙走、下坡用挡位控速。如果 10/4 傍晚还在下雪，就别把这一晚放在甲根坝（3300m）——直接下撤住康定（2560m），第二天走雅康高速出山会轻松得多。遇到管制就在康定住一晚等放行，绝不走小路绕行。</div></div><div class="card rain"><h3>🌧 10/6 返程大堵车</h3><div class="sub">10/6 是假期最后一天，京昆高速广元—汉中—西安段最容易堵成红色，700km 可能跑 12 小时以上。规矩：06:30 前出成都，中午在广元或汉中吃个饭就继续，绝不下午才进秦岭。如果绵阳—广元段已经大面积拥堵，改走成都 → 巴中 → 汉中 → 西安绕行。</div></div>
  </div>
 <div class="pane pane-days"><details class="daybox" open><summary><b>D1 · 10/1 周四</b><span>10/1 周四｜凌晨出发 · 全天 820km · 汉中休整后直奔映秀</span></summary>
@@ -196,7 +199,7 @@ a{color:var(--blue)}
    <div class="timeline"><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">03:00</div><div class="etitle">凌晨 3 点出发，把秦岭留在最空的时候</div><div class="ename">西安 · 京昆高速（西安南）</div>
    <span class="badge hot">⏰ 关键出发</span>
-   <div class="edesc">国庆首日凌晨是整条线上最值钱的几个小时：大货车少、收费站不排队、秦岭服务区不挤。今天总里程约 820km，是全程最长的一天，而且最后要进岷江峡谷，务必天黑前到映秀。凌晨 3~5 点是疲劳和团雾高发时段，出发前睡够，两人轮换开，导航终点直接设「映秀镇」。</div>
+   <div class="edesc">国庆首日凌晨是整条线上最值钱的几个小时：大货车少、收费站不排队、秦岭服务区不挤。今天总里程约 820km，是全程最长的一天，而且最后要进岷江峡谷，务必天黑前到映秀。凌晨 3~5 点是疲劳和团雾高发时段，出发前睡够，两人轮换开，导航终点直接设「映秀镇」。出发前先确认电量 100%——今天要跑 820km。</div>
    <div class="addr"><b>🧭 导航搜：</b>京昆高速西安南收费站<br><b>📍 位置：</b>陕西省西安市长安区 京昆高速西安南入口<br><span>导航建议给两条路线，优先选高速占比高、走汉中—广元方向的那条。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E4%BA%AC%E6%98%86%E9%AB%98%E9%80%9F%E8%A5%BF%E5%AE%89%E5%8D%97%E6%94%B6%E8%B4%B9%E7%AB%99&amp;callnative=1&amp;city=%E8%A5%BF%E5%AE%89" target="_blank">高德导航</a>
@@ -204,10 +207,10 @@ a{color:var(--blue)}
      <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E4%BA%AC%E6%98%86%E9%AB%98%E9%80%9F%E8%A5%BF%E5%AE%89%E5%8D%97%E6%94%B6%E8%B4%B9%E7%AB%99%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
-   <div class="etime">06:00</div><div class="etitle">第 1 停：加油 + 换司机 + 吃早饭</div><div class="ename">宁陕服务区</div>
-   <span class="badge">⛽ 必停</span>
-   <div class="edesc">西安出发约 3 小时、200km 到这里。西汉高速全是隧道群和长下坡，进出隧道记得减速开灯，别跟大车太近。这一停把油加满、换司机、吃早饭，后面还有 150km 才到汉中。</div>
-   <div class="addr"><b>🧭 导航搜：</b>宁陕服务区<br><b>📍 位置：</b>陕西省安康市宁陕县 西汉高速宁陕段<br><span>节假日加油站可能排队 15~20 分钟，按 30 分钟预留。</span></div>
+   <div class="etime">06:00</div><div class="etitle">第 1 停：充电 + 换司机 + 吃早饭</div><div class="ename">宁陕服务区</div>
+   <span class="badge">🔌 充电 + 早饭</span>
+   <div class="edesc">西安出发约 3 小时、200km 到这里。西汉高速全是隧道群和长下坡，进出隧道记得减速开灯，别跟大车太近。这一停把电补到 80%、换司机、吃早饭，后面还有 150km 才到汉中。服务区里有国网快充，趁吃早饭把电补到 80% 就走。</div>
+   <div class="addr"><b>🧭 导航搜：</b>宁陕服务区<br><b>📍 位置：</b>陕西省安康市宁陕县 西汉高速宁陕段<br><span>节假日充电桩可能排队 15~20 分钟，按 30 分钟预留。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%AE%81%E9%99%95%E6%9C%8D%E5%8A%A1%E5%8C%BA&amp;callnative=1&amp;city=%E5%AE%81%E9%99%95" target="_blank">高德导航</a>
      
@@ -234,9 +237,9 @@ a{color:var(--blue)}
      <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E6%B1%89%E4%B8%AD%E6%94%B6%E8%B4%B9%E7%AB%99%EF%BC%88%E4%BA%AC%E6%98%86%E9%AB%98%E9%80%9F%EF%BC%89%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
-   <div class="etime">15:00</div><div class="etitle">第 2 停：加油 + 上厕所</div><div class="ename">绵阳服务区</div>
-   <span class="badge">⛽ 必停</span>
-   <div class="edesc">汉中到这里约 3 小时、260km。过了绵阳就是成都平原，车流量明显变大，成都绕城国庆经常排队。提前把油加满、水备足，别在成都段才想起来加油。</div>
+   <div class="etime">15:00</div><div class="etitle">第 2 停：充电 + 上厕所</div><div class="ename">绵阳服务区</div>
+   <span class="badge">🔌 充电（第 2 次）</span>
+   <div class="edesc">汉中到这里约 3 小时、260km。过了绵阳就是成都平原，车流量明显变大，成都绕城国庆经常排队。这里充到 90%、水备足。下午 2~4 点是国庆高速充电高峰，如果排队超过 20 分钟，直接下高速去绵阳城区充（桩多、不排队）。</div>
    <div class="addr"><b>🧭 导航搜：</b>绵阳服务区<br><b>📍 位置：</b>四川省绵阳市 京昆高速绵阳段<br><span>如果要换司机，这里是下午最合适的一站。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E7%BB%B5%E9%98%B3%E6%9C%8D%E5%8A%A1%E5%8C%BA&amp;callnative=1&amp;city=%E7%BB%B5%E9%98%B3" target="_blank">高德导航</a>
@@ -245,8 +248,8 @@ a{color:var(--blue)}
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">17:30</div><div class="etitle">过了这里就进山了，最后补一次给养</div><div class="ename">都江堰市</div>
-   <span class="badge">🧺 最后补给</span>
-   <div class="edesc">都江堰是进岷江峡谷前最后一个大县城：超市、药店、水果、便携氧气瓶都能买齐。从这里上都汶高速，20 多分钟到映秀。如果此时天已经黑、或者正在下大雨，就在都江堰住下，别硬进峡谷——这条路雨天落石多，不值得赌。</div>
+   <span class="badge">🔌 充满｜进山前最后一枪</span>
+   <div class="edesc">都江堰是进岷江峡谷前最后一个大县城：超市、药店、水果、便携氧气瓶都能买齐；而且这是进山前最后一个可靠的快充站，务必充满 100%。从这里上都汶高速，20 多分钟到映秀。如果此时天已经黑、或者正在下大雨，就在都江堰住下，别硬进峡谷——这条路雨天落石多，不值得赌。</div>
    <div class="addr"><b>🧭 导航搜：</b>都江堰市<br><b>📍 位置：</b>四川省成都市都江堰市<br><span>10/1 都江堰一带是小雨，峡谷段夜间行车要格外慢。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E9%83%BD%E6%B1%9F%E5%A0%B0%E5%B8%82&amp;callnative=1&amp;city=%E9%83%BD%E6%B1%9F%E5%A0%B0" target="_blank">高德导航</a>
@@ -255,8 +258,8 @@ a{color:var(--blue)}
    </div>
  </div></div></div><div class="event hotel"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">19:00</div><div class="etitle">入住映秀，今晚的任务只有一个：早睡</div><div class="ename">映秀镇</div>
-   <span class="badge">🏨 住宿</span>
-   <div class="edesc">映秀海拔只有 900m，完全不会高反，是这条线最舒服的第一晚。10/1 映秀小雨 18~22℃，到了直接入住，不要再安排活动。有个时间坑必须提前说：映秀震中遗址和纪念馆一般 09:00–17:00 开放，19:00 到是参观不了的——所以参观挪到明天早上 08:00 顺路看（见 D2 第一个点）。</div>
+   <span class="badge">🏨 住宿（含慢充）</span>
+   <div class="edesc">映秀海拔只有 900m，完全不会高反，是这条线最舒服的第一晚。10/1 映秀小雨 18~22℃，到了直接入住，不要再安排活动。订房时就问清有没有 7kW 慢充或 220V 插座，插一晚大约补 15~25%，明天就不用绕路找桩。有个时间坑必须提前说：映秀震中遗址和纪念馆一般 09:00–17:00 开放，19:00 到是参观不了的——所以参观挪到明天早上 08:00 顺路看（见 D2 第一个点）。</div>
    <div class="addr"><b>🧭 导航搜：</b>映秀镇<br><b>📍 位置：</b>四川省阿坝州汶川县映秀镇<br><span>映秀镇上住宿不多，订不到就住 10 分钟车程的水磨古镇，选择更多。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E6%98%A0%E7%A7%80%E9%95%87&amp;callnative=1&amp;city=%E6%B1%B6%E5%B7%9D%E5%8E%BF" target="_blank">高德导航</a>
@@ -316,10 +319,20 @@ a{color:var(--blue)}
      <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E5%9B%9B%E5%A7%91%E5%A8%98%E5%B1%B1%E5%8F%8C%E6%A1%A5%E6%B2%9F%E6%99%AF%E5%8C%BA%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
+   <div class="etime">16:00</div><div class="etitle">🔌 出沟先充电，再往丹巴走</div><div class="ename">四姑娘山镇（日隆）充电桩</div>
+   <span class="badge">🔌 午间补电</span>
+   <div class="edesc">双桥沟出来、往丹巴方向走之前，在镇上把电补到 80% 以上。映秀→丹巴 230km 山路、爬升约 2300m，满电出发本来也够用，但今晚还要在丹巴县城抢充电位，能在这里补就别拖。镇上的桩以酒店和景区停车场为主，数量不多，导航搜「四姑娘山 充电站」或「日隆 充电桩」；如果桩全被占，就按满电直接去丹巴，到县城再充。</div>
+   <div class="addr"><b>🧭 导航搜：</b>四姑娘山镇 充电站<br><b>📍 位置：</b>四川省阿坝州小金县四姑娘山镇<br><span>高原低温下充电会变慢，插枪前用小米汽车 App 开一下电池预热。</span></div>
+   <div class="actionrow">
+     <a class="go" href="https://uri.amap.com/search?keyword=%E5%9B%9B%E5%A7%91%E5%A8%98%E5%B1%B1%E9%95%87%20%E5%85%85%E7%94%B5%E7%AB%99&amp;callnative=1&amp;city=%E5%B0%8F%E9%87%91%E5%8E%BF" target="_blank">高德导航</a>
+     
+     <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E5%9B%9B%E5%A7%91%E5%A8%98%E5%B1%B1%E9%95%87%20%E5%85%85%E7%94%B5%E7%AB%99%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
+   </div>
+ </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">16:30</div><div class="etitle">16:30 必须往丹巴方向走</div><div class="ename">小金县（南下丹巴）</div>
    <span class="badge">🚗 赶路</span>
    <div class="edesc">出沟直接沿小金川南下：日隆 → 小金县城 → 中路乡 → 丹巴，约 115km、2.5~3 小时，海拔从 3200m 一路降到 1900m，越走越暖。雨天山路易塌方，天黑前到丹巴是硬指标——所以双桥沟不能拖到 17:00 才出沟，16:30 前必须上车。</div>
-   <div class="addr"><b>🧭 导航搜：</b>小金县<br><b>📍 位置：</b>四川省阿坝州小金县美兴镇<br><span>县城可以加油、买水果和热水；从这里到丹巴还有 60km。</span></div>
+   <div class="addr"><b>🧭 导航搜：</b>小金县<br><b>📍 位置：</b>四川省阿坝州小金县美兴镇<br><span>县城可以充电、买水果和热水；从这里到丹巴还有 60km。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%B0%8F%E9%87%91%E5%8E%BF&amp;callnative=1&amp;city=%E5%B0%8F%E9%87%91%E5%8E%BF" target="_blank">高德导航</a>
      
@@ -338,7 +351,7 @@ a{color:var(--blue)}
  </div></div></div><div class="event hotel"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">20:00</div><div class="etitle">住丹巴县城（1900m）：全线最舒服的一晚</div><div class="ename">丹巴县城（章谷镇）</div>
    <span class="badge">🏨 住宿</span>
-   <div class="edesc">丹巴县城海拔 1900m，酒店多、饭店多、能洗热水澡，是整条线住宿条件最好的地方。10/2 丹巴阵雨 16~29℃，很温和。今晚把三件事做掉：① 把车加满油（明天进党岭来回 136km 全是碎石路，沿途基本没有加油站）；② 买好明天的干粮和水；③ 确认党岭民宿有没有独立卫浴、电热毯，以及能不能帮你联系摩托或马。</div>
+   <div class="edesc">丹巴县城海拔 1900m，酒店多、饭店多、能洗热水澡，是整条线住宿条件最好的地方。10/2 丹巴阵雨 16~29℃，很温和。今晚把三件事做掉：① 把车充满电（明天进党岭来回 136km 全是碎石路，沿途基本没有充电桩）；② 买好明天的干粮和水；③ 确认党岭民宿有没有独立卫浴、电热毯，以及能不能帮你联系摩托或马。还有一件更要紧的：县城充电站今晚必须充满 100%——明天往返党岭 136km 碎石路，党岭村一个桩都没有，而县城桩少、国庆要排队，先排队再吃饭。</div>
    <div class="addr"><b>🧭 导航搜：</b>丹巴县城<br><b>📍 位置：</b>四川省甘孜州丹巴县章谷镇<br><span>国庆丹巴县城房价翻倍，务必订「可免费取消」的，并问清有没有停车位。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E4%B8%B9%E5%B7%B4%E5%8E%BF%E5%9F%8E&amp;callnative=1&amp;city=%E4%B8%B9%E5%B7%B4%E5%8E%BF" target="_blank">高德导航</a>
@@ -358,9 +371,9 @@ a{color:var(--blue)}
  </div></div></div></div><div class="card"><h3>🍜 吃饭备选｜按预算和体力挑一个</h3><div class="sub">不是任务清单，现场从里面选一个即可。</div><div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14px">映秀 / 水磨古镇 · 早餐</b><span class="badge">客栈早餐 · ¥10–20/人</span></div><div class="sub" style="margin-top:5px">今天 07:50 就要出发，前一晚跟客栈说好早饭时间，或者买好包子豆浆在车上吃。</div></div><div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14px">日隆镇 · 牦牛肉面 / 川菜</b><span class="badge">景区餐 · ¥30–60/人</span></div><div class="sub" style="margin-top:5px">四姑娘山镇餐馆集中，进沟前吃午饭最快；沟里只有零星简餐，建议自带干粮。</div></div><div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14px">四姑娘山镇 · 酥油茶 + 青稞饼</b><span class="badge">藏餐 · ¥15–30/人</span></div><div class="sub" style="margin-top:5px">3200m 喝一碗热的顶饿又暖身，青稞饼可以带进沟里当干粮。</div></div><div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14px">丹巴县城 · 酸菜面块</b><span class="badge">嘉绒家常 · ¥20–40/人</span></div><div class="sub" style="margin-top:5px">丹巴特色：酸菜 + 面块 + 腊肉，晚上吃很舒服，主街上到处都有。</div></div><div style="padding:10px 0;border-bottom:1px solid var(--line)"><div style="display:flex;justify-content:space-between;gap:8px;align-items:flex-start"><b style="font-size:14px">丹巴 · 老腊肉 + 香猪腿</b><span class="badge">藏餐 · ¥50–90/人</span></div><div class="sub" style="margin-top:5px">丹巴的招牌菜，配糌粑或米饭都行，两个人点一个小份就够。</div></div></div></details><details class="daybox"><summary><b>D3 · 10/3 周六</b><span>10/3 周六｜丹巴 → 党岭（68km 碎石路）→ 甲玉拉措 / 温泉</span></summary>
    <div class="card"><h2>10/3 周六｜丹巴 → 党岭（68km 碎石路）→ 甲玉拉措 / 温泉</h2><div class="sub">关键词：碎石路 3 小时、19mm 雨天不上 4000m、泡野温泉</div><div class="route"><b>当天主线</b><br>丹巴县城 08:00 → 边耳乡 → 党岭村（68km 碎石路，约 3 小时，11:00 到）→ 甲玉拉措（徒步 4~5h，或摩托 / 骑马往返 2~3h）→ 党岭温泉 → 住党岭村（约 3300m）</div><div class="heroimg p-hero"></div></div>
    <div class="timeline"><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
-   <div class="etime">08:00</div><div class="etitle">进党岭前，先把油加满</div><div class="ename">丹巴县城出发</div>
-   <span class="badge">🚗 加满油</span>
-   <div class="edesc">丹巴到党岭 68km，大部分是碎石路和窄路，来回 136km，沟里没有加油站。出发前在丹巴县城加满油、检查备胎和胎压。碎石路对底盘和轮胎都不友好，速度控制在 30~40km/h。</div>
+   <div class="etime">08:00</div><div class="etitle">进党岭前，先把电充满</div><div class="ename">丹巴县城出发</div>
+   <span class="badge">🔌 满电进沟</span>
+   <div class="edesc">丹巴到党岭 68km，大部分是碎石路和窄路，来回 136km，沟里没有充电桩。出发前在丹巴县城充满电、检查备胎和胎压。碎石路对底盘和轮胎都不友好，速度控制在 30~40km/h。</div>
    <div class="addr"><b>🧭 导航搜：</b>丹巴县章谷镇<br><b>📍 位置：</b>四川省甘孜州丹巴县章谷镇<br><span>如果车是低底盘轿车，进党岭要格外小心；这条路不适合底盘太低的车。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E4%B8%B9%E5%B7%B4%E5%8E%BF%E7%AB%A0%E8%B0%B7%E9%95%87&amp;callnative=1&amp;city=%E4%B8%B9%E5%B7%B4%E5%8E%BF" target="_blank">高德导航</a>
@@ -370,7 +383,7 @@ a{color:var(--blue)}
  </div></div></div><div class="event spot"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">11:00</div><div class="etitle">到党岭村：川西最后的原生态村子之一</div><div class="ename">党岭村</div>
    <span class="badge">🏔 3300m</span>
-   <div class="edesc">党岭村在丹巴西北的边耳乡，海拔约 3100~3300m，村口就是雪山和草甸，信号只有村口一小片。村里基本是藏家民宿，条件朴素。重要提醒：今天（10/3）党岭预报阵雨 6~14℃、降水约 19mm，是六天里雨最大的一天——先到村里安顿下来，看天再决定上不上山。</div>
+   <div class="edesc">党岭村在丹巴西北的边耳乡，海拔约 3100~3300m，村口就是雪山和草甸，信号只有村口一小片。村里基本是藏家民宿，条件朴素。重要提醒：今天（10/3）党岭预报阵雨 6~14℃、降水约 19mm，是六天里雨最大的一天——先到村里安顿下来，看天再决定上不上山。另外提醒：党岭没有任何充电桩，有些民宿晚上还会限电，请按「今晚补不了电」来规划。</div>
    <div class="addr"><b>🧭 导航搜：</b>党岭村<br><b>📍 位置：</b>四川省甘孜州丹巴县边耳乡党岭村<br><span>村里住宿要提前订；问清有没有独立卫浴、电热毯、能不能停车、能不能帮你联系摩托或马。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%85%9A%E5%B2%AD%E6%9D%91&amp;callnative=1&amp;city=%E4%B8%B9%E5%B7%B4%E5%8E%BF" target="_blank">高德导航</a>
@@ -399,7 +412,7 @@ a{color:var(--blue)}
    </div>
  </div></div></div><div class="event hotel"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">19:00</div><div class="etitle">住党岭村：条件朴素，但这是最出片的一晚</div><div class="ename">党岭村住宿</div>
-   <span class="badge">🏨 住宿</span>
+   <span class="badge">🏨 住宿（无充电）</span>
    <div class="edesc">党岭村的民宿多是藏家自建，国庆 150~400 元/晚，热水和电不一定稳定，夜里冷（10/3 夜里接近 5℃）。带好保暖衣物、头灯、充电宝、湿纸巾。今晚要把明天的路线定死：如果 10/4 早上还是雨雪，就别从党岭往八美方向走，先下撤到丹巴，再决定塔公—新都桥这一段走不走。</div>
    <div class="addr"><b>🧭 导航搜：</b>党岭村<br><b>📍 位置：</b>四川省甘孜州丹巴县边耳乡党岭村<br><span>村里床位有限，国庆一定要提前订；手机信号弱，提前把导航离线地图下好。</span></div>
    <div class="actionrow">
@@ -412,12 +425,22 @@ a{color:var(--blue)}
    <div class="timeline"><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">07:00</div><div class="etitle">07:00 出沟，路面湿滑要慢</div><div class="ename">党岭出发 → 丹巴</div>
    <span class="badge">🚗 早出发</span>
-   <div class="edesc">碎石路下山、雨雪天尤其滑，30km/h 慢慢挪，别急着赶时间。到丹巴大约 09:30，顺便把油补满。今天全天在 3500m 以上，出发前确认防滑链、保暖衣物、热水都在车上。</div>
+   <div class="edesc">碎石路下山、雨雪天尤其滑，30km/h 慢慢挪，别急着赶时间。到丹巴大约 09:30，顺便把油补满。今天全天在 3500m 以上，出发前确认防滑链、保暖衣物、热水都在车上。电车再加一条：出发前看一眼电量，目标是撑到丹巴县城快充站——68km 碎石路慢速其实不费电，但低温和开暖风会多消耗 10~15%。</div>
    <div class="addr"><b>🧭 导航搜：</b>党岭村<br><b>📍 位置：</b>四川省甘孜州丹巴县边耳乡党岭村<br><span>出沟前再确认一次今天八丹路能不能过（见下一条）。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%85%9A%E5%B2%AD%E6%9D%91&amp;callnative=1&amp;city=%E4%B8%B9%E5%B7%B4%E5%8E%BF" target="_blank">高德导航</a>
      
      <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E5%85%9A%E5%B2%AD%E6%9D%91%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
+   </div>
+ </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
+   <div class="etime">09:30</div><div class="etitle">🔌 回到丹巴，第一件事是充电</div><div class="ename">丹巴县城充电站</div>
+   <span class="badge hot">🔌 关键补电</span>
+   <div class="edesc">从党岭回到丹巴县城，先充电再想别的：今天要爬到 3700m 的塔公、走 250km 高原路，还赶上雨雪，暖风一开电耗明显上升（预计 25~30kWh/100km）。充到 90% 就走，别在这里久待。丹巴的桩数量少、国庆排队明显，到了直接去占位，然后轮流去吃早饭。</div>
+   <div class="addr"><b>🧭 导航搜：</b>丹巴县城 充电站<br><b>📍 位置：</b>四川省甘孜州丹巴县章谷镇<br><span>如果县城桩全满，问一下酒店有没有慢充；再不行就把八美那一次从「补到 90%」改成「充满」。</span></div>
+   <div class="actionrow">
+     <a class="go" href="https://uri.amap.com/search?keyword=%E4%B8%B9%E5%B7%B4%E5%8E%BF%E5%9F%8E%20%E5%85%85%E7%94%B5%E7%AB%99&amp;callnative=1&amp;city=%E4%B8%B9%E5%B7%B4%E5%8E%BF" target="_blank">高德导航</a>
+     
+     <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E4%B8%B9%E5%B7%B4%E5%8E%BF%E5%9F%8E%20%E5%85%85%E7%94%B5%E7%AB%99%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">10:00</div><div class="etitle">八丹路：这趟最需要提前确认的一段</div><div class="ename">八丹路（G248 丹巴—八美）</div>
@@ -428,6 +451,16 @@ a{color:var(--blue)}
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%85%AB%E4%B8%B9%E8%B7%AF%20%E4%B8%B9%E5%B7%B4%E5%88%B0%E5%85%AB%E7%BE%8E&amp;callnative=1&amp;city=%E4%B8%B9%E5%B7%B4%E5%8E%BF" target="_blank">高德导航</a>
      
      <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E5%85%AB%E4%B8%B9%E8%B7%AF%20%E4%B8%B9%E5%B7%B4%E5%88%B0%E5%85%AB%E7%BE%8E%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
+   </div>
+ </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
+   <div class="etime">11:45</div><div class="etitle">🔌 八美补电：今天最后一道保险</div><div class="ename">八美镇充电桩</div>
+   <span class="badge hot">🔌 关键补电（务必执行）</span>
+   <div class="edesc">八美是这段路上最后一个相对可靠的补电点，吃午饭的时候把电补到 90%。如果八美桩坏了、或者排队超过 40 分钟，就要当场做决定：要么砍掉塔公、新都桥、甲根坝，直接下折多山去康定（桩多、海拔低）；要么在八美或塔公找客栈住一晚。别带着 30% 的电硬往甲根坝开——从甲根坝翻折多山到康定，是 4298m 的雪线。</div>
+   <div class="addr"><b>🧭 导航搜：</b>八美镇 充电站<br><b>📍 位置：</b>四川省甘孜州道孚县八美镇<br><span>塔公、新都桥的桩很少，不要把希望放在那里；把八美当成「今天最后一次能踏实充电」的地方。</span></div>
+   <div class="actionrow">
+     <a class="go" href="https://uri.amap.com/search?keyword=%E5%85%AB%E7%BE%8E%E9%95%87%20%E5%85%85%E7%94%B5%E7%AB%99&amp;callnative=1&amp;city=%E9%81%93%E5%AD%9A%E5%8E%BF" target="_blank">高德导航</a>
+     
+     <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E5%85%AB%E7%BE%8E%E9%95%87%20%E5%85%85%E7%94%B5%E7%AB%99%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
    </div>
  </div></div></div><div class="event spot"><span class="dot"></span><div class="ec"><div class="eventimg p-hero"></div><div class="ebody">
    <div class="etime">12:00</div><div class="etitle">墨石公园：高原上的黑色石林</div><div class="ename">墨石公园</div>
@@ -453,7 +486,7 @@ a{color:var(--blue)}
    <div class="etime">16:00</div><div class="etitle">新都桥「十里画廊」：今天大概是拍不到的</div><div class="ename">新都桥镇</div>
    <span class="badge">⚠️ 雪天不停留</span>
    <div class="edesc">新都桥被叫做摄影天堂，最美的就是 318 沿线这段杨树、溪流、藏房，远处还能看贡嘎方向的雪山。10/4 预报雨夹雪 2~7℃、降水 27mm，光线和能见度都很差。所以今天把新都桥当路过点，别指望出片；如果明天雪停了，早上还能在这里补拍一张。</div>
-   <div class="addr"><b>🧭 导航搜：</b>新都桥镇<br><b>📍 位置：</b>四川省甘孜州康定市新都桥镇<br><span>镇上餐馆和加油站在主街；雪天路面湿滑，注意避让摩托车和牲畜。</span></div>
+   <div class="addr"><b>🧭 导航搜：</b>新都桥镇<br><b>📍 位置：</b>四川省甘孜州康定市新都桥镇<br><span>镇上餐馆和充电站在主街；雪天路面湿滑，注意避让摩托车和牲畜。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E6%96%B0%E9%83%BD%E6%A1%A5%E9%95%87&amp;callnative=1&amp;city=%E5%BA%B7%E5%AE%9A%E5%B8%82" target="_blank">高德导航</a>
      
@@ -462,7 +495,7 @@ a{color:var(--blue)}
  </div></div></div><div class="event hotel"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">17:30</div><div class="etitle">住甲根坝？先想好 Plan B</div><div class="ename">甲根坝乡</div>
    <span class="badge warn">🏨 住宿（备选：康定）</span>
-   <div class="edesc">甲根坝在 318 南侧的山谷里，是看贡嘎和拍藏寨的好位置，但这是这趟海拔偏高、住宿最少的一晚（约 3300m，民宿少、国庆贵），10/4 预报雨夹雪 3~8℃。强烈建议：如果傍晚还在下雪、或者明早折多山预报不好，就继续往前下山住康定（2560m，酒店多、海拔舒服），把 D5 变成一趟轻松的高速。这个决定今晚就做，别等早上。</div>
+   <div class="edesc">甲根坝在 318 南侧的山谷里，是看贡嘎和拍藏寨的好位置，但这是这趟海拔偏高、住宿最少的一晚（约 3300m，民宿少、国庆贵），10/4 预报雨夹雪 3~8℃。强烈建议：如果傍晚还在下雪、或者明早折多山预报不好，就继续往前下山住康定（2560m，酒店多、海拔舒服），把 D5 变成一趟轻松的高速。这个决定今晚就做，别等早上。充电也要一起考虑：甲根坝和新都桥的桩都很稀疏，多是客栈慢充甚至普通插座，订房优先选「有充电桩」的；如果今晚补不上电，早饭后就直奔康定快充站。</div>
    <div class="addr"><b>🧭 导航搜：</b>甲根坝乡<br><b>📍 位置：</b>四川省甘孜州康定市甲根坝乡<br><span>民宿少，务必提前订；订不到就直接订康定城，价格更稳、条件更好。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%B9%A1&amp;callnative=1&amp;city=%E5%BA%B7%E5%AE%9A%E5%B8%82" target="_blank">高德导航</a>
@@ -474,7 +507,7 @@ a{color:var(--blue)}
    <div class="timeline"><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">06:00</div><div class="etitle">06:00 出发，把折多山留在上午</div><div class="ename">甲根坝出发</div>
    <span class="badge hot">⏰ 关键出发</span>
-   <div class="edesc">今天最核心的一件事：在天亮后、车流起来之前翻过折多山。10/5 新都桥预报大雪 1~5℃、康定中雪 5~16℃，折多山垭口 4298m 必然积雪结冰，而且经常临时管制。出发前把防滑链、热水、保暖衣物、满油准备好，再刷一次路况。如果昨晚决定住康定，今天就轻松得多——直接从康定走雅康高速出山。</div>
+   <div class="edesc">今天最核心的一件事：在天亮后、车流起来之前翻过折多山。10/5 新都桥预报大雪 1~5℃、康定中雪 5~16℃，折多山垭口 4298m 必然积雪结冰，而且经常临时管制。出发前把防滑链、热水、保暖衣物、满电准备好，再刷一次路况。如果昨晚决定住康定，今天就轻松得多——直接从康定走雅康高速出山。</div>
    <div class="addr"><b>🧭 导航搜：</b>甲根坝乡<br><b>📍 位置：</b>四川省甘孜州康定市甲根坝乡<br><span>查路况：甘孜州交警、甘孜公路 的微信公众号，或直接打康定交警电话确认折多山是否放行。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E7%94%B2%E6%A0%B9%E5%9D%9D%E4%B9%A1&amp;callnative=1&amp;city=%E5%BA%B7%E5%AE%9A%E5%B8%82" target="_blank">高德导航</a>
@@ -493,8 +526,8 @@ a{color:var(--blue)}
    </div>
  </div></div></div><div class="event food"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">09:30</div><div class="etitle">康定：下到 2560m，先喘口气</div><div class="ename">康定市</div>
-   <span class="badge">☕ 缓冲 + 补给</span>
-   <div class="edesc">从折多山下来 30 多公里到康定，海拔一下掉 1700m，耳朵会有反应、人也会轻松很多。在康定吃个早饭、上厕所、检查轮胎和防滑链。康定是甘孜州首府，超市、药店都齐全。10/5 康定中雪，城里路面也可能湿滑，慢开。</div>
+   <span class="badge hot">🔌 康定快充（关键）</span>
+   <div class="edesc">从折多山下来 30 多公里到康定，海拔一下掉 1700m，耳朵会有反应、人也会轻松很多。在康定吃个早饭、上厕所、检查轮胎和防滑链。康定是甘孜州首府，超市、药店都齐全，也是全线最可靠的充电站（桩多、功率高），在这里充到 90% 再走。折多山下来那 40km 长下坡记得开高动能回收，能回 5~10% 电。10/5 康定中雪，城里路面也可能湿滑，慢开。</div>
    <div class="addr"><b>🧭 导航搜：</b>康定市<br><b>📍 位置：</b>四川省甘孜州康定市炉城镇<br><span>如果时间还早，可以顺路看一眼康定情歌广场；赶路就直接出城。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%BA%B7%E5%AE%9A%E5%B8%82&amp;callnative=1&amp;city=%E5%BA%B7%E5%AE%9A%E5%B8%82" target="_blank">高德导航</a>
@@ -505,7 +538,7 @@ a{color:var(--blue)}
    <div class="etime">11:00</div><div class="etitle">上雅康高速，接下来就轻松了</div><div class="ename">泸定收费站（雅康高速）</div>
    <span class="badge">🛣 上高速</span>
    <div class="edesc">康定到泸定约 50km，然后上雅康高速（泸定—雅安），隧道为主、全程高速。泸定桥就在大渡河上（门票参考 10 元），如果时间宽裕可以停 40 分钟，赶路就直接过。雅康高速隧道多，雨天注意车距和限速。</div>
-   <div class="addr"><b>🧭 导航搜：</b>雅康高速泸定收费站<br><b>📍 位置：</b>四川省甘孜州泸定县 雅康高速泸定收费站<br><span>上高速前把油加满，雅康高速服务区间距较远。</span></div>
+   <div class="addr"><b>🧭 导航搜：</b>雅康高速泸定收费站<br><b>📍 位置：</b>四川省甘孜州泸定县 雅康高速泸定收费站<br><span>上高速前把电充满，雅康高速服务区间距较远。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E9%9B%85%E5%BA%B7%E9%AB%98%E9%80%9F%E6%B3%B8%E5%AE%9A%E6%94%B6%E8%B4%B9%E7%AB%99&amp;callnative=1&amp;city=%E6%B3%B8%E5%AE%9A%E5%8E%BF" target="_blank">高德导航</a>
      
@@ -513,8 +546,8 @@ a{color:var(--blue)}
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">13:30</div><div class="etitle">下高原第一站：吃饭 + 换司机</div><div class="ename">天全服务区</div>
-   <span class="badge">⛽ 必停</span>
-   <div class="edesc">从天全开始进入成都平原边缘，路况彻底变好，这是下高原后最合适的午饭点，也是换司机的好地方——连续几天高原开车，疲劳是累积的。</div>
+   <span class="badge">🔌 按需补电</span>
+   <div class="edesc">从天全开始进入成都平原边缘，路况彻底变好，这是下高原后最合适的午饭点，也是换司机的好地方——连续几天高原开车，疲劳是累积的。顺便按需补 15~30 分钟；如果到天全还剩 40% 以上，可以直接奔成都。</div>
    <div class="addr"><b>🧭 导航搜：</b>天全服务区<br><b>📍 位置：</b>四川省雅安市天全县 雅康高速天全服务区<br><span>10/5 是国庆后半段的返程高峰，雅安—成都段可能开始排队。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%A4%A9%E5%85%A8%E6%9C%8D%E5%8A%A1%E5%8C%BA&amp;callnative=1&amp;city=%E9%9B%85%E5%AE%89" target="_blank">高德导航</a>
@@ -524,7 +557,7 @@ a{color:var(--blue)}
  </div></div></div><div class="event hotel"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">16:30</div><div class="etitle">到成都（500m），今晚好好睡</div><div class="ename">成都市区</div>
    <span class="badge">🏨 住宿</span>
-   <div class="edesc">成都海拔只有 500m，10/5 小雨 16~24℃。到了先洗澡睡觉，别急着逛——明天还有 700km。如果到得早又想吃一口，锦里、宽窄巷子、玉林路随便挑一个，火锅建议留到下次，今晚吃串串更稳。</div>
+   <div class="edesc">成都海拔只有 500m，10/5 小雨 16~24℃。到了先洗澡睡觉，别急着逛——明天还有 700km。如果到得早又想吃一口，锦里、宽窄巷子、玉林路随便挑一个，火锅建议留到下次，今晚吃串串更稳。酒店直接选带充电桩的，明早 06:30 出发就是满电。</div>
    <div class="addr"><b>🧭 导航搜：</b>成都市区<br><b>📍 位置：</b>四川省成都市（春熙路 / 玉林 / 宽窄巷子一带）<br><span>国庆成都住宿要提前订，尽量选带停车场的酒店。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E6%88%90%E9%83%BD%E5%B8%82%E5%8C%BA&amp;callnative=1&amp;city=%E6%88%90%E9%83%BD" target="_blank">高德导航</a>
@@ -546,7 +579,7 @@ a{color:var(--blue)}
    <div class="timeline"><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">06:30</div><div class="etitle">06:30 出成都，把广元段留在上午</div><div class="ename">成都 · 京昆高速入口</div>
    <span class="badge hot">⏰ 关键出发</span>
-   <div class="edesc">10/6 是假期最后一天，成都往北的车流从早上 7 点就开始，绵阳—广元—汉中这段最容易堵成红色。06:30 出发能让你中午前过广元，下午过秦岭时隧道群不至于完全堵死。上车前把油加满、水备足、带上干粮。</div>
+   <div class="edesc">10/6 是假期最后一天，成都往北的车流从早上 7 点就开始，绵阳—广元—汉中这段最容易堵成红色。06:30 出发能让你中午前过广元，下午过秦岭时隧道群不至于完全堵死。上车前把电充满、水备足、带上干粮。</div>
    <div class="addr"><b>🧭 导航搜：</b>京昆高速成都北入口<br><b>📍 位置：</b>四川省成都市 京昆高速成都北入口<br><span>国庆最后一天返程高峰，务必早出发，不要按「随时能走」安排。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E4%BA%AC%E6%98%86%E9%AB%98%E9%80%9F%E6%88%90%E9%83%BD%E5%8C%97%E5%85%A5%E5%8F%A3&amp;callnative=1&amp;city=%E6%88%90%E9%83%BD" target="_blank">高德导航</a>
@@ -554,9 +587,9 @@ a{color:var(--blue)}
      <a class="xhs" href="https://www.xiaohongshu.com/search_result?keyword=%E4%BA%AC%E6%98%86%E9%AB%98%E9%80%9F%E6%88%90%E9%83%BD%E5%8C%97%E5%85%A5%E5%8F%A3%20%E5%B7%9D%E8%A5%BF" target="_blank">小红书搜</a>
    </div>
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
-   <div class="etime">10:00</div><div class="etitle">第 1 停：广元之前加油</div><div class="ename">剑门关 / 广元服务区</div>
-   <span class="badge">⛽ 必停</span>
-   <div class="edesc">成都到广元约 300km、3.5 小时。剑门关服务区是这条线上最舒服的休息点之一：加满油、吃个早午饭、换司机。从广元开始进入山区高速，服务区间距变长。</div>
+   <div class="etime">10:00</div><div class="etitle">第 1 停：广元之前充电</div><div class="ename">剑门关 / 广元服务区</div>
+   <span class="badge">🔌 充电 1</span>
+   <div class="edesc">成都到广元约 300km、3.5 小时。剑门关服务区是这条线上最舒服的休息点之一：充满电、吃个早午饭、换司机。从广元开始进入山区高速，服务区间距变长。这也是返程第一枪：10/6 是假期最后一天，服务区充电桩几乎必然排队 30 分钟以上，能早就早，别拖到中午。</div>
    <div class="addr"><b>🧭 导航搜：</b>剑门关服务区<br><b>📍 位置：</b>四川省广元市 京昆高速剑门关服务区<br><span>如果此时导航显示广元以北已经大面积红色，考虑改走巴中方向绕行。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E5%89%91%E9%97%A8%E5%85%B3%E6%9C%8D%E5%8A%A1%E5%8C%BA&amp;callnative=1&amp;city=%E5%B9%BF%E5%85%83" target="_blank">高德导航</a>
@@ -565,8 +598,8 @@ a{color:var(--blue)}
    </div>
  </div></div></div><div class="event food"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">13:00</div><div class="etitle">汉中吃午饭，然后开始翻秦岭</div><div class="ename">汉中</div>
-   <span class="badge">🍜 午饭</span>
-   <div class="edesc">到汉中约 13:00。汉中到西安 350km，要穿秦岭隧道群，是最后一段、也是最容易堵的一段。吃碗热米皮或面就继续走，别在汉中逛。</div>
+   <span class="badge">🔌 充电 2 + 午饭</span>
+   <div class="edesc">到汉中约 13:00。汉中到西安 350km，要穿秦岭隧道群，是最后一段、也是最容易堵的一段。吃碗热米皮或面、把电补到 80% 就继续走，别在汉中逛。</div>
    <div class="addr"><b>🧭 导航搜：</b>汉中服务区<br><b>📍 位置：</b>陕西省汉中市 京昆高速汉中服务区<br><span>秦岭段隧道群密集，进出隧道减速开灯，保持车距。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E6%B1%89%E4%B8%AD%E6%9C%8D%E5%8A%A1%E5%8C%BA&amp;callnative=1&amp;city=%E6%B1%89%E4%B8%AD" target="_blank">高德导航</a>
@@ -576,7 +609,7 @@ a{color:var(--blue)}
  </div></div></div><div class="event transport"><span class="dot"></span><div class="ec"><div class="ebody">
    <div class="etime">17:00</div><div class="etitle">17:00 前后到西安</div><div class="ename">西安</div>
    <span class="badge">🏁 到终点</span>
-   <div class="edesc">顺利的话 17:00~18:00 进西安；如果广元或秦岭段堵得厉害，到西安可能是 20:00 以后。按最坏情况预留时间，今晚别安排事情。</div>
+   <div class="edesc">顺利的话 17:00~18:00 进西安；如果广元或秦岭段堵得厉害，到西安可能是 20:00 以后。按最坏情况预留时间，今晚别安排事情。按上面的充电节奏走，到西安应该还剩 15~25%。</div>
    <div class="addr"><b>🧭 导航搜：</b>西安<br><b>📍 位置：</b>陕西省西安市<br><span>10/6 西安小雨 15~26℃，进城高峰在 17:00–19:00。</span></div>
    <div class="actionrow">
      <a class="go" href="https://uri.amap.com/search?keyword=%E8%A5%BF%E5%AE%89&amp;callnative=1&amp;city=%E8%A5%BF%E5%AE%89" target="_blank">高德导航</a>
@@ -617,12 +650,12 @@ a{color:var(--blue)}
     <table class="table tight"><thead><tr><th>地点</th><th>海拔</th><th>折算气温</th><th>通过时间</th><th>说明</th></tr></thead><tbody><tr><td><b>猫鼻梁观景台</b></td><td>约 3200m</td><td><b>约 4~11℃</b></td><td>10/2 上午</td><td>四姑娘山全景最佳机位，路边免费观景台</td></tr><tr><td><b>双桥沟 · 红杉林</b></td><td>3840m</td><td><b>约 3~10℃</b></td><td>10/2 中午</td><td>观光车终点；10/2 有小雨，可能雨夹雪</td></tr><tr><td><b>甲玉拉措 / 葫芦海</b></td><td>约 4000~4100m</td><td><b>约 0~8℃</b></td><td>10/3 或 10/4 清晨</td><td>徒步 4~5 小时，雨天别上</td></tr><tr><td><b>墨石公园</b></td><td>约 3500~3700m</td><td><b>约 2~8℃</b></td><td>10/4 中午</td><td>10/4 预计雨夹雪，栈道会结冰</td></tr><tr><td><b>塔公寺 · 塔公草原</b></td><td>3730m</td><td><b>约 1~6℃</b></td><td>10/4 下午</td><td>10/4 中雪，能见度差，多半看不到雅拉雪山</td></tr><tr><td><b>折多山垭口</b></td><td>4298m</td><td><b>约 -2~5℃</b></td><td>10/5 上午</td><td>全程最高点；积雪结冰 + 常临时管制</td></tr></tbody></table>
     <div class="legend">第二张表里的折多山垭口 4298m 是全程最高点，雪天必须上午通过。</div>
   </div>
-  <div class="card"><h3>📌 川西高原 10 月天气规律</h3><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">10 月的川西，天气就是行程本身</b><div class="sub" style="margin-top:4px">这条线 3000m 以上的山口有七八个，一天里能同时遇到小雨、雨夹雪、大雾和蓝天。所以这版攻略不按「景点顺序」排，而按「哪天天气最好就把最重要的景区放哪天」排：四姑娘山放 10/2（小雨 6~14℃，六天里最温和），党岭的海子留给 10/3~10/4 的天气窗口，塔公—新都桥本来想放 10/4（中雪），备选里给了「提前到 10/3」和「直接砍掉」两条路。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">10/3 下午起，一次明显雨雪过程</b><div class="sub" style="margin-top:4px">数值预报显示 10/3 白天开始水汽加强、10/4 达到峰值：塔公中雪 1~6℃、新都桥雨夹雪 2~7℃（27mm）、康定阵雨 5~10℃（30mm）。这意味着 10/4 翻 塔公—新都桥—折多山 这段要按「冬季雪路」准备：防滑链、满油、热水、白天通过，能提前就提前。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">四姑娘山比丹巴冷 15℃</b><div class="sub" style="margin-top:4px">日隆镇 3200m，丹巴只有 1900m，中间隔一条小金川，温差能到 15℃。10/2 日隆 6~14℃、丹巴 16~29℃——所以 D2 要「早晚穿羽绒、中午脱到抓绒」，别一件衣服穿到底，车上备一条围巾和一顶帽子。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">党岭的海子挑天气，不是挑体力</b><div class="sub" style="margin-top:4px">葫芦海往返 14km、爬升约 800m、要到 4100m，正常要一整天；甲玉拉措近一些，单程约 4.5km、徒步 2~3 小时，也可以坐当地摩托（约 30~40 分钟）或骑马。雨雪天这两条路都变成碎石 + 泥浆 + 低温，性价比极低，而且回程天黑很危险。一天只能选一个，别贪。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">折多山是唯一真正的关卡</b><div class="sub" style="margin-top:4px">4298m，是这趟最高点，也是康定进出新都桥的唯一公路。10/5 预报新都桥大雪 1~5℃、康定中雪，垭口大概率积雪结冰并有临时管制。规矩：早上通过、不长时间停车、带防滑链；遇到管制就在康定住一晚等放行，不要尝试绕小路。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">国庆的车流比天气更可预测</b><div class="sub" style="margin-top:4px">10/1 早上西安出城、10/2 映秀到四姑娘山、10/5 康定到成都、10/6 成都到西安，这四段是拥堵高发段。所有时点都按「比常规多 40% 时间」留余量，天黑前不开陌生山路，这是整条线上最容易忽略、又最容易出事的一条。</div></div></div>
+  <div class="card"><h3>📌 川西高原 10 月天气规律</h3><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">10 月的川西，天气就是行程本身</b><div class="sub" style="margin-top:4px">这条线 3000m 以上的山口有七八个，一天里能同时遇到小雨、雨夹雪、大雾和蓝天。所以这版攻略不按「景点顺序」排，而按「哪天天气最好就把最重要的景区放哪天」排：四姑娘山放 10/2（小雨 6~14℃，六天里最温和），党岭的海子留给 10/3~10/4 的天气窗口，塔公—新都桥本来想放 10/4（中雪），备选里给了「提前到 10/3」和「直接砍掉」两条路。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">10/3 下午起，一次明显雨雪过程</b><div class="sub" style="margin-top:4px">数值预报显示 10/3 白天开始水汽加强、10/4 达到峰值：塔公中雪 1~6℃、新都桥雨夹雪 2~7℃（27mm）、康定阵雨 5~10℃（30mm）。这意味着 10/4 翻 塔公—新都桥—折多山 这段要按「冬季雪路」准备：防滑链、满电、热水、白天通过，能提前就提前。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">四姑娘山比丹巴冷 15℃</b><div class="sub" style="margin-top:4px">日隆镇 3200m，丹巴只有 1900m，中间隔一条小金川，温差能到 15℃。10/2 日隆 6~14℃、丹巴 16~29℃——所以 D2 要「早晚穿羽绒、中午脱到抓绒」，别一件衣服穿到底，车上备一条围巾和一顶帽子。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">党岭的海子挑天气，不是挑体力</b><div class="sub" style="margin-top:4px">葫芦海往返 14km、爬升约 800m、要到 4100m，正常要一整天；甲玉拉措近一些，单程约 4.5km、徒步 2~3 小时，也可以坐当地摩托（约 30~40 分钟）或骑马。雨雪天这两条路都变成碎石 + 泥浆 + 低温，性价比极低，而且回程天黑很危险。一天只能选一个，别贪。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">折多山是唯一真正的关卡</b><div class="sub" style="margin-top:4px">4298m，是这趟最高点，也是康定进出新都桥的唯一公路。10/5 预报新都桥大雪 1~5℃、康定中雪，垭口大概率积雪结冰并有临时管制。规矩：早上通过、不长时间停车、带防滑链；遇到管制就在康定住一晚等放行，不要尝试绕小路。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">国庆的车流比天气更可预测</b><div class="sub" style="margin-top:4px">10/1 早上西安出城、10/2 映秀到四姑娘山、10/5 康定到成都、10/6 成都到西安，这四段是拥堵高发段。所有时点都按「比常规多 40% 时间」留余量，天黑前不开陌生山路，这是整条线上最容易忽略、又最容易出事的一条。</div></div></div>
   <div class="card notice"><h3>出发前每天必做的 3 件事</h3>
     <div class="checkgrid"><div class="c"><b>约票</b>四姑娘山必须在「阿坝旅游网」等官方渠道实名预约，国庆建议提前 3~7 天；墨石公园提前 1~2 天。</div><div class="c"><b>查路况</b>重点三段：映秀→巴朗山→四姑娘山（G350）、丹巴→八美（G248 八丹路）、康定→折多山→新都桥（G318）。</div><div class="c"><b>看天气</b>每天早上出发前刷一次四姑娘山、丹巴、八美/塔公、康定的预报，再刷甘孜州交警的管制通告。</div></div>
     <div class="sub" style="margin-top:10px">查询建议：天气类 App 搜「四姑娘山」「丹巴」「道孚八美」「康定」；路况看甘孜州交警、阿坝州交警的官方账号；景区是否开放看景区公众号。</div>
   </div></div>
-<div class="pane pane-nav"><div class="card"><h2>🚗 全部导航点</h2><div class="sub">自驾全程的地点清单，按天数排列。优先复制「导航搜」里的名称，直接粘到高德搜索框最稳。</div><table class="table"><thead><tr><th>导航搜</th><th>位置 / 说明</th><th></th></tr></thead><tbody><tr><td><b>京昆高速（西安南收费站）</b><br><span style="color:#8b96a8">D1 03:00 出发</span></td><td>陕西省西安市长安区 京昆高速西安南入口<br><span style="color:#8b96a8">导航终点直接设「映秀镇」，中途按服务区节点停。</span></td><td><button class="bigcopy" 京昆高速（西安南收费站）")"="">复制</button></td></tr><tr><td><b>宁陕服务区</b><br><span style="color:#8b96a8">D1 第 1 停（06:00）</span></td><td>陕西省安康市宁陕县 西汉高速宁陕段<br><span style="color:#8b96a8">加油、换司机、吃早饭；之后秦岭段还有 150km。</span></td><td><button class="bigcopy" 宁陕服务区")"="">复制</button></td></tr><tr><td><b>汉中市</b><br><span style="color:#8b96a8">D1 早饭 + 午饭 + 休整</span></td><td>陕西省汉中市汉台区<br><span style="color:#8b96a8">古汉台、拜将台、兴汉新区都在城里；热米皮一定要吃。</span></td><td><button class="bigcopy" 汉中市")"="">复制</button></td></tr><tr><td><b>绵阳服务区</b><br><span style="color:#8b96a8">D1 第 2 停（15:00）</span></td><td>四川省绵阳市 京昆高速绵阳段<br><span style="color:#8b96a8">之后车流变大，油和水在这里补足。</span></td><td><button class="bigcopy" 绵阳服务区")"="">复制</button></td></tr><tr><td><b>都江堰市</b><br><span style="color:#8b96a8">D1 最后补给（17:30）</span></td><td>四川省成都市都江堰市<br><span style="color:#8b96a8">进岷江峡谷前最后的超市 / 药店 / 氧气瓶补给点。</span></td><td><button class="bigcopy" 都江堰市")"="">复制</button></td></tr><tr><td><b>映秀镇</b><br><span style="color:#8b96a8">D1 住宿</span></td><td>四川省阿坝州汶川县映秀镇<br><span style="color:#8b96a8">海拔 900m，不会高反；订不到就住水磨古镇。</span></td><td><button class="bigcopy" 映秀镇")"="">复制</button></td></tr><tr><td><b>映秀震中遗址</b><br><span style="color:#8b96a8">D2 08:00 参观</span></td><td>四川省阿坝州汶川县映秀镇 漩口中学遗址<br><span style="color:#8b96a8">遗址免票；纪念馆一般 09:00–17:00，有闭馆日和限流，提前确认。</span></td><td><button class="bigcopy" 映秀震中遗址")"="">复制</button></td></tr><tr><td><b>卧龙中华大熊猫苑</b><br><span style="color:#8b96a8">D2 可选顺路</span></td><td>四川省阿坝州汶川县卧龙镇<br><span style="color:#8b96a8">G350 沿线路过，时间紧就直接过。</span></td><td><button class="bigcopy" 卧龙中华大熊猫苑")"="">复制</button></td></tr><tr><td><b>猫鼻梁观景台</b><br><span style="color:#8b96a8">D2 11:00 关键机位</span></td><td>四川省阿坝州小金县 巴朗山隧道下方 猫鼻梁<br><span style="color:#8b96a8">免费路边观景台，约 3200m，看四姑娘山全景最好的位置。</span></td><td><button class="bigcopy" 猫鼻梁观景台")"="">复制</button></td></tr><tr><td><b>四姑娘山双桥沟景区</b><br><span style="color:#8b96a8">D2 11:30–16:00</span></td><td>四川省阿坝州小金县四姑娘山镇 双桥沟<br><span style="color:#8b96a8">必须实名预约；旺季 150 元/人（门票 80 + 观光车 70）。</span></td><td><button class="bigcopy" 四姑娘山双桥沟景区")"="">复制</button></td></tr><tr><td><b>小金县（美兴镇）</b><br><span style="color:#8b96a8">D2 16:30 途经</span></td><td>四川省阿坝州小金县美兴镇<br><span style="color:#8b96a8">出沟南下丹巴的必经县城，可以加油、买水果。</span></td><td><button class="bigcopy" 小金县（美兴镇）")"="">复制</button></td></tr><tr><td><b>中路藏寨</b><br><span style="color:#8b96a8">D2 18:30 日落机位</span></td><td>四川省甘孜州丹巴县中路乡<br><span style="color:#8b96a8">山路窄、会车难；部分观景台收 20~30 元停车费。</span></td><td><button class="bigcopy" 中路藏寨")"="">复制</button></td></tr><tr><td><b>丹巴县城（章谷镇）</b><br><span style="color:#8b96a8">D2 住宿</span></td><td>四川省甘孜州丹巴县章谷镇<br><span style="color:#8b96a8">1900m，全线最舒服的一晚；晚上必须加满油。</span></td><td><button class="bigcopy" 丹巴县城（章谷镇）")"="">复制</button></td></tr><tr><td><b>党岭村</b><br><span style="color:#8b96a8">D3 住宿（3300m）</span></td><td>四川省甘孜州丹巴县边耳乡党岭村<br><span style="color:#8b96a8">丹巴出发 68km 碎石路约 3 小时；住宿有限，务必提前订。</span></td><td><button class="bigcopy" 党岭村")"="">复制</button></td></tr><tr><td><b>甲玉拉措</b><br><span style="color:#8b96a8">D3–D4 徒步（看天）</span></td><td>四川省甘孜州丹巴县党岭 甲玉拉措（甲依拉措）<br><span style="color:#8b96a8">单程约 4.5km，徒步 2~3 小时；可坐摩托或骑马，往返参考 160~300 元/人。</span></td><td><button class="bigcopy" 甲玉拉措")"="">复制</button></td></tr><tr><td><b>党岭温泉</b><br><span style="color:#8b96a8">D3 下午（雨雪备选）</span></td><td>四川省甘孜州丹巴县党岭沟 温泉<br><span style="color:#8b96a8">野泉，没有更衣室，自带毛巾拖鞋；3300m 泡 20 分钟就够。</span></td><td><button class="bigcopy" 党岭温泉")"="">复制</button></td></tr><tr><td><b>八丹路（丹巴到八美）</b><br><span style="color:#8b96a8">D4 上午 · 先查路况</span></td><td>四川省甘孜州 丹巴县—道孚县八美镇 国道 248<br><span style="color:#8b96a8">这段路历史上多次大修和管制，出发前打电话确认能不能过。</span></td><td><button class="bigcopy" 八丹路（丹巴到八美）")"="">复制</button></td></tr><tr><td><b>墨石公园</b><br><span style="color:#8b96a8">D4 12:00</span></td><td>四川省甘孜州道孚县八美镇中古村 墨石公园<br><span style="color:#8b96a8">门票 60 元 + 观光车 20 元；3500m，栈道 1.5~2 小时。</span></td><td><button class="bigcopy" 墨石公园")"="">复制</button></td></tr><tr><td><b>塔公寺</b><br><span style="color:#8b96a8">D4 14:00</span></td><td>四川省甘孜州康定市塔公镇 塔公寺<br><span style="color:#8b96a8">门票参考 20 元；背后是雅拉雪山，雪天多半看不到。</span></td><td><button class="bigcopy" 塔公寺")"="">复制</button></td></tr><tr><td><b>新都桥镇</b><br><span style="color:#8b96a8">D4 16:00 途经</span></td><td>四川省甘孜州康定市新都桥镇<br><span style="color:#8b96a8">十里画廊沿 318；10/4 雨夹雪，当路过点处理。</span></td><td><button class="bigcopy" 新都桥镇")"="">复制</button></td></tr><tr><td><b>甲根坝乡</b><br><span style="color:#8b96a8">D4 住宿（备选：康定）</span></td><td>四川省甘孜州康定市甲根坝乡<br><span style="color:#8b96a8">看贡嘎的好位置，但民宿少、海拔 3300m；天气差就改住康定。</span></td><td><button class="bigcopy" 甲根坝乡")"="">复制</button></td></tr><tr><td><b>折多山垭口</b><br><span style="color:#8b96a8">D5 07:00 通过（4298m）</span></td><td>四川省甘孜州康定市 折多山垭口（318）<br><span style="color:#8b96a8">全程最高点；雪天必带防滑链，遇管制就在康定等放行。</span></td><td><button class="bigcopy" 折多山垭口")"="">复制</button></td></tr><tr><td><b>康定市（炉城镇）</b><br><span style="color:#8b96a8">D5 09:30 缓冲 / 备选住</span></td><td>四川省甘孜州康定市炉城镇<br><span style="color:#8b96a8">2560m，下高原后第一个大城市，超市药店齐全。</span></td><td><button class="bigcopy" 康定市（炉城镇）")"="">复制</button></td></tr><tr><td><b>雅康高速泸定收费站</b><br><span style="color:#8b96a8">D5 11:00 上高速</span></td><td>四川省甘孜州泸定县 雅康高速泸定收费站<br><span style="color:#8b96a8">上高速后一路隧道到雅安；泸定桥离收费站不远。</span></td><td><button class="bigcopy" 雅康高速泸定收费站")"="">复制</button></td></tr><tr><td><b>天全服务区</b><br><span style="color:#8b96a8">D5 13:30 午饭换人</span></td><td>四川省雅安市天全县 雅康高速天全服务区<br><span style="color:#8b96a8">下高原第一站，吃饭 + 换司机最合适。</span></td><td><button class="bigcopy" 天全服务区")"="">复制</button></td></tr><tr><td><b>成都市区</b><br><span style="color:#8b96a8">D5 住宿</span></td><td>四川省成都市（春熙路 / 玉林 / 宽窄巷子）<br><span style="color:#8b96a8">500m，找带停车场的酒店；国庆成都住宿提前订。</span></td><td><button class="bigcopy" 成都市区")"="">复制</button></td></tr><tr><td><b>京昆高速成都北入口</b><br><span style="color:#8b96a8">D6 06:30 返程</span></td><td>四川省成都市 京昆高速成都北入口<br><span style="color:#8b96a8">回西安 700km，按 12 小时预留。</span></td><td><button class="bigcopy" 京昆高速成都北入口")"="">复制</button></td></tr><tr><td><b>剑门关服务区</b><br><span style="color:#8b96a8">D6 10:00 必停</span></td><td>四川省广元市 京昆高速剑门关服务区<br><span style="color:#8b96a8">广元前最舒服的休息点，加满油。</span></td><td><button class="bigcopy" 剑门关服务区")"="">复制</button></td></tr><tr><td><b>汉中服务区</b><br><span style="color:#8b96a8">D6 13:00 午饭</span></td><td>陕西省汉中市 京昆高速汉中服务区<br><span style="color:#8b96a8">吃完开始翻秦岭隧道群，别久留。</span></td><td><button class="bigcopy" 汉中服务区")"="">复制</button></td></tr><tr><td><b>巴中市</b><br><span style="color:#8b96a8">D6 备选绕行</span></td><td>四川省巴中市<br><span style="color:#8b96a8">成都→巴中→汉中→西安，绕开绵阳—广元最堵段。</span></td><td><button class="bigcopy" 巴中市")"="">复制</button></td></tr><tr><td><b>西安</b><br><span style="color:#8b96a8">D6 17:00 到终点</span></td><td>陕西省西安市<br><span style="color:#8b96a8">如果广元或秦岭堵，做好 20:00 后到的准备。</span></td><td><button class="bigcopy" 西安")"="">复制</button></td></tr></tbody></table></div></div>
+<div class="pane pane-nav"><div class="card"><h2>🚗 全部导航点</h2><div class="sub">自驾全程的地点清单，按天数排列。优先复制「导航搜」里的名称，直接粘到高德搜索框最稳。</div><table class="table"><thead><tr><th>导航搜</th><th>位置 / 说明</th><th></th></tr></thead><tbody><tr><td><b>京昆高速（西安南收费站）</b><br><span style="color:#8b96a8">D1 03:00 出发</span></td><td>陕西省西安市长安区 京昆高速西安南入口<br><span style="color:#8b96a8">导航终点直接设「映秀镇」，中途按服务区节点停。</span></td><td><button class="bigcopy" 京昆高速（西安南收费站）")"="">复制</button></td></tr><tr><td><b>宁陕服务区</b><br><span style="color:#8b96a8">D1 第 1 停（06:00）</span></td><td>陕西省安康市宁陕县 西汉高速宁陕段<br><span style="color:#8b96a8">充电、换司机、吃早饭；之后秦岭段还有 150km。</span></td><td><button class="bigcopy" 宁陕服务区")"="">复制</button></td></tr><tr><td><b>汉中市</b><br><span style="color:#8b96a8">D1 早饭 + 午饭 + 休整</span></td><td>陕西省汉中市汉台区<br><span style="color:#8b96a8">古汉台、拜将台、兴汉新区都在城里；热米皮一定要吃。</span></td><td><button class="bigcopy" 汉中市")"="">复制</button></td></tr><tr><td><b>绵阳服务区</b><br><span style="color:#8b96a8">D1 第 2 停（15:00）</span></td><td>四川省绵阳市 京昆高速绵阳段<br><span style="color:#8b96a8">之后车流变大，电和水在这里补足。</span></td><td><button class="bigcopy" 绵阳服务区")"="">复制</button></td></tr><tr><td><b>都江堰市</b><br><span style="color:#8b96a8">D1 最后补给（17:30）</span></td><td>四川省成都市都江堰市<br><span style="color:#8b96a8">进岷江峡谷前最后的超市 / 药店 / 氧气瓶补给点。</span></td><td><button class="bigcopy" 都江堰市")"="">复制</button></td></tr><tr><td><b>映秀镇</b><br><span style="color:#8b96a8">D1 住宿</span></td><td>四川省阿坝州汶川县映秀镇<br><span style="color:#8b96a8">海拔 900m，不会高反；订不到就住水磨古镇。</span></td><td><button class="bigcopy" 映秀镇")"="">复制</button></td></tr><tr><td><b>映秀震中遗址</b><br><span style="color:#8b96a8">D2 08:00 参观</span></td><td>四川省阿坝州汶川县映秀镇 漩口中学遗址<br><span style="color:#8b96a8">遗址免票；纪念馆一般 09:00–17:00，有闭馆日和限流，提前确认。</span></td><td><button class="bigcopy" 映秀震中遗址")"="">复制</button></td></tr><tr><td><b>卧龙中华大熊猫苑</b><br><span style="color:#8b96a8">D2 可选顺路</span></td><td>四川省阿坝州汶川县卧龙镇<br><span style="color:#8b96a8">G350 沿线路过，时间紧就直接过。</span></td><td><button class="bigcopy" 卧龙中华大熊猫苑")"="">复制</button></td></tr><tr><td><b>猫鼻梁观景台</b><br><span style="color:#8b96a8">D2 11:00 关键机位</span></td><td>四川省阿坝州小金县 巴朗山隧道下方 猫鼻梁<br><span style="color:#8b96a8">免费路边观景台，约 3200m，看四姑娘山全景最好的位置。</span></td><td><button class="bigcopy" 猫鼻梁观景台")"="">复制</button></td></tr><tr><td><b>四姑娘山双桥沟景区</b><br><span style="color:#8b96a8">D2 11:30–16:00</span></td><td>四川省阿坝州小金县四姑娘山镇 双桥沟<br><span style="color:#8b96a8">必须实名预约；旺季 150 元/人（门票 80 + 观光车 70）。</span></td><td><button class="bigcopy" 四姑娘山双桥沟景区")"="">复制</button></td></tr><tr><td><b>小金县（美兴镇）</b><br><span style="color:#8b96a8">D2 16:30 途经</span></td><td>四川省阿坝州小金县美兴镇<br><span style="color:#8b96a8">出沟南下丹巴的必经县城，可以充电、买水果。</span></td><td><button class="bigcopy" 小金县（美兴镇）")"="">复制</button></td></tr><tr><td><b>中路藏寨</b><br><span style="color:#8b96a8">D2 18:30 日落机位</span></td><td>四川省甘孜州丹巴县中路乡<br><span style="color:#8b96a8">山路窄、会车难；部分观景台收 20~30 元停车费。</span></td><td><button class="bigcopy" 中路藏寨")"="">复制</button></td></tr><tr><td><b>丹巴县城（章谷镇）</b><br><span style="color:#8b96a8">D2 住宿</span></td><td>四川省甘孜州丹巴县章谷镇<br><span style="color:#8b96a8">1900m，全线最舒服的一晚；晚上必须充满电。</span></td><td><button class="bigcopy" 丹巴县城（章谷镇）")"="">复制</button></td></tr><tr><td><b>党岭村</b><br><span style="color:#8b96a8">D3 住宿（3300m）</span></td><td>四川省甘孜州丹巴县边耳乡党岭村<br><span style="color:#8b96a8">丹巴出发 68km 碎石路约 3 小时；住宿有限，务必提前订。</span></td><td><button class="bigcopy" 党岭村")"="">复制</button></td></tr><tr><td><b>甲玉拉措</b><br><span style="color:#8b96a8">D3–D4 徒步（看天）</span></td><td>四川省甘孜州丹巴县党岭 甲玉拉措（甲依拉措）<br><span style="color:#8b96a8">单程约 4.5km，徒步 2~3 小时；可坐摩托或骑马，往返参考 160~300 元/人。</span></td><td><button class="bigcopy" 甲玉拉措")"="">复制</button></td></tr><tr><td><b>党岭温泉</b><br><span style="color:#8b96a8">D3 下午（雨雪备选）</span></td><td>四川省甘孜州丹巴县党岭沟 温泉<br><span style="color:#8b96a8">野泉，没有更衣室，自带毛巾拖鞋；3300m 泡 20 分钟就够。</span></td><td><button class="bigcopy" 党岭温泉")"="">复制</button></td></tr><tr><td><b>八丹路（丹巴到八美）</b><br><span style="color:#8b96a8">D4 上午 · 先查路况</span></td><td>四川省甘孜州 丹巴县—道孚县八美镇 国道 248<br><span style="color:#8b96a8">这段路历史上多次大修和管制，出发前打电话确认能不能过。</span></td><td><button class="bigcopy" 八丹路（丹巴到八美）")"="">复制</button></td></tr><tr><td><b>墨石公园</b><br><span style="color:#8b96a8">D4 12:00</span></td><td>四川省甘孜州道孚县八美镇中古村 墨石公园<br><span style="color:#8b96a8">门票 60 元 + 观光车 20 元；3500m，栈道 1.5~2 小时。</span></td><td><button class="bigcopy" 墨石公园")"="">复制</button></td></tr><tr><td><b>塔公寺</b><br><span style="color:#8b96a8">D4 14:00</span></td><td>四川省甘孜州康定市塔公镇 塔公寺<br><span style="color:#8b96a8">门票参考 20 元；背后是雅拉雪山，雪天多半看不到。</span></td><td><button class="bigcopy" 塔公寺")"="">复制</button></td></tr><tr><td><b>新都桥镇</b><br><span style="color:#8b96a8">D4 16:00 途经</span></td><td>四川省甘孜州康定市新都桥镇<br><span style="color:#8b96a8">十里画廊沿 318；10/4 雨夹雪，当路过点处理。</span></td><td><button class="bigcopy" 新都桥镇")"="">复制</button></td></tr><tr><td><b>甲根坝乡</b><br><span style="color:#8b96a8">D4 住宿（备选：康定）</span></td><td>四川省甘孜州康定市甲根坝乡<br><span style="color:#8b96a8">看贡嘎的好位置，但民宿少、海拔 3300m；天气差就改住康定。</span></td><td><button class="bigcopy" 甲根坝乡")"="">复制</button></td></tr><tr><td><b>折多山垭口</b><br><span style="color:#8b96a8">D5 07:00 通过（4298m）</span></td><td>四川省甘孜州康定市 折多山垭口（318）<br><span style="color:#8b96a8">全程最高点；雪天必带防滑链，遇管制就在康定等放行。</span></td><td><button class="bigcopy" 折多山垭口")"="">复制</button></td></tr><tr><td><b>康定市（炉城镇）</b><br><span style="color:#8b96a8">D5 09:30 缓冲 / 备选住</span></td><td>四川省甘孜州康定市炉城镇<br><span style="color:#8b96a8">2560m，下高原后第一个大城市，超市药店齐全。</span></td><td><button class="bigcopy" 康定市（炉城镇）")"="">复制</button></td></tr><tr><td><b>雅康高速泸定收费站</b><br><span style="color:#8b96a8">D5 11:00 上高速</span></td><td>四川省甘孜州泸定县 雅康高速泸定收费站<br><span style="color:#8b96a8">上高速后一路隧道到雅安；泸定桥离收费站不远。</span></td><td><button class="bigcopy" 雅康高速泸定收费站")"="">复制</button></td></tr><tr><td><b>天全服务区</b><br><span style="color:#8b96a8">D5 13:30 午饭换人</span></td><td>四川省雅安市天全县 雅康高速天全服务区<br><span style="color:#8b96a8">下高原第一站，吃饭 + 换司机最合适。</span></td><td><button class="bigcopy" 天全服务区")"="">复制</button></td></tr><tr><td><b>成都市区</b><br><span style="color:#8b96a8">D5 住宿</span></td><td>四川省成都市（春熙路 / 玉林 / 宽窄巷子）<br><span style="color:#8b96a8">500m，找带停车场的酒店；国庆成都住宿提前订。</span></td><td><button class="bigcopy" 成都市区")"="">复制</button></td></tr><tr><td><b>京昆高速成都北入口</b><br><span style="color:#8b96a8">D6 06:30 返程</span></td><td>四川省成都市 京昆高速成都北入口<br><span style="color:#8b96a8">回西安 700km，按 12 小时预留。</span></td><td><button class="bigcopy" 京昆高速成都北入口")"="">复制</button></td></tr><tr><td><b>剑门关服务区</b><br><span style="color:#8b96a8">D6 10:00 必停</span></td><td>四川省广元市 京昆高速剑门关服务区<br><span style="color:#8b96a8">广元前最舒服的休息点，充满电。</span></td><td><button class="bigcopy" 剑门关服务区")"="">复制</button></td></tr><tr><td><b>汉中服务区</b><br><span style="color:#8b96a8">D6 13:00 午饭</span></td><td>陕西省汉中市 京昆高速汉中服务区<br><span style="color:#8b96a8">吃完开始翻秦岭隧道群，别久留。</span></td><td><button class="bigcopy" 汉中服务区")"="">复制</button></td></tr><tr><td><b>巴中市</b><br><span style="color:#8b96a8">D6 备选绕行</span></td><td>四川省巴中市<br><span style="color:#8b96a8">成都→巴中→汉中→西安，绕开绵阳—广元最堵段。</span></td><td><button class="bigcopy" 巴中市")"="">复制</button></td></tr><tr><td><b>西安</b><br><span style="color:#8b96a8">D6 17:00 到终点</span></td><td>陕西省西安市<br><span style="color:#8b96a8">如果广元或秦岭堵，做好 20:00 后到的准备。</span></td><td><button class="bigcopy" 西安")"="">复制</button></td></tr></tbody></table></div></div>
 <div class="pane pane-food">
    <div class="card">
      <h2>🍜 完整美食池</h2>
@@ -807,6 +840,180 @@ a{color:var(--blue)}
   </div>
   <div class="card"><h3>除了门票，这些也要提前定</h3><ul class="list"><li>住宿优先订这 5 晚：映秀（或水磨古镇）、丹巴县城、党岭村、甲根坝（天气差就改康定）、成都。国庆川西热门点房价翻 2~3 倍，全部选「可免费取消」。</li><li>四姑娘山观光车、墨石公园观光车都是单独收费，约票时一起买掉最省事，避免现场二次排队。</li><li>实名信息：所有实名预约都用出行人本人身份证，一人一证，不能拿别人的证件代订。</li><li>高速免费：国庆假期 7 座以下小客车免费通行，不需要预约，但 10/1 和 10/6 是最堵的两天。</li><li>停车：党岭村、甲根坝、新都桥国庆车位紧张，订房时先确认能停车，不然要停到很远的临时停车场。</li><li>价格会变：以上都是参考价，以景区官方渠道当天公示为准。</li></ul></div>
  </div>
+<div class="pane pane-charging">
+  <div class="card warncard"><h2>🔌 电车充电计划</h2>
+    <div class="sub">按「高原 + 低温 + 暖风 + 爬升」折损 30~40% 估算：高速实际续航约 450km，山区实际续航约 300~350km。所以规则是——超过 250km 的一天中途必补一次；进山前必须满电；山里不要低于 25%。下表是必须留出时间的充电节点（时间按上面的行程推算），桩位实时状态以 e充电 / 高德 / 特来电 当天查询为准。</div>
+    <div class="kpi">
+      <div class="k"><b>17</b><span>全程补电节点</span></div>
+      <div class="k"><b>6</b><span>天</span></div>
+      <div class="k"><b>7</b><span>高风险点</span></div>
+    </div>
+    <div class="legend">充电时间已经排进每天行程里（行程页带 🔌 标记的就是充电点），照着做就不会因为充电耽误看景。</div>
+  </div>
+  <div class="card notice"><h3>续航怎么算、三条红线</h3><div class="sub">电车充电：全程 14 次补电，其中都江堰、丹巴、八美、康定、成都、西安这 6 次必须执行；党岭、甲根坝没有可靠充电桩，进沟前必须满电</div></div>
+  <div class="card"><h3>D1 10/1 · 补电 5 次</h3>
+   <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 出发前</b>
+       <span class="badge " style="margin-top:0">低风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 在家 / 西安</div>
+     <div class="sub" style="font-size:11.5px">陕西省西安市</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">充满 100%</b>　停留 —</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">凌晨 3 点出发，前一晚充满。今天要跑 820km，出发时不是满电就别急着走。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 06:00</b>
+       <span class="badge " style="margin-top:0">低风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 宁陕服务区（京昆高速）</div>
+     <div class="sub" style="font-size:11.5px">陕西省安康市宁陕县 西汉高速宁陕段</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 80% 就走</b>　停留 20~30 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">和吃早饭、换司机一起做。凌晨的桩基本没人抢，这是全程最省心的一次充电。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 15:00</b>
+       <span class="badge warn" style="margin-top:0">中风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 绵阳服务区</div>
+     <div class="sub" style="font-size:11.5px">四川省绵阳市 京昆高速绵阳段</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 90%</b>　停留 25~35 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">下午 2~4 点是国庆高速充电高峰。排队超过 20 分钟就下高速去绵阳城区充，城区桩多、不排队，还能顺便吃饭。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 17:30</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 都江堰快充站</div>
+     <div class="sub" style="font-size:11.5px">四川省成都市都江堰市</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">充满 100%</b>　停留 40~50 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">进山前最后一枪，全趟最关键的一次。从这里到丹巴之间，没有可以依赖的快充站。顺便把超市、药店、氧气瓶一次买齐。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 19:30</b>
+       <span class="badge warn" style="margin-top:0">中风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 映秀住宿慢充</div>
+     <div class="sub" style="font-size:11.5px">四川省阿坝州汶川县映秀镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">过夜补到 100%</b>　停留 过夜</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">订房时直接问有没有 7kW 慢充或 220V 插座；没有就用随车便携枪插民宿插座，一晚大约补 15~25%。如果也订不到有电的房，就把都江堰那一次留足 60 分钟。</div>
+   </div></div><div class="card"><h3>D2 10/2 · 补电 2 次</h3>
+   <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 16:00</b>
+       <span class="badge warn" style="margin-top:0">中风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 四姑娘山镇（日隆）充电桩</div>
+     <div class="sub" style="font-size:11.5px">四川省阿坝州小金县四姑娘山镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 80% 以上</b>　停留 25~40 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">出双桥沟、往丹巴走之前充。映秀→丹巴 230km 山路、爬升约 2300m，满电出发本来也够，但今晚还要在丹巴找桩，能在这里补就别拖。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 20:30</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 丹巴县城充电站</div>
+     <div class="sub" style="font-size:11.5px">四川省甘孜州丹巴县章谷镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">充满 100%</b>　停留 40~60 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">今晚必须满电：D3 要往返党岭 136km 碎石路，而党岭村一个充电桩都没有。县城桩数量少、国庆排队明显——到了先去排队，再吃饭。</div>
+   </div></div><div class="card"><h3>D3 10/3 · 补电 1 次</h3>
+   <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 21:00</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 党岭民宿 220V（聊胜于无）</div>
+     <div class="sub" style="font-size:11.5px">四川省甘孜州丹巴县边耳乡党岭村</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">不要指望</b>　停留 过夜</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">党岭基本没有稳定电网，不少民宿晚上电压都不稳。请按「今晚补不了电」规划，把电量留给 D4 回丹巴再补。</div>
+   </div></div><div class="card"><h3>D4 10/4 · 补电 3 次</h3>
+   <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 09:30</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 丹巴县城充电站</div>
+     <div class="sub" style="font-size:11.5px">四川省甘孜州丹巴县章谷镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 90%</b>　停留 35~50 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">从党岭回到丹巴第一件事就是充电，再往八美方向走。今天 250km 高原路 + 雨雪 + 暖风，是全程电耗最高的一天。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 11:45</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 八美镇充电桩</div>
+     <div class="sub" style="font-size:11.5px">四川省甘孜州道孚县八美镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 90%</b>　停留 30~45 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">八美是这段路上最后一个相对可靠的补电点，顺便吃午饭。如果八美桩坏了、或排队超过 40 分钟，就要当场决定：砍掉塔公—新都桥—甲根坝，直接下折多山去康定充。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 17:30</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 甲根坝 / 新都桥 住宿慢充</div>
+     <div class="sub" style="font-size:11.5px">四川省甘孜州康定市甲根坝乡 / 新都桥镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">过夜补电（能补多少算多少）</b>　停留 过夜</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">甲根坝、新都桥的桩都很稀疏，多是客栈慢充甚至普通 220V 插座。订房时优先选「有充电桩」的客栈；订不到就改住康定（快充站多）。</div>
+   </div></div><div class="card"><h3>D5 10/5 · 补电 3 次</h3>
+   <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 09:30</b>
+       <span class="badge " style="margin-top:0">低风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 康定快充站</div>
+     <div class="sub" style="font-size:11.5px">四川省甘孜州康定市炉城镇</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 90%</b>　停留 30~45 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">康定是甘孜州首府，充电站最多、功率最稳，是出山前最靠谱的一次。折多山下来那 40km 长下坡记得开高动能回收，能回 5~10% 电。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 13:30</b>
+       <span class="badge " style="margin-top:0">低风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 天全服务区（雅康高速）</div>
+     <div class="sub" style="font-size:11.5px">四川省雅安市天全县</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">按需补 15~30 分钟</b>　停留 15~30 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">吃饭 + 换司机时顺便补。如果到天全还剩 40% 以上，可以直接奔成都，把时间省下来。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 18:00</b>
+       <span class="badge " style="margin-top:0">低风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 成都酒店充电桩</div>
+     <div class="sub" style="font-size:11.5px">四川省成都市</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">充满 100%</b>　停留 过夜</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">成都桩多，订酒店直接选带充电桩的。第二天 06:30 出发就是满电，返程才不慌。</div>
+   </div></div><div class="card"><h3>D6 10/6 · 补电 3 次</h3>
+   <div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 10:00</b>
+       <span class="badge hot" style="margin-top:0">高风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 剑门关 / 广元服务区</div>
+     <div class="sub" style="font-size:11.5px">四川省广元市</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 80%</b>　停留 20~30 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">返程第一枪。10/6 是假期最后一天，服务区充电桩几乎必然排队 30 分钟以上，能早就早，别拖到中午。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 13:00</b>
+       <span class="badge warn" style="margin-top:0">中风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 汉中服务区</div>
+     <div class="sub" style="font-size:11.5px">陕西省汉中市</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">补到 80%</b>　停留 20~30 分钟</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">吃饭 + 充电，然后一口气跑完最后 350km 回西安。</div>
+   </div><div style="padding:10px 0;border-bottom:1px solid var(--line)">
+     <div style="display:flex;justify-content:space-between;gap:8px;align-items:center">
+       <b style="font-size:12.5px;color:#165ab2">🕐 17:00</b>
+       <span class="badge " style="margin-top:0">低风险</span>
+     </div>
+     <div style="font-weight:750;font-size:14.5px;margin-top:5px">🔌 西安</div>
+     <div class="sub" style="font-size:11.5px">陕西省西安市</div>
+     <div style="margin-top:6px;font-size:12.5px;color:#4c5a71">需要：<b style="color:#124a94">到家再充</b>　停留 —</div>
+     <div class="sub" style="margin-top:4px;font-size:12px">按上面的节奏走，到西安应该还剩 15~25%。</div>
+   </div></div>
+  <div class="card"><h3>充电铁律</h3><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">进山前必须满电</b><div class="sub" style="margin-top:4px">映秀以西，快充桩密度断崖式下降。全程只有都江堰、四姑娘山镇、丹巴、八美、康定、成都这几个可靠补电点，每次经过都要充满，不要「下次再说」。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">山里电量红线 25%</b><div class="sub" style="margin-top:4px">高原山路救援成本极高（拖车几百公里、可能等到第二天）。低于 25% 立刻改计划：优先下撤到有桩的县城，绝不要赌下一个点还有桩。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">超过 250km 的一天，中途必补一次</b><div class="sub" style="margin-top:4px">D1（820km）、D2（230km 山路）、D4（250km 高原）、D5（380km）、D6（700km）都要安排中途充电，别指望一口气跑完。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">错峰充电，别赶中午</b><div class="sub" style="margin-top:4px">国庆高速服务区 10:00–16:00 是排队高峰，等 40 分钟很常见。凌晨、早上 6–8 点、晚上 21 点之后基本不用等。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">排队超 30 分钟就下高速</b><div class="sub" style="margin-top:4px">县城里的国网 / 星星 / 特来电桩通常不排队，而且充电时正好吃饭。高速排队 40 分钟，等于县城充满 + 吃顿热饭。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">低温先把电池热起来</b><div class="sub" style="margin-top:4px">高原早晨接近 0℃，冷电池充电功率只有一半。出发前 15 分钟用小米汽车 App 开电池预热 / 预约充电，到桩就能满功率。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">暖风是最大的电耗</b><div class="sub" style="margin-top:4px">0℃ 开暖风约 3~5kW，直接吃掉 15~25% 续航。用座椅加热 + 方向盘加热代替高温暖风，最省电。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">长下坡用高回收</b><div class="sub" style="margin-top:4px">巴朗山、折多山都是长下坡，开高动能回收能回 5~10% 电，相当于多跑 30~50km。</div></div><div style="padding:11px 0;border-bottom:1px solid var(--line)"><b style="font-size:14px">随车必备</b><div class="sub" style="margin-top:4px">便携充电枪、国标充电转接头、拖车绳；手机里装好 e充电、特来电、星星充电，再加上高德的充电地图。</div></div></div>
+  <div class="card"><h3>出发前准备好这些</h3><ul class="list"><li>查桩：出发前一天用「e充电」（国家电网）+ 高德搜「充电站」+ 特来电 / 星星充电，把每个点的桩数、功率、最近评论看一遍，把坏的、排队的提前排除。</li><li>三个电话存好：国家电网充电桩故障 95598；小米汽车 App 里的「一键救援」；甘孜州交警 / 甘孜公路 公众号（查折多山管制）。</li><li>同一县城优先找「第二个站」：很多县城有两个以上充电站，高速服务区排队时，县城往往有空桩。</li><li>把每个充电点在高德里收藏成途经点，山里没信号时用「导航」页的离线点位顺序走。</li></ul></div>
+ </div>
 </main>
 
 <nav class="bottom">
@@ -817,6 +1024,7 @@ a{color:var(--blue)}
  <label class="l-food" for="t-food"><span>🍜</span>美食</label>
  <label class="l-photos" for="t-photos"><span>📸</span>拍照</label>
  <label class="l-tickets" for="t-tickets"><span>🎫</span>预约</label>
+ <label class="l-charging" for="t-charging"><span>🔌</span>充电</label>
 </nav>
 
 </body>
